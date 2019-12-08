@@ -1,0 +1,13 @@
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe.config
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.GlvForma.resources
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.Properties.Resources.resources
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.GenerateResource.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.exe
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CopyComplete
