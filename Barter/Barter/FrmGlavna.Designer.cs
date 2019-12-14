@@ -254,6 +254,7 @@
             this.bttUnosRobe.TabIndex = 11;
             this.bttUnosRobe.Text = "Unos\r\nrobe";
             this.bttUnosRobe.UseVisualStyleBackColor = false;
+            this.bttUnosRobe.Click += new System.EventHandler(this.bttUnosRobe_Click);
             // 
             // bttRazmenaIn
             // 
@@ -299,7 +300,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Cooper Black", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1120, 0);
+            this.button1.Location = new System.Drawing.Point(1119, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 60);
             this.button1.TabIndex = 14;

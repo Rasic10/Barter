@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbKorisnickoIme = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -54,21 +53,11 @@
             this.tbStaraSifra = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnPotvrdi = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Barter.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 118);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // tbKorisnickoIme
             // 
@@ -146,10 +135,10 @@
             // 
             // tbIme
             // 
-            this.tbIme.Font = new System.Drawing.Font("Cooper Black", 14.25F);
-            this.tbIme.Location = new System.Drawing.Point(112, 23);
+            this.tbIme.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbIme.Location = new System.Drawing.Point(112, 26);
             this.tbIme.Name = "tbIme";
-            this.tbIme.Size = new System.Drawing.Size(159, 29);
+            this.tbIme.Size = new System.Drawing.Size(159, 25);
             this.tbIme.TabIndex = 20;
             // 
             // label5
@@ -164,10 +153,10 @@
             // 
             // tbPrezime
             // 
-            this.tbPrezime.Font = new System.Drawing.Font("Cooper Black", 14.25F);
-            this.tbPrezime.Location = new System.Drawing.Point(112, 58);
+            this.tbPrezime.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbPrezime.Location = new System.Drawing.Point(112, 61);
             this.tbPrezime.Name = "tbPrezime";
-            this.tbPrezime.Size = new System.Drawing.Size(159, 29);
+            this.tbPrezime.Size = new System.Drawing.Size(159, 25);
             this.tbPrezime.TabIndex = 22;
             // 
             // label6
@@ -182,10 +171,10 @@
             // 
             // tbAdresa
             // 
-            this.tbAdresa.Font = new System.Drawing.Font("Cooper Black", 14.25F);
-            this.tbAdresa.Location = new System.Drawing.Point(112, 93);
+            this.tbAdresa.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbAdresa.Location = new System.Drawing.Point(112, 96);
             this.tbAdresa.Name = "tbAdresa";
-            this.tbAdresa.Size = new System.Drawing.Size(159, 29);
+            this.tbAdresa.Size = new System.Drawing.Size(159, 25);
             this.tbAdresa.TabIndex = 24;
             // 
             // dtpDatumRodjenja
@@ -332,6 +321,17 @@
             this.btnPotvrdi.Text = "Potvrdi";
             this.btnPotvrdi.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Barter.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(122, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,11 +352,11 @@
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistracija";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

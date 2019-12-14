@@ -29,5 +29,11 @@ namespace Barter
             FrmRegistracija forma = new FrmRegistracija("PROFIL");
             forma.ShowDialog();
         }
+
+        private void bttUnosRobe_Click(object sender, EventArgs e)
+        {
+            FrmUnosRobe forma = new FrmUnosRobe();
+            forma.ShowDialog();
+        }
     }
 }
