@@ -2,6 +2,7 @@
 using Domen;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace Kontroler
                 return _instance;
             }
         }
+        
         private Kontroler()
         {
         }
@@ -31,6 +33,11 @@ namespace Kontroler
         public Korisnik Prijava(string korIme, string sifra)
         {
             return broker.Prijava(korIme, sifra);
+        }
+
+        public BindingList<Roba> VratiListuRobe(Korisnik korisnik)
+        {
+            return broker.VratiListuRobe(korisnik);
         }
     }
 }

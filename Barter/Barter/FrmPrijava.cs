@@ -28,7 +28,7 @@ namespace Barter
             {
                 MessageBox.Show($"Uspesno prijavljen {k.UsernameKorisnika}!");
                 Sesija.Instance.Korisnik = k;
-                FrmGlavna forma = new FrmGlavna();
+                FrmGlavna forma = new FrmGlavna(k);
                 forma.ShowDialog();
             }
             else

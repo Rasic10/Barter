@@ -13,10 +13,21 @@ namespace Barter
 {
     public partial class FrmGlavna : Form
     {
+        private BindingList<Roba> listaRobe = new BindingList<Roba>();
+        private Korisnik korisnik = null;
+
         public FrmGlavna()
         {
             InitializeComponent();
 
+        }
+
+        public FrmGlavna(Korisnik k)
+        {
+            InitializeComponent();
+            korisnik = k;
+            listaRobe = Kontroler.Kontroler.Instance.VratiListuRobe(korisnik);
+            dataGridView1.DataSource = listaRobe;
         }
 
         private void button1_Click(object sender, EventArgs e)

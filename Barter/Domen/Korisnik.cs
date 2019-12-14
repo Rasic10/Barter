@@ -27,5 +27,10 @@ namespace Domen
         public DateTime DatumRodjenja { get => datumRodjenja; set => datumRodjenja = value; }
         public string Adresa { get => adresa; set => adresa = value; }
         public Lokacija Lokacija { get => lokacija; set => lokacija = value; }
+
+        public override string ToString()
+        {
+            return $"{ImeKorisnika} {PrezimeKorisnika}";
+        }
     }
 }

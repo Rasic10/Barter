@@ -31,15 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGlavna));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.robaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.korisnikRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kategorijaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razmenaUlozeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -51,13 +42,22 @@
             this.bttRazmenaIn = new System.Windows.Forms.Button();
             this.bttRazmenaOut = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.robaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.korisnikRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kategorijaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razmenaUlozeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -82,71 +82,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(666, 291);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // robaIDDataGridViewTextBoxColumn
-            // 
-            this.robaIDDataGridViewTextBoxColumn.DataPropertyName = "RobaID";
-            this.robaIDDataGridViewTextBoxColumn.HeaderText = "RobaID";
-            this.robaIDDataGridViewTextBoxColumn.Name = "robaIDDataGridViewTextBoxColumn";
-            this.robaIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.robaIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nazivRobeDataGridViewTextBoxColumn
-            // 
-            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
-            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
-            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
-            this.nazivRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nazivRobeDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // kolicinaRobeDataGridViewTextBoxColumn
-            // 
-            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
-            this.kolicinaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cenaRobeDataGridViewTextBoxColumn
-            // 
-            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
-            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
-            this.cenaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // datumUnosaRobeDataGridViewTextBoxColumn
-            // 
-            this.datumUnosaRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumUnosaRobe";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.HeaderText = "Datum unosa robe";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.Name = "datumUnosaRobeDataGridViewTextBoxColumn";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datumUnosaRobeDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // korisnikRobeDataGridViewTextBoxColumn
-            // 
-            this.korisnikRobeDataGridViewTextBoxColumn.DataPropertyName = "KorisnikRobe";
-            this.korisnikRobeDataGridViewTextBoxColumn.HeaderText = "Korisnik";
-            this.korisnikRobeDataGridViewTextBoxColumn.Name = "korisnikRobeDataGridViewTextBoxColumn";
-            this.korisnikRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kategorijaRobeDataGridViewTextBoxColumn
-            // 
-            this.kategorijaRobeDataGridViewTextBoxColumn.DataPropertyName = "KategorijaRobe";
-            this.kategorijaRobeDataGridViewTextBoxColumn.HeaderText = "KategorijaRobe";
-            this.kategorijaRobeDataGridViewTextBoxColumn.Name = "kategorijaRobeDataGridViewTextBoxColumn";
-            this.kategorijaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kategorijaRobeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // razmenaUlozeneRobeDataGridViewTextBoxColumn
-            // 
-            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.DataPropertyName = "RazmenaUlozeneRobe";
-            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.HeaderText = "Razmena";
-            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.Name = "razmenaUlozeneRobeDataGridViewTextBoxColumn";
-            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // robaBindingSource
-            // 
-            this.robaBindingSource.DataSource = typeof(Domen.Roba);
             // 
             // pictureBox1
             // 
@@ -299,14 +234,79 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cooper Black", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1119, 1);
+            this.button1.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1138, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 60);
+            this.button1.Size = new System.Drawing.Size(40, 38);
             this.button1.TabIndex = 14;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // robaIDDataGridViewTextBoxColumn
+            // 
+            this.robaIDDataGridViewTextBoxColumn.DataPropertyName = "RobaID";
+            this.robaIDDataGridViewTextBoxColumn.HeaderText = "RobaID";
+            this.robaIDDataGridViewTextBoxColumn.Name = "robaIDDataGridViewTextBoxColumn";
+            this.robaIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.robaIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nazivRobeDataGridViewTextBoxColumn
+            // 
+            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
+            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
+            this.nazivRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nazivRobeDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // kolicinaRobeDataGridViewTextBoxColumn
+            // 
+            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
+            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
+            this.kolicinaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cenaRobeDataGridViewTextBoxColumn
+            // 
+            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
+            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
+            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
+            this.cenaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // datumUnosaRobeDataGridViewTextBoxColumn
+            // 
+            this.datumUnosaRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumUnosaRobe";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.HeaderText = "Datum unosa robe";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.Name = "datumUnosaRobeDataGridViewTextBoxColumn";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datumUnosaRobeDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // korisnikRobeDataGridViewTextBoxColumn
+            // 
+            this.korisnikRobeDataGridViewTextBoxColumn.DataPropertyName = "KorisnikRobe";
+            this.korisnikRobeDataGridViewTextBoxColumn.HeaderText = "Korisnik";
+            this.korisnikRobeDataGridViewTextBoxColumn.Name = "korisnikRobeDataGridViewTextBoxColumn";
+            this.korisnikRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kategorijaRobeDataGridViewTextBoxColumn
+            // 
+            this.kategorijaRobeDataGridViewTextBoxColumn.DataPropertyName = "KategorijaRobe";
+            this.kategorijaRobeDataGridViewTextBoxColumn.HeaderText = "KategorijaRobe";
+            this.kategorijaRobeDataGridViewTextBoxColumn.Name = "kategorijaRobeDataGridViewTextBoxColumn";
+            this.kategorijaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kategorijaRobeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // razmenaUlozeneRobeDataGridViewTextBoxColumn
+            // 
+            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.DataPropertyName = "RazmenaUlozeneRobe";
+            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.HeaderText = "Razmena";
+            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.Name = "razmenaUlozeneRobeDataGridViewTextBoxColumn";
+            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.razmenaUlozeneRobeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // robaBindingSource
+            // 
+            this.robaBindingSource.DataSource = typeof(Domen.Roba);
             // 
             // FrmGlavna
             // 
@@ -333,12 +333,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barter";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
