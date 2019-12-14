@@ -1,0 +1,9 @@
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb

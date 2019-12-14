@@ -1,0 +1,11 @@
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.pdb

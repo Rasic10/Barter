@@ -1,4 +1,5 @@
 ﻿using BrokerBazePodataka;
+using Domen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace Kontroler
         {
         }
 
-
+        public Korisnik Prijava(string korIme, string sifra)
+        {
+            return broker.Prijava(korIme, sifra);
+        }
     }
 }

@@ -73,6 +73,17 @@ namespace Barter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2Qhhdda6Qnbf3tnCvdyBTsBNJTUibVN25EXYg8Vp34pMkRR27YfWJ5HRNHgczVDeA2nSuq8aVJtL778boQ9k {
+            get {
+                object obj = ResourceManager.GetObject("2Qhhdda6Qnbf3tnCvdyBTsBNJTUibVN25EXYg8Vp34pMkRR27YfWJ5HRNHgczVDeA2nSuq8aVJtL778bo" +
+                        "Q9k", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _5006_500x500 {
             get {
                 object obj = ResourceManager.GetObject("5006-500x500", resourceCulture);

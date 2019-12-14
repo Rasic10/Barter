@@ -49,6 +49,10 @@
       <Project>{52A4C6A8-A656-4336-AD8A-BAEFF5E6FF6A}</Project>
       <Name>BrokerBazePodataka</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domen\Domen.csproj">
+      <Project>{2276FA6A-9575-41ED-B600-7C53BDCD7B77}</Project>
+      <Name>Domen</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

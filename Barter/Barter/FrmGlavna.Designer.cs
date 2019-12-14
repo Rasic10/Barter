@@ -1,6 +1,6 @@
 ﻿namespace Barter
 {
-    partial class GlvForma
+    partial class FrmGlavna
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GlvForma));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGlavna));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.robaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +45,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.bttProfil = new System.Windows.Forms.Button();
+            this.bttRoba = new System.Windows.Forms.Button();
+            this.bttUnosRobe = new System.Windows.Forms.Button();
+            this.bttRazmenaIn = new System.Windows.Forms.Button();
+            this.bttRazmenaOut = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -202,102 +203,122 @@
             this.pictureBox5.TabIndex = 8;
             this.pictureBox5.TabStop = false;
             // 
+            // bttProfil
+            // 
+            this.bttProfil.BackColor = System.Drawing.Color.Transparent;
+            this.bttProfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bttProfil.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bttProfil.FlatAppearance.BorderSize = 5;
+            this.bttProfil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttProfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.bttProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttProfil.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttProfil.Location = new System.Drawing.Point(1040, 141);
+            this.bttProfil.Name = "bttProfil";
+            this.bttProfil.Size = new System.Drawing.Size(128, 69);
+            this.bttProfil.TabIndex = 9;
+            this.bttProfil.Text = "Profil";
+            this.bttProfil.UseVisualStyleBackColor = false;
+            this.bttProfil.Click += new System.EventHandler(this.bttProfil_Click);
+            // 
+            // bttRoba
+            // 
+            this.bttRoba.BackColor = System.Drawing.Color.Transparent;
+            this.bttRoba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bttRoba.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bttRoba.FlatAppearance.BorderSize = 5;
+            this.bttRoba.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttRoba.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.bttRoba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttRoba.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttRoba.Location = new System.Drawing.Point(1040, 216);
+            this.bttRoba.Name = "bttRoba";
+            this.bttRoba.Size = new System.Drawing.Size(128, 69);
+            this.bttRoba.TabIndex = 10;
+            this.bttRoba.Text = "Roba";
+            this.bttRoba.UseVisualStyleBackColor = false;
+            // 
+            // bttUnosRobe
+            // 
+            this.bttUnosRobe.BackColor = System.Drawing.Color.Transparent;
+            this.bttUnosRobe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bttUnosRobe.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bttUnosRobe.FlatAppearance.BorderSize = 5;
+            this.bttUnosRobe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttUnosRobe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.bttUnosRobe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttUnosRobe.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttUnosRobe.Location = new System.Drawing.Point(1040, 291);
+            this.bttUnosRobe.Name = "bttUnosRobe";
+            this.bttUnosRobe.Size = new System.Drawing.Size(128, 69);
+            this.bttUnosRobe.TabIndex = 11;
+            this.bttUnosRobe.Text = "Unos\r\nrobe";
+            this.bttUnosRobe.UseVisualStyleBackColor = false;
+            // 
+            // bttRazmenaIn
+            // 
+            this.bttRazmenaIn.BackColor = System.Drawing.Color.Transparent;
+            this.bttRazmenaIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bttRazmenaIn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bttRazmenaIn.FlatAppearance.BorderSize = 5;
+            this.bttRazmenaIn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttRazmenaIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.bttRazmenaIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttRazmenaIn.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttRazmenaIn.Location = new System.Drawing.Point(1040, 366);
+            this.bttRazmenaIn.Name = "bttRazmenaIn";
+            this.bttRazmenaIn.Size = new System.Drawing.Size(128, 69);
+            this.bttRazmenaIn.TabIndex = 12;
+            this.bttRazmenaIn.Text = "Razmena\r\nIn";
+            this.bttRazmenaIn.UseVisualStyleBackColor = false;
+            // 
+            // bttRazmenaOut
+            // 
+            this.bttRazmenaOut.BackColor = System.Drawing.Color.Transparent;
+            this.bttRazmenaOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.bttRazmenaOut.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bttRazmenaOut.FlatAppearance.BorderSize = 5;
+            this.bttRazmenaOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bttRazmenaOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.bttRazmenaOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttRazmenaOut.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttRazmenaOut.Location = new System.Drawing.Point(1040, 441);
+            this.bttRazmenaOut.Name = "bttRazmenaOut";
+            this.bttRazmenaOut.Size = new System.Drawing.Size(128, 69);
+            this.bttRazmenaOut.TabIndex = 13;
+            this.bttRazmenaOut.Text = "Razmena\r\nOut";
+            this.bttRazmenaOut.UseVisualStyleBackColor = false;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.BorderSize = 5;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1040, 141);
+            this.button1.Font = new System.Drawing.Font("Cooper Black", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1120, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 69);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Profil";
+            this.button1.Size = new System.Drawing.Size(60, 60);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.BorderSize = 5;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1040, 216);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 69);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Roba";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderSize = 5;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1040, 291);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 69);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Unos\r\nrobe";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button4.FlatAppearance.BorderSize = 5;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1040, 366);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 69);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Razmena\r\nIn";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.BorderSize = 5;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(1040, 441);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(128, 69);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Razmena\r\nOut";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // GlvForma
+            // FrmGlavna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1180, 585);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.bttRazmenaOut);
+            this.Controls.Add(this.bttRazmenaIn);
+            this.Controls.Add(this.bttUnosRobe);
+            this.Controls.Add(this.bttRoba);
+            this.Controls.Add(this.bttProfil);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -307,7 +328,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "GlvForma";
+            this.Name = "FrmGlavna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barter";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -338,11 +359,12 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button bttProfil;
+        private System.Windows.Forms.Button bttRoba;
+        private System.Windows.Forms.Button bttUnosRobe;
+        private System.Windows.Forms.Button bttRazmenaIn;
+        private System.Windows.Forms.Button bttRazmenaOut;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
     }
 }
 

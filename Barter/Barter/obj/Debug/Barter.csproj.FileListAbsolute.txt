@@ -2,7 +2,6 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe.
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csprojAssemblyReference.cache
-C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.GlvForma.resources
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.Properties.Resources.resources
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.GenerateResource.cache
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CoreCompileInputs.cache
@@ -11,3 +10,10 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.dll
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmGlavna.resources
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmPrijava.resources
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRegistracija.resources

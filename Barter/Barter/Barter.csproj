@@ -47,16 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlvForma.cs">
+    <Compile Include="FrmGlavna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GlvForma.Designer.cs">
-      <DependentUpon>GlvForma.cs</DependentUpon>
+    <Compile Include="FrmGlavna.Designer.cs">
+      <DependentUpon>FrmGlavna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrijava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrijava.Designer.cs">
+      <DependentUpon>FrmPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistracija.Designer.cs">
+      <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GlvForma.resx">
-      <DependentUpon>GlvForma.cs</DependentUpon>
+    <Compile Include="Sesija.cs" />
+    <EmbeddedResource Include="FrmGlavna.resx">
+      <DependentUpon>FrmGlavna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrijava.resx">
+      <DependentUpon>FrmPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistracija.resx">
+      <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +106,10 @@
       <Project>{2276fa6a-9575-41ed-b600-7c53bdcd7b77}</Project>
       <Name>Domen</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kontroler\Kontroler.csproj">
+      <Project>{BC9257DE-3FE8-4C1A-AD30-7A9192624BE9}</Project>
+      <Name>Kontroler</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
@@ -111,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\5006-500x500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2Qhhdda6Qnbf3tnCvdyBTsBNJTUibVN25EXYg8Vp34pMkRR27YfWJ5HRNHgczVDeA2nSuq8aVJtL778boQ9k.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,7 +16,7 @@ namespace Barter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GlvForma());
+            Application.Run(new FrmPrijava());
         }
     }
 }
