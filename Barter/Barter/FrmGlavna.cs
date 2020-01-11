@@ -19,14 +19,13 @@ namespace Barter
         public FrmGlavna()
         {
             InitializeComponent();
-
         }
 
         public FrmGlavna(Korisnik k)
         {
             InitializeComponent();
             korisnik = k;
-            listaRobe = Kontroler.Kontroler.Instance.VratiListuRobe(korisnik);
+            listaRobe = Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!=");
             dgvGlavna.DataSource = listaRobe;
 
             DataGridViewButtonColumn button = new DataGridViewButtonColumn();
@@ -52,6 +51,12 @@ namespace Barter
         {
             FrmUnosRobe forma = new FrmUnosRobe();
             forma.ShowDialog();
+        }
+
+        private void bttRoba_Click(object sender, EventArgs e)
+        {
+            FrmRoba frmRoba = new FrmRoba();
+            frmRoba.ShowDialog();
         }
     }
 }

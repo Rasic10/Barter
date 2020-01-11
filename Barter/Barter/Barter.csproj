@@ -65,6 +65,12 @@
     <Compile Include="FrmRegistracija.Designer.cs">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRoba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRoba.Designer.cs">
+      <DependentUpon>FrmRoba.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUnosRobe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoba.resx">
+      <DependentUpon>FrmRoba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUnosRobe.resx">
       <DependentUpon>FrmUnosRobe.cs</DependentUpon>

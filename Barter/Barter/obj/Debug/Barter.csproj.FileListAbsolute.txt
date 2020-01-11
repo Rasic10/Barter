@@ -18,3 +18,4 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.p
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRegistracija.resources
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmUnosRobe.resources
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRoba.resources

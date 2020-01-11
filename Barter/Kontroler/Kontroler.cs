@@ -55,9 +55,9 @@ namespace Kontroler
             }
         }
 
-        public BindingList<Roba> VratiListuRobe(Korisnik korisnik)
+        public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
         {
-            return broker.VratiListuRobe(korisnik);
+            return broker.VratiListuRobe(korisnik, operacija);
         }
 
         public List<Lokacija> VratiSveLokacije()

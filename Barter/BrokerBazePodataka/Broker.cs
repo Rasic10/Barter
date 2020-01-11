@@ -101,14 +101,14 @@ namespace BrokerBazePodataka
         }
 
         // ...#... potrebno doraditi
-        public BindingList<Roba> VratiListuRobe(Korisnik korisnik)
+        public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
         {
             try
             {
                 connection.Open();
                 BindingList<Roba> listaRobe = new BindingList<Roba>();
                 SqlCommand command = connection.CreateCommand();
-                command.CommandText = $"SELECT * FROM Roba r JOIN Korisnik k ON (r.KorisnikRobe = k.KorisnikID) JOIN Kategorija kat ON (r.KategorijaRobe = kat.KategorijaID) WHERE r.KorisnikRobe != {korisnik.KorisnikID}";
+                command.CommandText = $"SELECT * FROM Roba r JOIN Korisnik k ON (r.KorisnikRobe = k.KorisnikID) JOIN Kategorija kat ON (r.KategorijaRobe = kat.KategorijaID) WHERE r.KorisnikRobe {operacija} {korisnik.KorisnikID}";
                 SqlDataReader reader = command.ExecuteReader();
                 Roba r;
                 while (reader.Read())
