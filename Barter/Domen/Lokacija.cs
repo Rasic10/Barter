@@ -13,5 +13,10 @@ namespace Domen
 
         public int Ptt { get => ptt; set => ptt = value; }
         public string NazivOpstine { get => nazivOpstine; set => nazivOpstine = value; }
+
+        public override string ToString()
+        {
+            return NazivOpstine + " " + Ptt;
+        }
     }
 }

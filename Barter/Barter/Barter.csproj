@@ -116,7 +116,7 @@
       <Name>Domen</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kontroler\Kontroler.csproj">
-      <Project>{BC9257DE-3FE8-4C1A-AD30-7A9192624BE9}</Project>
+      <Project>{bc9257de-3fe8-4c1a-ad30-7a9192624be9}</Project>
       <Name>Kontroler</Name>
     </ProjectReference>
   </ItemGroup>

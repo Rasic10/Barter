@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,7 @@ namespace BrokerBazePodataka
             transaction.Rollback();
         }
 
+        // ...#...
         public Korisnik Prijava(string korIme, string sifra)
         {
             try
@@ -73,7 +75,7 @@ namespace BrokerBazePodataka
             }
             catch (Exception e)
             {
-                //ispisati gresku na konzoli
+                Debug.WriteLine(">>>" + e.Message);
                 return null;
             }
             finally
@@ -82,16 +84,33 @@ namespace BrokerBazePodataka
             }
         }
 
+        // ...#...
+        public void Registracija(Korisnik k)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT INTO Korisnik VALUES(@UsernameKorisnika, @ImeKorisnika, @PrezimeKorisnika, @email, @sifra, @DatumRodjenja, @Adresa, @Lokacija)";
+            command.Parameters.AddWithValue("@UsernameKorisnika", k.UsernameKorisnika);
+            command.Parameters.AddWithValue("@ImeKorisnika", k.ImeKorisnika);
+            command.Parameters.AddWithValue("@PrezimeKorisnika", k.PrezimeKorisnika);
+            command.Parameters.AddWithValue("@email", k.Email);
+            command.Parameters.AddWithValue("@sifra", k.Sifra);
+            command.Parameters.AddWithValue("@DatumRodjenja", k.DatumRodjenja);
+            command.Parameters.AddWithValue("@Adresa", k.Adresa);
+            command.Parameters.AddWithValue("@Lokacija", k.Lokacija.Ptt);
+            command.ExecuteNonQuery();
+        }
+
+        // ...#... potrebno doraditi
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik)
         {
             try
             {
                 connection.Open();
                 BindingList<Roba> listaRobe = new BindingList<Roba>();
-                Roba r;
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = $"SELECT * FROM Roba r JOIN Korisnik k ON (r.KorisnikRobe = k.KorisnikID) JOIN Kategorija kat ON (r.KategorijaRobe = kat.KategorijaID) WHERE r.KorisnikRobe != {korisnik.KorisnikID}";
                 SqlDataReader reader = command.ExecuteReader();
+                Roba r;
                 while (reader.Read())
                 {
                     r = new Roba
@@ -127,7 +146,7 @@ namespace BrokerBazePodataka
             }
             catch (Exception e)
             {
-                //ispisati gresku na konzoli
+                Debug.WriteLine(">>> " + e.Message);
                 return null;
             }
             finally
@@ -136,7 +155,39 @@ namespace BrokerBazePodataka
             }
         }
 
-
+        // ...#...
+        public List<Lokacija> VratiSveLokacije()
+        {
+            try
+            {
+                connection.Open();
+                List<Lokacija> lokacije = new List<Lokacija>();
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = $"SELECT * FROM Lokacija";
+                SqlDataReader reader = command.ExecuteReader();
+                Lokacija l;
+                while (reader.Read())
+                {
+                    l = new Lokacija
+                    {
+                        Ptt = reader.GetInt32(0),
+                        NazivOpstine = reader.GetString(1)
+                    };
+                    lokacije.Add(l);
+                }
+                reader.Close();
+                return lokacije;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
     }
 }

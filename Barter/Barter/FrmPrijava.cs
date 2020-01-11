@@ -42,6 +42,7 @@ namespace Barter
         {
             FrmRegistracija forma = new FrmRegistracija("REGISTRACIJA");
             forma.ShowDialog();
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)

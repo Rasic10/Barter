@@ -44,27 +44,27 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbLokacija = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbOsnovniPodaci = new System.Windows.Forms.GroupBox();
+            this.gbSifra = new System.Windows.Forms.GroupBox();
             this.tbPotvrdaNoveSifre = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblPotvrdaNoveSifre = new System.Windows.Forms.Label();
             this.tbNovaSifra = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblNovaSifra = new System.Windows.Forms.Label();
             this.tbStaraSifra = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblStaraSifra = new System.Windows.Forms.Label();
             this.btnPotvrdi = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbOsnovniPodaci.SuspendLayout();
+            this.gbSifra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbKorisnickoIme
             // 
             this.tbKorisnickoIme.Font = new System.Drawing.Font("Cooper Black", 14.25F);
-            this.tbKorisnickoIme.Location = new System.Drawing.Point(310, 54);
+            this.tbKorisnickoIme.Location = new System.Drawing.Point(320, 54);
             this.tbKorisnickoIme.Name = "tbKorisnickoIme";
-            this.tbKorisnickoIme.Size = new System.Drawing.Size(210, 29);
+            this.tbKorisnickoIme.Size = new System.Drawing.Size(200, 29);
             this.tbKorisnickoIme.TabIndex = 3;
             // 
             // label1
@@ -73,9 +73,9 @@
             this.label1.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(140, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 21);
+            this.label1.Size = new System.Drawing.Size(175, 21);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Korisnicko ime:";
+            this.label1.Text = "Korisnicko ime:*";
             // 
             // btnClose
             // 
@@ -101,16 +101,16 @@
             this.label2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(140, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 21);
+            this.label2.Size = new System.Drawing.Size(83, 21);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Email:";
+            this.label2.Text = "Email:*";
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Cooper Black", 14.25F);
-            this.tbEmail.Location = new System.Drawing.Point(218, 89);
+            this.tbEmail.Location = new System.Drawing.Point(229, 89);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(302, 29);
+            this.tbEmail.Size = new System.Drawing.Size(291, 29);
             this.tbEmail.TabIndex = 17;
             // 
             // lblTitle
@@ -214,95 +214,98 @@
             this.cbLokacija.Size = new System.Drawing.Size(255, 25);
             this.cbLokacija.TabIndex = 29;
             // 
-            // groupBox1
+            // gbOsnovniPodaci
             // 
-            this.groupBox1.Controls.Add(this.tbPrezime);
-            this.groupBox1.Controls.Add(this.cbLokacija);
-            this.groupBox1.Controls.Add(this.tbIme);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dtpDatumRodjenja);
-            this.groupBox1.Controls.Add(this.tbAdresa);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 136);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 248);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Osnovni podaci:";
+            this.gbOsnovniPodaci.Controls.Add(this.tbPrezime);
+            this.gbOsnovniPodaci.Controls.Add(this.cbLokacija);
+            this.gbOsnovniPodaci.Controls.Add(this.tbIme);
+            this.gbOsnovniPodaci.Controls.Add(this.label8);
+            this.gbOsnovniPodaci.Controls.Add(this.label4);
+            this.gbOsnovniPodaci.Controls.Add(this.label7);
+            this.gbOsnovniPodaci.Controls.Add(this.label5);
+            this.gbOsnovniPodaci.Controls.Add(this.dtpDatumRodjenja);
+            this.gbOsnovniPodaci.Controls.Add(this.tbAdresa);
+            this.gbOsnovniPodaci.Controls.Add(this.label6);
+            this.gbOsnovniPodaci.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbOsnovniPodaci.Location = new System.Drawing.Point(12, 136);
+            this.gbOsnovniPodaci.Name = "gbOsnovniPodaci";
+            this.gbOsnovniPodaci.Size = new System.Drawing.Size(284, 245);
+            this.gbOsnovniPodaci.TabIndex = 30;
+            this.gbOsnovniPodaci.TabStop = false;
+            this.gbOsnovniPodaci.Text = "Osnovni podaci:";
             // 
-            // groupBox2
+            // gbSifra
             // 
-            this.groupBox2.Controls.Add(this.tbPotvrdaNoveSifre);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.tbNovaSifra);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.tbStaraSifra);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Font = new System.Drawing.Font("Cooper Black", 11.25F);
-            this.groupBox2.Location = new System.Drawing.Point(310, 136);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(210, 190);
-            this.groupBox2.TabIndex = 31;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Promena sifre:";
+            this.gbSifra.Controls.Add(this.tbPotvrdaNoveSifre);
+            this.gbSifra.Controls.Add(this.lblPotvrdaNoveSifre);
+            this.gbSifra.Controls.Add(this.tbNovaSifra);
+            this.gbSifra.Controls.Add(this.lblNovaSifra);
+            this.gbSifra.Controls.Add(this.tbStaraSifra);
+            this.gbSifra.Controls.Add(this.lblStaraSifra);
+            this.gbSifra.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.gbSifra.Location = new System.Drawing.Point(310, 136);
+            this.gbSifra.Name = "gbSifra";
+            this.gbSifra.Size = new System.Drawing.Size(210, 190);
+            this.gbSifra.TabIndex = 31;
+            this.gbSifra.TabStop = false;
+            this.gbSifra.Text = "Promena sifre:";
             // 
             // tbPotvrdaNoveSifre
             // 
             this.tbPotvrdaNoveSifre.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPotvrdaNoveSifre.Location = new System.Drawing.Point(10, 151);
+            this.tbPotvrdaNoveSifre.Location = new System.Drawing.Point(10, 99);
             this.tbPotvrdaNoveSifre.Name = "tbPotvrdaNoveSifre";
+            this.tbPotvrdaNoveSifre.PasswordChar = '*';
             this.tbPotvrdaNoveSifre.Size = new System.Drawing.Size(190, 25);
             this.tbPotvrdaNoveSifre.TabIndex = 34;
             // 
-            // label11
+            // lblPotvrdaNoveSifre
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 127);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(194, 21);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Potvrda nove sifre:";
+            this.lblPotvrdaNoveSifre.AutoSize = true;
+            this.lblPotvrdaNoveSifre.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPotvrdaNoveSifre.Location = new System.Drawing.Point(6, 75);
+            this.lblPotvrdaNoveSifre.Name = "lblPotvrdaNoveSifre";
+            this.lblPotvrdaNoveSifre.Size = new System.Drawing.Size(194, 21);
+            this.lblPotvrdaNoveSifre.TabIndex = 35;
+            this.lblPotvrdaNoveSifre.Text = "Potvrda nove sifre:";
             // 
             // tbNovaSifra
             // 
             this.tbNovaSifra.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNovaSifra.Location = new System.Drawing.Point(10, 97);
+            this.tbNovaSifra.Location = new System.Drawing.Point(10, 45);
             this.tbNovaSifra.Name = "tbNovaSifra";
+            this.tbNovaSifra.PasswordChar = '*';
             this.tbNovaSifra.Size = new System.Drawing.Size(190, 25);
             this.tbNovaSifra.TabIndex = 32;
             // 
-            // label10
+            // lblNovaSifra
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 73);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 21);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Nova sifra:";
+            this.lblNovaSifra.AutoSize = true;
+            this.lblNovaSifra.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNovaSifra.Location = new System.Drawing.Point(6, 21);
+            this.lblNovaSifra.Name = "lblNovaSifra";
+            this.lblNovaSifra.Size = new System.Drawing.Size(116, 21);
+            this.lblNovaSifra.TabIndex = 33;
+            this.lblNovaSifra.Text = "Nova sifra:";
             // 
             // tbStaraSifra
             // 
             this.tbStaraSifra.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbStaraSifra.Location = new System.Drawing.Point(10, 45);
+            this.tbStaraSifra.Location = new System.Drawing.Point(10, 152);
             this.tbStaraSifra.Name = "tbStaraSifra";
+            this.tbStaraSifra.PasswordChar = '*';
             this.tbStaraSifra.Size = new System.Drawing.Size(190, 25);
             this.tbStaraSifra.TabIndex = 30;
             // 
-            // label9
+            // lblStaraSifra
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 21);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 21);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "Stara sifra:";
+            this.lblStaraSifra.AutoSize = true;
+            this.lblStaraSifra.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaraSifra.Location = new System.Drawing.Point(6, 128);
+            this.lblStaraSifra.Name = "lblStaraSifra";
+            this.lblStaraSifra.Size = new System.Drawing.Size(119, 21);
+            this.lblStaraSifra.TabIndex = 31;
+            this.lblStaraSifra.Text = "Stara sifra:";
             // 
             // btnPotvrdi
             // 
@@ -314,12 +317,13 @@
             this.btnPotvrdi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.btnPotvrdi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPotvrdi.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPotvrdi.Location = new System.Drawing.Point(310, 343);
+            this.btnPotvrdi.Location = new System.Drawing.Point(310, 340);
             this.btnPotvrdi.Name = "btnPotvrdi";
             this.btnPotvrdi.Size = new System.Drawing.Size(210, 41);
             this.btnPotvrdi.TabIndex = 32;
             this.btnPotvrdi.Text = "Potvrdi";
             this.btnPotvrdi.UseVisualStyleBackColor = false;
+            this.btnPotvrdi.Click += new System.EventHandler(this.btnPotvrdi_Click);
             // 
             // pictureBox1
             // 
@@ -337,10 +341,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(533, 396);
+            this.ClientSize = new System.Drawing.Size(533, 393);
             this.Controls.Add(this.btnPotvrdi);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbSifra);
+            this.Controls.Add(this.gbOsnovniPodaci);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbEmail);
@@ -352,10 +356,10 @@
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistracija";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbOsnovniPodaci.ResumeLayout(false);
+            this.gbOsnovniPodaci.PerformLayout();
+            this.gbSifra.ResumeLayout(false);
+            this.gbSifra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -381,14 +385,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbLokacija;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbOsnovniPodaci;
+        private System.Windows.Forms.GroupBox gbSifra;
         private System.Windows.Forms.TextBox tbPotvrdaNoveSifre;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblPotvrdaNoveSifre;
         private System.Windows.Forms.TextBox tbNovaSifra;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblNovaSifra;
         private System.Windows.Forms.TextBox tbStaraSifra;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblStaraSifra;
         private System.Windows.Forms.Button btnPotvrdi;
     }
 }

@@ -27,7 +27,14 @@ namespace Barter
             InitializeComponent();
             korisnik = k;
             listaRobe = Kontroler.Kontroler.Instance.VratiListuRobe(korisnik);
-            dataGridView1.DataSource = listaRobe;
+            dgvGlavna.DataSource = listaRobe;
+
+            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+            button.Name = "Razmen";
+            button.HeaderText = "Razmena";
+            button.Text = "Razmeni";
+            button.UseColumnTextForButtonValue = true; //dont forget this line
+            this.dgvGlavna.Columns.Add(button);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,7 +44,7 @@ namespace Barter
 
         private void bttProfil_Click(object sender, EventArgs e)
         {
-            FrmRegistracija forma = new FrmRegistracija("PROFIL");
+            FrmRegistracija forma = new FrmRegistracija("PROFIL", Sesija.Instance.Korisnik);
             forma.ShowDialog();
         }
 
