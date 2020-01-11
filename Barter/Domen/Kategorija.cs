@@ -9,19 +9,14 @@ namespace Domen
     public class Kategorija
     {
         private int kategorijaID;
-        private VrstaKategorijeEnum vrstaKategorije;
+        private string vrstaKategorije;
 
         public int KategorijaID { get => kategorijaID; set => kategorijaID = value; }
-        public VrstaKategorijeEnum VrstaKategorije { get => vrstaKategorije; set => vrstaKategorije = value; }
-    }
+        public string VrstaKategorije { get => vrstaKategorije; set => vrstaKategorije = value; }
 
-    public enum VrstaKategorijeEnum
-    {
-        Povrce,
-        Voce,
-        Zitarice,
-        Masine,
-        Odeca,
-        Obuca
-    };
+        public override string ToString()
+        {
+            return VrstaKategorije;
+        }
+    }
 }

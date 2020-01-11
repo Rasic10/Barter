@@ -34,18 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbNazivRobe = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbKolicinaRobe = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbCenaRobe = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cbKategorija = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpDatumUnosaRobe = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbKategorija = new System.Windows.Forms.ComboBox();
+            this.tbCenaRobe = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbKolicinaRobe = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnUnesiKategoriju = new System.Windows.Forms.Button();
             this.tbNazivKategorije = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnUnesiKategoriju = new System.Windows.Forms.Button();
             this.btnUnesiRobu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -97,16 +97,16 @@
             this.label1.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(140, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 21);
+            this.label1.Size = new System.Drawing.Size(131, 21);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Naziv robe:";
+            this.label1.Text = "Naziv robe:*";
             // 
             // tbNazivRobe
             // 
             this.tbNazivRobe.Font = new System.Drawing.Font("Cooper Black", 14.25F);
-            this.tbNazivRobe.Location = new System.Drawing.Point(266, 73);
+            this.tbNazivRobe.Location = new System.Drawing.Point(277, 73);
             this.tbNazivRobe.Name = "tbNazivRobe";
-            this.tbNazivRobe.Size = new System.Drawing.Size(210, 29);
+            this.tbNazivRobe.Size = new System.Drawing.Size(299, 29);
             this.tbNazivRobe.TabIndex = 22;
             // 
             // groupBox1
@@ -127,41 +127,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Podaci o robi";
             // 
-            // tbKolicinaRobe
+            // cbKategorija
             // 
-            this.tbKolicinaRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F);
-            this.tbKolicinaRobe.Location = new System.Drawing.Point(110, 21);
-            this.tbKolicinaRobe.Name = "tbKolicinaRobe";
-            this.tbKolicinaRobe.Size = new System.Drawing.Size(182, 25);
-            this.tbKolicinaRobe.TabIndex = 25;
+            this.cbKategorija.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKategorija.FormattingEnabled = true;
+            this.cbKategorija.Location = new System.Drawing.Point(132, 143);
+            this.cbKategorija.Name = "cbKategorija";
+            this.cbKategorija.Size = new System.Drawing.Size(160, 25);
+            this.cbKategorija.TabIndex = 31;
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 21);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Kolicina:";
-            // 
-            // tbCenaRobe
-            // 
-            this.tbCenaRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F);
-            this.tbCenaRobe.Location = new System.Drawing.Point(110, 56);
-            this.tbCenaRobe.Name = "tbCenaRobe";
-            this.tbCenaRobe.Size = new System.Drawing.Size(182, 25);
-            this.tbCenaRobe.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 21);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Cena:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 21);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Kategorija:*";
             // 
             // label7
             // 
@@ -183,24 +166,41 @@
             this.dtpDatumUnosaRobe.TabIndex = 28;
             this.dtpDatumUnosaRobe.Value = new System.DateTime(2019, 12, 14, 14, 18, 39, 0);
             // 
-            // label3
+            // tbCenaRobe
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 143);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 21);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Kategorija:";
+            this.tbCenaRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbCenaRobe.Location = new System.Drawing.Point(110, 56);
+            this.tbCenaRobe.Name = "tbCenaRobe";
+            this.tbCenaRobe.Size = new System.Drawing.Size(182, 25);
+            this.tbCenaRobe.TabIndex = 27;
             // 
-            // cbKategorija
+            // label2
             // 
-            this.cbKategorija.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbKategorija.FormattingEnabled = true;
-            this.cbKategorija.Location = new System.Drawing.Point(122, 143);
-            this.cbKategorija.Name = "cbKategorija";
-            this.cbKategorija.Size = new System.Drawing.Size(170, 25);
-            this.cbKategorija.TabIndex = 31;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 21);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Cena:*";
+            // 
+            // tbKolicinaRobe
+            // 
+            this.tbKolicinaRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbKolicinaRobe.Location = new System.Drawing.Point(110, 21);
+            this.tbKolicinaRobe.Name = "tbKolicinaRobe";
+            this.tbKolicinaRobe.Size = new System.Drawing.Size(182, 25);
+            this.tbKolicinaRobe.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 21);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Kolicina:*";
             // 
             // groupBox2
             // 
@@ -214,6 +214,16 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Unos kategorije";
+            // 
+            // btnUnesiKategoriju
+            // 
+            this.btnUnesiKategoriju.Location = new System.Drawing.Point(47, 87);
+            this.btnUnesiKategoriju.Name = "btnUnesiKategoriju";
+            this.btnUnesiKategoriju.Size = new System.Drawing.Size(160, 30);
+            this.btnUnesiKategoriju.TabIndex = 34;
+            this.btnUnesiKategoriju.Text = "Unesi kategoriju";
+            this.btnUnesiKategoriju.UseVisualStyleBackColor = true;
+            this.btnUnesiKategoriju.Click += new System.EventHandler(this.btnUnesiKategoriju_Click);
             // 
             // tbNazivKategorije
             // 
@@ -233,15 +243,6 @@
             this.label5.TabIndex = 33;
             this.label5.Text = "Naziv kategorije:";
             // 
-            // btnUnesiKategoriju
-            // 
-            this.btnUnesiKategoriju.Location = new System.Drawing.Point(47, 87);
-            this.btnUnesiKategoriju.Name = "btnUnesiKategoriju";
-            this.btnUnesiKategoriju.Size = new System.Drawing.Size(160, 30);
-            this.btnUnesiKategoriju.TabIndex = 34;
-            this.btnUnesiKategoriju.Text = "Unesi kategoriju";
-            this.btnUnesiKategoriju.UseVisualStyleBackColor = true;
-            // 
             // btnUnesiRobu
             // 
             this.btnUnesiRobu.BackColor = System.Drawing.Color.Transparent;
@@ -258,6 +259,7 @@
             this.btnUnesiRobu.TabIndex = 33;
             this.btnUnesiRobu.Text = "Unesi robu";
             this.btnUnesiRobu.UseVisualStyleBackColor = false;
+            this.btnUnesiRobu.Click += new System.EventHandler(this.btnUnesiRobu_Click);
             // 
             // FrmUnosRobe
             // 

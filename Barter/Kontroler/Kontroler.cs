@@ -36,6 +36,25 @@ namespace Kontroler
             return broker.Prijava(korIme, sifra);
         }
 
+        public bool Registracija(Korisnik k)
+        {
+            try
+            {
+                broker.OtvoriKonekciju();
+                broker.Registracija(k);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                return false;
+            }
+            finally
+            {
+                broker.ZatvoriKonekciju();
+            }
+        }
+
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik)
         {
             return broker.VratiListuRobe(korisnik);
@@ -46,12 +65,48 @@ namespace Kontroler
             return broker.VratiSveLokacije();
         }
 
-        public bool Registracija(Korisnik k)
+        public int UnesiKategoriju(Kategorija k)
         {
             try
             {
                 broker.OtvoriKonekciju();
-                broker.Registracija(k);
+                return broker.UnesiKateogoriju(k);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                return -1;
+            }
+            finally
+            {
+                broker.ZatvoriKonekciju();
+            }
+        }
+
+        public BindingList<Kategorija> VratiListuKategorija()
+        {
+            try
+            {
+                broker.OtvoriKonekciju();
+                return broker.VratiListuKategorija();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                return new BindingList<Kategorija>();
+            }
+            finally
+            {
+                broker.ZatvoriKonekciju();
+            }
+        }
+
+        public bool UnesiRobu(Roba r)
+        {
+            try
+            {
+                broker.OtvoriKonekciju();
+                broker.UnesiRobu(r);
                 return true;
             }
             catch (Exception e)

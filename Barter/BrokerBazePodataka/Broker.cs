@@ -134,8 +134,8 @@ namespace BrokerBazePodataka
                         },
                         KategorijaRobe = new Kategorija
                         {
-                            KategorijaID = reader.GetInt32(17)
-                            // ...#...treba dodati u vezi enumeratora
+                            KategorijaID = reader.GetInt32(17),
+                            VrstaKategorije = reader.GetString(18)
                         }
                         // ...#...treba dodati za razmenu
                     };
@@ -187,6 +187,50 @@ namespace BrokerBazePodataka
             {
                 connection.Close();
             }
+        }
+
+        // ...#...
+        public BindingList<Kategorija> VratiListuKategorija()
+        {
+            BindingList<Kategorija> kategorije = new BindingList<Kategorija>();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = $"SELECT * FROM Kategorija";
+            SqlDataReader reader = command.ExecuteReader();
+            Kategorija k;
+            while (reader.Read())
+            {
+                k = new Kategorija
+                {
+                    KategorijaID = reader.GetInt32(0),
+                    VrstaKategorije = reader.GetString(1)
+                };
+                kategorije.Add(k);
+            }
+            reader.Close();
+            return kategorije;
+        }
+
+        // ...#...
+        public int UnesiKateogoriju(Kategorija k)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT INTO Kategorija OUTPUT inserted.KategorijaID VALUES(@VrstaKategorije)";
+            command.Parameters.AddWithValue("@VrstaKategorije", k.VrstaKategorije);
+            return (int)command.ExecuteScalar();
+        }
+
+        // ...#...
+        public void UnesiRobu(Roba r)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT INTO Roba(NazivRobe, KolicinaRobe, CenaRobe, DatumUnosaRobe, KorisnikRobe, KategorijaRobe) VALUES(@NazivRobe, @KolicinaRobe, @CenaRobe, @DatumUnosaRobe, @KorisnikRobe, @KategorijaRobe)";
+            command.Parameters.AddWithValue("@NazivRobe", r.NazivRobe);
+            command.Parameters.AddWithValue("@KolicinaRobe", (float)r.KolicinaRobe);
+            command.Parameters.AddWithValue("@CenaRobe", (float)r.CenaRobe);
+            command.Parameters.AddWithValue("@DatumUnosaRobe", r.DatumUnosaRobe);
+            command.Parameters.AddWithValue("@KorisnikRobe", r.KorisnikRobe.KorisnikID);
+            command.Parameters.AddWithValue("@KategorijaRobe", r.KategorijaRobe.KategorijaID);
+            command.ExecuteNonQuery();
         }
 
     }
