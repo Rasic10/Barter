@@ -29,11 +29,13 @@ namespace Barter
             dgvGlavna.DataSource = listaRobe;
 
             DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-            button.Name = "Razmen";
+            button.Name = "Razmena";
             button.HeaderText = "Razmena";
             button.Text = "Razmeni";
             button.UseColumnTextForButtonValue = true; //dont forget this line
+            
             this.dgvGlavna.Columns.Add(button);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,6 +59,17 @@ namespace Barter
         {
             FrmRoba frmRoba = new FrmRoba();
             frmRoba.ShowDialog();
+        }
+
+        private void dgvGlavna_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                FrmRazmena frmRazmena = new FrmRazmena(Sesija.Instance.Korisnik, listaRobe[e.RowIndex]);
+                frmRazmena.ShowDialog();
+            }
         }
     }
 }

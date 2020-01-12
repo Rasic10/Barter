@@ -25,5 +25,10 @@ namespace Domen
         public Korisnik KorisnikRobe { get => korisnikRobe; set => korisnikRobe = value; }
         public Kategorija KategorijaRobe { get => kategorijaRobe; set => kategorijaRobe = value; }
         public RazmenaRobe RazmenaUlozeneRobe { get => razmenaUlozeneRobe; set => razmenaUlozeneRobe = value; }
+
+        public override string ToString()
+        {
+            return NazivRobe;
+        }
     }
 }

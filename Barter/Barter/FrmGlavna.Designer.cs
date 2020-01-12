@@ -81,6 +81,7 @@
             this.dgvGlavna.ReadOnly = true;
             this.dgvGlavna.Size = new System.Drawing.Size(680, 286);
             this.dgvGlavna.TabIndex = 0;
+            this.dgvGlavna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGlavna_CellContentClick);
             // 
             // robaIDDataGridViewTextBoxColumn
             // 

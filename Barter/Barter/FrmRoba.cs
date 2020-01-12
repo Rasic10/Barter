@@ -27,5 +27,11 @@ namespace Barter
         {
             this.Close();
         }
+
+        // ...
+        private void btnObrisiRobu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

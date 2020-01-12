@@ -32,12 +32,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvRoba = new System.Windows.Forms.DataGridView();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KategorijaRobe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnObrisiRobu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -93,10 +93,6 @@
             this.dgvRoba.Size = new System.Drawing.Size(576, 210);
             this.dgvRoba.TabIndex = 24;
             // 
-            // robaBindingSource
-            // 
-            this.robaBindingSource.DataSource = typeof(Domen.Roba);
-            // 
             // nazivRobeDataGridViewTextBoxColumn
             // 
             this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
@@ -133,6 +129,10 @@
             this.KategorijaRobe.Name = "KategorijaRobe";
             this.KategorijaRobe.ReadOnly = true;
             // 
+            // robaBindingSource
+            // 
+            this.robaBindingSource.DataSource = typeof(Domen.Roba);
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -152,6 +152,7 @@
             this.btnObrisiRobu.TabIndex = 35;
             this.btnObrisiRobu.Text = "Obrisi robu";
             this.btnObrisiRobu.UseVisualStyleBackColor = true;
+            this.btnObrisiRobu.Click += new System.EventHandler(this.btnObrisiRobu_Click);
             // 
             // FrmRoba
             // 
