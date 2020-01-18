@@ -9,3 +9,5 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontrole
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csproj.CopyComplete
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.dll
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Kontroler\bin\Debug\SistemskeOperacije.pdb

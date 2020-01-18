@@ -21,3 +21,5 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmU
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRoba.resources
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRazmena.resources
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmDodajNovuRobu.resources
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.pdb

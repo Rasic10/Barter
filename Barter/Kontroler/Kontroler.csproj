@@ -53,6 +53,10 @@
       <Project>{2276FA6A-9575-41ED-B600-7C53BDCD7B77}</Project>
       <Name>Domen</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SistemskeOperacije\SistemskeOperacije.csproj">
+      <Project>{18E0E603-58AB-43A3-BF16-98EC053317F7}</Project>
+      <Name>SistemskeOperacije</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

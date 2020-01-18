@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerBazePodataka", "Broke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{EC5C8C30-315D-4517-8973-133C77F1DC7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemskeOperacije", "SistemskeOperacije\SistemskeOperacije.csproj", "{18E0E603-58AB-43A3-BF16-98EC053317F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EC5C8C30-315D-4517-8973-133C77F1DC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC5C8C30-315D-4517-8973-133C77F1DC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC5C8C30-315D-4517-8973-133C77F1DC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18E0E603-58AB-43A3-BF16-98EC053317F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E0E603-58AB-43A3-BF16-98EC053317F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E0E603-58AB-43A3-BF16-98EC053317F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E0E603-58AB-43A3-BF16-98EC053317F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

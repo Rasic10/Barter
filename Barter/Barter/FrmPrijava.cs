@@ -23,7 +23,12 @@ namespace Barter
         {
             string korIme = tbKorisnickoIme.Text;
             string sifra = tbSifra.Text;
-            Korisnik k = Kontroler.Kontroler.Instance.Prijava(korIme, sifra);
+            Korisnik korisnik = new Korisnik
+            {
+                UsernameKorisnika = korIme,
+                Sifra = sifra
+            };
+            Korisnik k = Kontroler.Kontroler.Instance.Prijava(korisnik);
             if (k != null)
             {
                 MessageBox.Show($"Uspesno prijavljen {k.UsernameKorisnika}!");

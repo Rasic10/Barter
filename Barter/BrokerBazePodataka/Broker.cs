@@ -45,7 +45,7 @@ namespace BrokerBazePodataka
             transaction.Rollback();
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public Korisnik Prijava(string korIme, string sifra)
         {
             try
@@ -294,6 +294,26 @@ namespace BrokerBazePodataka
                 Debug.WriteLine(">>>" + e.Message);
                 throw;
             }
+        }
+
+
+        // #######################################################################
+        
+        // ...#...
+        public IDomenskiObjekat VratiJedan(IDomenskiObjekat objekat)
+        {
+            IDomenskiObjekat rezultat;
+            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovZaNadjiSlog()}", connection, transaction);
+            SqlDataReader reader = command.ExecuteReader();
+            rezultat = objekat.VratiObjekat(reader);
+            reader.Close();
+            return rezultat;
+        }
+
+        public int Sacuvaj(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} VALUES ({objekat.VratiVrednostiAtributa()})", connection, transaction);
+            return command.ExecuteNonQuery();
         }
     }
 }

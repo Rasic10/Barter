@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domen
 {
-    public class Korisnik
+    public class Korisnik : IDomenskiObjekat
     {
         private int korisnikID;
         private string usernameKorisnika;
@@ -31,6 +32,41 @@ namespace Domen
         public override string ToString()
         {
             return $"{ImeKorisnika} {PrezimeKorisnika}";
+        }
+
+        public string VratiImeKlase()
+        {
+            return "Korisnik";
+        }
+
+        public string VratiUslovZaNadjiSlog()
+        {
+            return $"UsernameKorisnika = '{UsernameKorisnika}' and sifra = '{Sifra}'";
+        }
+
+        public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
+        {
+            Korisnik korisnik = null;
+            while (reader.Read())
+            {
+                korisnik = new Korisnik
+                {
+                    KorisnikID = reader.GetInt32(0),
+                    UsernameKorisnika = reader.GetString(1),
+                    ImeKorisnika = reader.GetString(2),
+                    PrezimeKorisnika = reader.GetString(3),
+                    Email = reader.GetString(4),
+                    Sifra = reader.GetString(5),
+                    DatumRodjenja = reader.GetDateTime(6),
+                    Adresa = reader.GetString(7)
+                };
+            }
+            return korisnik;
+        }
+
+        public string VratiVrednostiAtributa()
+        {
+            return $"'{UsernameKorisnika}', '{ImeKorisnika}', '{PrezimeKorisnika}', '{Email}', '{Sifra}', '{DatumRodjenja}', '{Adresa}', {Lokacija.Ptt}";
         }
     }
 }

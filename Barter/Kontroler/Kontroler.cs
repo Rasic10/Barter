@@ -1,5 +1,6 @@
 ﻿using BrokerBazePodataka;
 using Domen;
+using SistemskeOperacije;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,28 +32,36 @@ namespace Kontroler
         {
         }
 
-        public Korisnik Prijava(string korIme, string sifra)
+        // ...#...
+        public Korisnik Prijava(Korisnik korisnik)
         {
-            return broker.Prijava(korIme, sifra);
+            OpstaSistemskaOperacija sistemskaOperacija = new PrijavaKorisnikaSO();
+            sistemskaOperacija.Izvrsi(korisnik);
+            return ((PrijavaKorisnikaSO)sistemskaOperacija).Korisnik;
+            //return broker.Prijava(korIme, sifra);
         }
 
-        public bool Registracija(Korisnik k)
+        // ...#...
+        public bool Registracija(Korisnik korisnik)
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                broker.Registracija(k);
-                return true;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-                return false;
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new RegistrujKorisnikaSO();
+            sistemskaOperacija.Izvrsi(korisnik);
+            return ((RegistrujKorisnikaSO)sistemskaOperacija).Sacuvano;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    broker.Registracija(k);
+            //    return true;
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(">>> " + e.Message);
+            //    return false;
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
 
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
