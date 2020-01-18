@@ -11,6 +11,14 @@ namespace Domen
         private int ptt;
         private string nazivOpstine;
 
+        public Lokacija Self
+        {
+            get
+            {
+                return this;
+            }
+        }
+
         public int Ptt { get => ptt; set => ptt = value; }
         public string NazivOpstine { get => nazivOpstine; set => nazivOpstine = value; }
 
@@ -18,5 +26,7 @@ namespace Domen
         {
             return NazivOpstine + " " + Ptt;
         }
+
+        
     }
 }

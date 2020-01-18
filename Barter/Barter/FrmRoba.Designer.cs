@@ -40,6 +40,7 @@
             this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnObrisiRobu = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoba)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
@@ -154,12 +155,23 @@
             this.btnObrisiRobu.UseVisualStyleBackColor = true;
             this.btnObrisiRobu.Click += new System.EventHandler(this.btnObrisiRobu_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.button1.Location = new System.Drawing.Point(140, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 30);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Izmeni robu";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FrmRoba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(600, 358);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnObrisiRobu);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvRoba);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KategorijaRobe;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnObrisiRobu;
+        private System.Windows.Forms.Button button1;
     }
 }

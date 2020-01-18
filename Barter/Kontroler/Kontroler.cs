@@ -119,5 +119,49 @@ namespace Kontroler
                 broker.ZatvoriKonekciju();
             }
         }
+
+        public bool ProveraKorisnikaIMaila(string korIme, string email)
+        {
+            try
+            {
+                broker.OtvoriKonekciju();
+                if (broker.DaLiPostojiKorisnik(korIme, email)) return true;
+                else return false;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                throw new Exception("Doslo je do greske pri radu sa bazom!");
+            }
+            finally
+            {
+                broker.ZatvoriKonekciju();
+            }
+        }
+
+        public bool IzmenaProfila(Korisnik noviPodaci)
+        {
+            try
+            {
+                broker.OtvoriKonekciju();
+                if (broker.IzmenaProfila(noviPodaci) != 1)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                throw new Exception("Doslo je do greske pri radom sa bazom!");
+            }
+            finally
+            {
+                broker.ZatvoriKonekciju();
+            }
+        }
     }
 }

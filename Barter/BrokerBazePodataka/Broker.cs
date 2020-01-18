@@ -100,6 +100,31 @@ namespace BrokerBazePodataka
             command.ExecuteNonQuery();
         }
 
+        // ...#...
+        public bool DaLiPostojiKorisnik(string korIme, string email)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM Korisnik WHERE UsernameKorisnika = @UsernameKorisnika OR email = @email";
+            command.Parameters.AddWithValue("@UsernameKorisnika", korIme);
+            command.Parameters.AddWithValue("@email", email);
+            SqlDataReader reader = command.ExecuteReader();
+            return reader.Read();
+        }
+
+        // ...
+        public int IzmenaProfila(Korisnik k)
+        {
+            SqlCommand command = new SqlCommand($"UPDATE Korisnik SET ImeKorisnika = @ImeKorisnika, PrezimeKorisnika = @PrezimeKorisnika, sifra = @sifra, DatumRodjenja = @DatumRodjenja, Adresa = @Adresa, Lokacija = @Lokacija WHERE KorisnikID = @KorisnikID", connection, transaction);
+            command.Parameters.AddWithValue("@ImeKorisnika", k.ImeKorisnika);
+            command.Parameters.AddWithValue("@PrezimeKorisnika", k.PrezimeKorisnika);
+            command.Parameters.AddWithValue("@sifra", k.Sifra);
+            command.Parameters.AddWithValue("@DatumRodjenja", k.DatumRodjenja);
+            command.Parameters.AddWithValue("@Adresa", k.Adresa);
+            command.Parameters.AddWithValue("@Lokacija", k.Lokacija.Ptt);
+            command.Parameters.AddWithValue("@KorisnikID", k.KorisnikID);
+            return command.ExecuteNonQuery();
+        }
+
         // ...#... potrebno doraditi
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
         {

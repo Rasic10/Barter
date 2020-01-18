@@ -71,15 +71,29 @@ namespace Barter
             }
         }
 
+        // ...#...
         private void btnDodajRobu_Click(object sender, EventArgs e)
         {
             FrmDodajNovuRobu frmDodajNovuRobu = new FrmDodajNovuRobu(robaKorisnika, ulozenaRoba);
             frmDodajNovuRobu.ShowDialog();
         }
 
+        // ...#...
         private void btnObrisiRobu_Click(object sender, EventArgs e)
         {
-
+            if (dgvUlozenaRoba.SelectedRows.Count > 0)
+            {
+                Roba robaZaBrisanje = (Roba)dgvUlozenaRoba.SelectedRows[0].DataBoundItem;
+                foreach(var r in robaKorisnika)
+                {
+                    if (r.NazivRobe == robaZaBrisanje.NazivRobe)
+                    {
+                        r.KolicinaRobe += robaZaBrisanje.KolicinaRobe;
+                        break;
+                    }
+                }
+                ulozenaRoba.Remove(robaZaBrisanje);
+            }
         }
     }
 }

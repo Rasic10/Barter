@@ -49,7 +49,7 @@ namespace Barter
             tbIme.Text = k.ImeKorisnika;
             tbPrezime.Text = k.PrezimeKorisnika;
             tbAdresa.Text = k.Adresa;
-            // Problem: postavi datum na datum rodjenja
+            dtpDatumRodjenja.Value = k.DatumRodjenja;
             // Problem: postavi lokaciju na datu lokaciju
             cbLokacija.DataSource = Kontroler.Kontroler.Instance.VratiSveLokacije();
         }
@@ -117,33 +117,109 @@ namespace Barter
             // Profil
             if (lblTitle.Text == "PROFIL")
             {
-                if (ValidacijaProfila())
+                Korisnik noviPodaci = new Korisnik();
+                try
                 {
+                    if (PromenaSifre())
+                    {
+                        noviPodaci.Sifra = tbNovaSifra.Text;
+                    }
+                    else
+                    {
+                        noviPodaci.Sifra = Sesija.Instance.Korisnik.Sifra;
+                    }
 
+                    DateTime datumRodjenja = dtpDatumRodjenja.Value;
+                    if (datumRodjenja.Year > DateTime.Now.Year - 18)
+                    {
+                        MessageBox.Show("Korisnik mora da bude stariji od 18 godina!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    Lokacija lokacija = (Lokacija)cbLokacija.SelectedItem;
+
+                    noviPodaci.KorisnikID = Sesija.Instance.Korisnik.KorisnikID;
+                    noviPodaci.UsernameKorisnika = Sesija.Instance.Korisnik.UsernameKorisnika;
+                    noviPodaci.Email = Sesija.Instance.Korisnik.Email;
+
+                    noviPodaci.ImeKorisnika = tbIme.Text;
+                    noviPodaci.PrezimeKorisnika = tbPrezime.Text;
+                    noviPodaci.DatumRodjenja = datumRodjenja;
+                    noviPodaci.Adresa = tbAdresa.Text;
+                    noviPodaci.Lokacija = lokacija;
+
+                    bool uspesnaIzmenaProfila = Kontroler.Kontroler.Instance.IzmenaProfila(noviPodaci);
+                    if (uspesnaIzmenaProfila)
+                    {
+                        MessageBox.Show($"Uspesno ste izmenili podatke profila {Sesija.Instance.Korisnik.UsernameKorisnika}", "Profil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Sesija.Instance.Korisnik = noviPodaci;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Neuspesna izmena podataka profila, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (Exception ee)
                 {
+                    MessageBox.Show(ee.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
         }
 
-        private bool ValidacijaProfila()
+        private bool PromenaSifre()
         {
-            return false;
+            if (tbNovaSifra.Text != "")
+            {
+                if (tbStaraSifra.Text == Sesija.Instance.Korisnik.Sifra)
+                {
+                    if (tbNovaSifra.Text == tbPotvrdaNoveSifre.Text)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        throw new Exception("Poklapanje nove sifre nije uspenos!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Poklapanje stare sifre nije uspesno!");
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool ValidacijaRegistracije()
         {
             if (tbKorisnickoIme.Text != "" && tbEmail.Text != "" && tbNovaSifra.Text != "" && tbPotvrdaNoveSifre.Text != "")
             {
-                if (tbNovaSifra.Text == tbPotvrdaNoveSifre.Text)
+                try
                 {
-                    return true;
+                    if (!Kontroler.Kontroler.Instance.ProveraKorisnikaIMaila(tbKorisnickoIme.Text, tbEmail.Text))
+                    {
+                        if (tbNovaSifra.Text == tbPotvrdaNoveSifre.Text)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Uparivanje sifre nije uspesno, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Postoji korisnik sa datim korisnickim imenom ili email adresom!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    MessageBox.Show("Uparivanje sifre nije uspesno, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
