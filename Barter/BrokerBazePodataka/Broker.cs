@@ -124,7 +124,7 @@ namespace BrokerBazePodataka
             command.Parameters.AddWithValue("@KorisnikID", k.KorisnikID);
             return command.ExecuteNonQuery();
         }
-
+        
         // ...#... potrebno doraditi
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
         {
@@ -258,5 +258,42 @@ namespace BrokerBazePodataka
             command.ExecuteNonQuery();
         }
 
+        // ...#...
+        public void SacuvajRazmenu(RazmenaRobe rr, BindingList<Roba> ulozenaRoba)
+        {
+            try
+            {
+                SqlCommand command1 = new SqlCommand("insert into RazmenaRobe output inserted.RazmenaID values (@DatumRazmeneRobe, @KolicinaRobe, @KorisnikTrazeneRobe, @KorisnikUlozeneRobe, @TrazenaRoba)", connection, transaction);
+                command1.Parameters.AddWithValue("@DatumRazmeneRobe", rr.DatumRazmeneRobe);
+                command1.Parameters.AddWithValue("@KolicinaRobe", rr.KolicinaRobe);
+                command1.Parameters.AddWithValue("@KorisnikTrazeneRobe", rr.KorisnikTrazeneRobe.KorisnikID);
+                command1.Parameters.AddWithValue("@KorisnikUlozeneRobe", rr.KorisnikUlozeneRobe.KorisnikID);
+                command1.Parameters.AddWithValue("@TrazenaRoba", rr.TrazenaRoba.RobaID);
+                int idRazmene = (int)command1.ExecuteScalar();
+
+                foreach (var ur in ulozenaRoba)
+                {
+                    SqlCommand command2 = new SqlCommand("insert into Roba values (@NazivRobe, @KolicinaRobe, @CenaRobe, @DatumUnosaRobe, @KorisnikRobe, @KategorijaRobe, @RazmenaUlozeneRobe)", connection, transaction);
+                    command2.Parameters.AddWithValue("@NazivRobe", ur.NazivRobe);
+                    command2.Parameters.AddWithValue("@KolicinaRobe", ur.KolicinaRobe);
+                    command2.Parameters.AddWithValue("@CenaRobe", ur.CenaRobe);
+                    command2.Parameters.AddWithValue("@DatumUnosaRobe", ur.DatumUnosaRobe);
+                    command2.Parameters.AddWithValue("@KorisnikRobe", ur.KorisnikRobe.KorisnikID);
+                    command2.Parameters.AddWithValue("@KategorijaRobe", ur.KategorijaRobe.KategorijaID);
+                    command2.Parameters.AddWithValue("@RazmenaUlozeneRobe", idRazmene);
+                    command2.ExecuteNonQuery();
+
+                    SqlCommand command3 = new SqlCommand("update Roba set KolicinaRobe = KolicinaRobe - @KolicinaRobe where RobaID = @RobaID", connection, transaction);
+                    command3.Parameters.AddWithValue("@KolicinaRobe", ur.KolicinaRobe);
+                    command3.Parameters.AddWithValue("@RobaID", ur.RobaID);
+                    command3.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>>" + e.Message);
+                throw;
+            }
+        }
     }
 }

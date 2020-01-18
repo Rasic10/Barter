@@ -21,6 +21,7 @@ namespace Barter
             InitializeComponent();
         }
 
+        // ...#...
         public FrmDodajNovuRobu(BindingList<Roba> robaKorisnika, BindingList<Roba> ulozenaRoba)
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Barter
             ulozRoba = ulozenaRoba;
         }
 
+        // ...#...
         private void tbKolicina_TextChanged(object sender, EventArgs e)
         {
             if (double.TryParse(tbKolicina.Text, out double kolicina))
@@ -51,11 +53,13 @@ namespace Barter
             }
         }
 
+        // ...#...
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // ...
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if(tbKolicina.BackColor == Color.Green)
@@ -64,10 +68,12 @@ namespace Barter
 
                 Roba r = new Roba
                 {
+                    //Dodat ID zbog update-a
+                    RobaID = dodaj.RobaID,
                     NazivRobe = dodaj.NazivRobe,
                     KolicinaRobe = Convert.ToDouble(tbKolicina.Text),
                     CenaRobe = dodaj.CenaRobe,
-                    //DatumUnosaRobe
+                    DatumUnosaRobe = DateTime.Now,
                     KorisnikRobe = dodaj.KorisnikRobe,
                     KategorijaRobe = dodaj.KategorijaRobe,
                     //RazmenaID

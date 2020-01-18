@@ -163,5 +163,26 @@ namespace Kontroler
                 broker.ZatvoriKonekciju();
             }
         }
+
+        public bool SacuvajRazmenu(RazmenaRobe rr, BindingList<Roba> ulozenaRoba)
+        {
+            try
+            {
+                broker.OtvoriKonekciju();
+                broker.PokreniTransakciju();
+                broker.SacuvajRazmenu(rr, ulozenaRoba);
+                broker.Commit();
+                return true;
+            }
+            catch (Exception)
+            {
+                broker.Rollback();
+                return false;
+            }
+            finally
+            {
+                broker.ZatvoriKonekciju();
+            }
+        }
     }
 }

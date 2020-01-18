@@ -13,6 +13,7 @@ namespace Barter
 {
     public partial class FrmRazmena : Form
     {
+        Roba trazenaRoba;
         BindingList<Roba> robaKorisnika = new BindingList<Roba>();
         BindingList<Roba> ulozenaRoba = new BindingList<Roba>();
 
@@ -30,6 +31,7 @@ namespace Barter
         // ...#...
         private void SredjivanjeFrmRazmena(Korisnik korisnik, Roba roba)
         {
+            trazenaRoba = roba;
             tbKorisnikRobe.Text = roba.KorisnikRobe.UsernameKorisnika;
             dtpDatumRazmeneRobe.Value = DateTime.Now;
             tbNazivRobe.Text = roba.NazivRobe;
@@ -93,6 +95,41 @@ namespace Barter
                     }
                 }
                 ulozenaRoba.Remove(robaZaBrisanje);
+            }
+        }
+
+        // ...
+        private void btnPotvrdiRazmenu_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Da li zelite da izvrsite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (tbTrazenaKolicinaRobe.BackColor == Color.Green)
+                {
+                    RazmenaRobe rr = new RazmenaRobe
+                    {
+                        DatumRazmeneRobe = dtpDatumRazmeneRobe.Value,
+                        KolicinaRobe = Convert.ToInt32(tbTrazenaKolicinaRobe.Text),
+                        KorisnikTrazeneRobe = trazenaRoba.KorisnikRobe,
+                        KorisnikUlozeneRobe = Sesija.Instance.Korisnik,
+                        TrazenaRoba = trazenaRoba
+                    };
+
+                    bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(rr, ulozenaRoba);
+
+                    if (uspesno)
+                    {
+                        MessageBox.Show("Uspesno sacuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Neuspesno sacuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Trazena roba nije lepo uneta!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } 
             }
         }
     }
