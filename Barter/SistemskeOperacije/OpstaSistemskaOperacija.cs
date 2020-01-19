@@ -2,6 +2,7 @@
 using Domen;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace SistemskeOperacije
             catch (Exception e)
             {
                 broker.Rollback();
+                Debug.WriteLine(">>> " + e.Message);
                 throw;
             }
             finally

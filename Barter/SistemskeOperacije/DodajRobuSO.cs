@@ -7,7 +7,7 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class RegistrujKorisnikaSO : OpstaSistemskaOperacija
+    public class DodajRobuSO : OpstaSistemskaOperacija
     {
         public bool Sacuvano { get; private set; }
 
@@ -25,7 +25,7 @@ namespace SistemskeOperacije
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
-            if (!(objekat is Korisnik))
+            if (!(objekat is Roba))
             {
                 throw new ArgumentException();
             }

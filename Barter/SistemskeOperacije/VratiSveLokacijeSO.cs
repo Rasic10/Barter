@@ -7,25 +7,18 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class RegistrujKorisnikaSO : OpstaSistemskaOperacija
+    public class VratiSveLokacijeSO : OpstaSistemskaOperacija
     {
-        public bool Sacuvano { get; private set; }
+        public List<Lokacija> Lokacije { get; private set; }
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            if (broker.Sacuvaj(objekat) != 1)
-            {
-                Sacuvano = false;
-            }
-            else
-            {
-                Sacuvano = true;
-            }
+            Lokacije = broker.VratiSve(objekat).Cast<Lokacija>().ToList();
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
-            if (!(objekat is Korisnik))
+            if (!(objekat is Lokacija))
             {
                 throw new ArgumentException();
             }

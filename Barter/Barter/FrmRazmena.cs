@@ -98,7 +98,7 @@ namespace Barter
             }
         }
 
-        // ...
+        // ...#...
         private void btnPotvrdiRazmenu_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Da li zelite da izvrsite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -111,10 +111,11 @@ namespace Barter
                         KolicinaRobe = Convert.ToInt32(tbTrazenaKolicinaRobe.Text),
                         KorisnikTrazeneRobe = trazenaRoba.KorisnikRobe,
                         KorisnikUlozeneRobe = Sesija.Instance.Korisnik,
-                        TrazenaRoba = trazenaRoba
+                        TrazenaRoba = trazenaRoba,
+                        UlozenaRoba = ulozenaRoba.ToList()
                     };
 
-                    bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(rr, ulozenaRoba);
+                    bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(rr);
 
                     if (uspesno)
                     {

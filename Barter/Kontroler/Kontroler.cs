@@ -32,7 +32,7 @@ namespace Kontroler
         {
         }
 
-        // ...#...
+        // ...#...SO
         public Korisnik Prijava(Korisnik korisnik)
         {
             OpstaSistemskaOperacija sistemskaOperacija = new PrijavaKorisnikaSO();
@@ -41,7 +41,7 @@ namespace Kontroler
             //return broker.Prijava(korIme, sifra);
         }
 
-        // ...#...
+        // ...#...SO
         public bool Registracija(Korisnik korisnik)
         {
             OpstaSistemskaOperacija sistemskaOperacija = new RegistrujKorisnikaSO();
@@ -64,69 +64,86 @@ namespace Kontroler
             //}
         }
 
+        // ...
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
         {
             return broker.VratiListuRobe(korisnik, operacija);
         }
 
+        // ...#...SO
         public List<Lokacija> VratiSveLokacije()
         {
-            return broker.VratiSveLokacije();
+            OpstaSistemskaOperacija sistemskaOperacija = new VratiSveLokacijeSO();
+            sistemskaOperacija.Izvrsi(new Lokacija());
+            return ((VratiSveLokacijeSO)sistemskaOperacija).Lokacije;
+            //return broker.VratiSveLokacije();
         }
 
-        public int UnesiKategoriju(Kategorija k)
+        // ...#...SO
+        public int UnesiKategoriju(Kategorija kategorija)
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                return broker.UnesiKateogoriju(k);
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-                return -1;
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new DodajKategorijuSO();
+            sistemskaOperacija.Izvrsi(kategorija);
+            return ((DodajKategorijuSO)sistemskaOperacija).ID;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    return broker.UnesiKateogoriju(k);
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(">>> " + e.Message);
+            //    return -1;
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
 
-        public BindingList<Kategorija> VratiListuKategorija()
+        // ...#...SO
+        public List<Kategorija> VratiListuKategorija() // promenjeno BindingList u List
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                return broker.VratiListuKategorija();
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-                return new BindingList<Kategorija>();
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new VratiSveKategorijeSO();
+            sistemskaOperacija.Izvrsi(new Kategorija());
+            return ((VratiSveKategorijeSO)sistemskaOperacija).Kateogrije;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    return broker.VratiListuKategorija();
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(">>> " + e.Message);
+            //    return new BindingList<Kategorija>();
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
 
-        public bool UnesiRobu(Roba r)
+        // ...#...SO
+        public bool UnesiRobu(Roba roba)
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                broker.UnesiRobu(r);
-                return true;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-                return false;
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new DodajRobuSO();
+            sistemskaOperacija.Izvrsi(roba);
+            return ((DodajRobuSO)sistemskaOperacija).Sacuvano;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    broker.UnesiRobu(r);
+            //    return true;
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(">>> " + e.Message);
+            //    return false;
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
 
         public bool ProveraKorisnikaIMaila(string korIme, string email)
@@ -148,50 +165,58 @@ namespace Kontroler
             }
         }
 
+        // ...#...SO
         public bool IzmenaProfila(Korisnik noviPodaci)
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                if (broker.IzmenaProfila(noviPodaci) != 1)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-                throw new Exception("Doslo je do greske pri radom sa bazom!");
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new IzmeniProfilSO();
+            sistemskaOperacija.Izvrsi(noviPodaci);
+            return ((IzmeniProfilSO)sistemskaOperacija).Izmenjeno;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    if (broker.IzmenaProfila(noviPodaci) != 1)
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        return true;
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(">>> " + e.Message);
+            //    throw new Exception("Doslo je do greske pri radom sa bazom!");
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
 
-        public bool SacuvajRazmenu(RazmenaRobe rr, BindingList<Roba> ulozenaRoba)
+        // ...#...SO
+        public bool SacuvajRazmenu(RazmenaRobe razmenaRobe)
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                broker.PokreniTransakciju();
-                broker.SacuvajRazmenu(rr, ulozenaRoba);
-                broker.Commit();
-                return true;
-            }
-            catch (Exception)
-            {
-                broker.Rollback();
-                return false;
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new DodajRazmenuSO();
+            sistemskaOperacija.Izvrsi(razmenaRobe);
+            return ((DodajRazmenuSO)sistemskaOperacija).Sacuvano;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    broker.PokreniTransakciju();
+            //    broker.SacuvajRazmenu(rr, ulozenaRoba);
+            //    broker.Commit();
+            //    return true;
+            //}
+            //catch (Exception)
+            //{
+            //    broker.Rollback();
+            //    return false;
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
     }
 }

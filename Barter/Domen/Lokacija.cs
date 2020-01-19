@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domen
 {
-    public class Lokacija
+    public class Lokacija : IDomenskiObjekat
     {
         private int ptt;
         private string nazivOpstine;
@@ -27,6 +28,73 @@ namespace Domen
             return NazivOpstine + " " + Ptt;
         }
 
-        
+        // ...#...
+        public string VratiImeKlase()
+        {
+            return "Lokacija";
+        }
+
+        // ...#...
+        public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
+        {
+            List<IDomenskiObjekat> lokacije = new List<IDomenskiObjekat>();
+
+            while (reader.Read())
+            {
+                Lokacija lokacija = new Lokacija
+                {
+                    Ptt = reader.GetInt32(0),
+                    NazivOpstine = reader.GetString(1),
+                };
+                lokacije.Add(lokacija);
+            }
+            return lokacije;
+        }
+
+        public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
+        {
+            throw new NotImplementedException();
+        }
+
+        // ...#...
+        public IDomenskiObjekat VratiUgnjezdeni()
+        {
+            return null;
+        }
+
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string VratiSlozenUslov()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string VratiVrednostiAtributa()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string VratiImePrimarnogKljuca()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string PostaviVrednostiAtributa()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string VratiUslovPoIDu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IDomenskiObjekat> VratiSlabeObjekte()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

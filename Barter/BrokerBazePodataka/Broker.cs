@@ -84,7 +84,7 @@ namespace BrokerBazePodataka
             }
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public void Registracija(Korisnik k)
         {
             SqlCommand command = connection.CreateCommand();
@@ -111,7 +111,7 @@ namespace BrokerBazePodataka
             return reader.Read();
         }
 
-        // ...
+        // ...#...ODRADJENOsaDO
         public int IzmenaProfila(Korisnik k)
         {
             SqlCommand command = new SqlCommand($"UPDATE Korisnik SET ImeKorisnika = @ImeKorisnika, PrezimeKorisnika = @PrezimeKorisnika, sifra = @sifra, DatumRodjenja = @DatumRodjenja, Adresa = @Adresa, Lokacija = @Lokacija WHERE KorisnikID = @KorisnikID", connection, transaction);
@@ -180,7 +180,7 @@ namespace BrokerBazePodataka
             }
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public List<Lokacija> VratiSveLokacije()
         {
             try
@@ -214,7 +214,7 @@ namespace BrokerBazePodataka
             }
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public BindingList<Kategorija> VratiListuKategorija()
         {
             BindingList<Kategorija> kategorije = new BindingList<Kategorija>();
@@ -235,7 +235,7 @@ namespace BrokerBazePodataka
             return kategorije;
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public int UnesiKateogoriju(Kategorija k)
         {
             SqlCommand command = connection.CreateCommand();
@@ -244,7 +244,7 @@ namespace BrokerBazePodataka
             return (int)command.ExecuteScalar();
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public void UnesiRobu(Roba r)
         {
             SqlCommand command = connection.CreateCommand();
@@ -258,7 +258,7 @@ namespace BrokerBazePodataka
             command.ExecuteNonQuery();
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public void SacuvajRazmenu(RazmenaRobe rr, BindingList<Roba> ulozenaRoba)
         {
             try
@@ -296,24 +296,72 @@ namespace BrokerBazePodataka
             }
         }
 
-
         // #######################################################################
         
         // ...#...
         public IDomenskiObjekat VratiJedan(IDomenskiObjekat objekat)
         {
             IDomenskiObjekat rezultat;
-            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovZaNadjiSlog()}", connection, transaction);
+            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiSlozenUslov()}", connection, transaction);
             SqlDataReader reader = command.ExecuteReader();
             rezultat = objekat.VratiObjekat(reader);
             reader.Close();
             return rezultat;
         }
 
+        // ...#...
         public int Sacuvaj(IDomenskiObjekat objekat)
         {
             SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} VALUES ({objekat.VratiVrednostiAtributa()})", connection, transaction);
             return command.ExecuteNonQuery();
+        }
+
+        // ...
+        public List<IDomenskiObjekat> VratiSve(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} ", connection, transaction);
+            SqlDataReader reader = command.ExecuteReader();
+            List<IDomenskiObjekat> rezultat = objekat.VratiListu(reader);
+            reader.Close();
+
+            foreach (IDomenskiObjekat rez in rezultat)
+            {
+                // Type t = objekat.GetType();
+                // t.GetProperties // proci kroz propertije, pittam da li je domenski objekat, ako jeste ucitavma ga
+                if (rez.VratiUgnjezdeni() == null)
+                    break;
+                rez.setujUgnjezdeni(VratiJedan(rez.VratiUgnjezdeni()));
+            }
+            return rezultat;
+        }
+
+        // ...#...
+        public int SacuvajIUzvratiID(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} OUTPUT {objekat.VratiImePrimarnogKljuca()} VALUES({objekat.VratiVrednostiAtributa()})", connection, transaction);
+            return (int)command.ExecuteScalar();
+        }
+
+        // ...#...
+        public int Izmeni(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"UPDATE {objekat.VratiImeKlase()} SET {objekat.PostaviVrednostiAtributa()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
+            return command.ExecuteNonQuery();
+        }
+
+        // ...#...
+        public bool SacuvajSlozen(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} OUTPUT {objekat.VratiImePrimarnogKljuca()} VALUES ({objekat.VratiVrednostiAtributa()})", connection, transaction);
+
+            int id = (int)command.ExecuteScalar();
+            foreach (IDomenskiObjekat o in objekat.VratiSlabeObjekte())
+            {
+                SqlCommand command2 = new SqlCommand($"INSERT INTO {o.VratiImeKlase()} VALUES ({o.VratiVrednostiAtributa()}, {id})", connection, transaction);
+                command2.ExecuteScalar();
+            }
+
+            return true;
         }
     }
 }

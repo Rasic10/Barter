@@ -34,16 +34,19 @@ namespace Domen
             return $"{ImeKorisnika} {PrezimeKorisnika}";
         }
 
+        // ...#...
         public string VratiImeKlase()
         {
             return "Korisnik";
         }
 
-        public string VratiUslovZaNadjiSlog()
+        // ...#...
+        public string VratiSlozenUslov()
         {
             return $"UsernameKorisnika = '{UsernameKorisnika}' and sifra = '{Sifra}'";
         }
 
+        // ...#...
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
         {
             Korisnik korisnik = null;
@@ -64,9 +67,47 @@ namespace Domen
             return korisnik;
         }
 
+        // ...#...
         public string VratiVrednostiAtributa()
         {
             return $"'{UsernameKorisnika}', '{ImeKorisnika}', '{PrezimeKorisnika}', '{Email}', '{Sifra}', '{DatumRodjenja}', '{Adresa}', {Lokacija.Ptt}";
+        }
+
+        public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDomenskiObjekat VratiUgnjezdeni()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string VratiImePrimarnogKljuca()
+        {
+            throw new NotImplementedException();
+        }
+
+        // ...#...
+        public string PostaviVrednostiAtributa()
+        {
+            return $"ImeKorisnika = '{ImeKorisnika}', PrezimeKorisnika = '{PrezimeKorisnika}', sifra = '{Sifra}', DatumRodjenja = '{DatumRodjenja}', Adresa = '{Adresa}', Lokacija = {Lokacija.Ptt}";
+        }
+
+        // ...#...
+        public string VratiUslovPoIDu()
+        {
+            return $"KorisnikID = {KorisnikID}";
+        }
+
+        public IEnumerable<IDomenskiObjekat> VratiSlabeObjekte()
+        {
+            throw new NotImplementedException();
         }
     }
 }

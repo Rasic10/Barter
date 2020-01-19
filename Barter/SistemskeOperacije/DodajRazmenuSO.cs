@@ -7,13 +7,13 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class RegistrujKorisnikaSO : OpstaSistemskaOperacija
+    public class DodajRazmenuSO : OpstaSistemskaOperacija
     {
         public bool Sacuvano { get; private set; }
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            if (broker.Sacuvaj(objekat) != 1)
+            if (!broker.SacuvajSlozen(objekat))
             {
                 Sacuvano = false;
             }
@@ -25,7 +25,7 @@ namespace SistemskeOperacije
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
-            if (!(objekat is Korisnik))
+            if (!(objekat is RazmenaRobe))
             {
                 throw new ArgumentException();
             }

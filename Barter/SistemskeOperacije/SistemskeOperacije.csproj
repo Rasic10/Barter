@@ -41,10 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DodajKategorijuSO.cs" />
+    <Compile Include="DodajRazmenuSO.cs" />
+    <Compile Include="DodajRobuSO.cs" />
+    <Compile Include="IzmeniProfilSO.cs" />
     <Compile Include="OpstaSistemskaOperacija.cs" />
     <Compile Include="PrijavaKorisnikaSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrujKorisnikaSO.cs" />
+    <Compile Include="VratiSveKategorijeSO.cs" />
+    <Compile Include="VratiSveLokacijeSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BrokerBazePodataka\BrokerBazePodataka.csproj">

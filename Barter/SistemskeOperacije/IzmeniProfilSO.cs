@@ -7,19 +7,19 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class RegistrujKorisnikaSO : OpstaSistemskaOperacija
+    public class IzmeniProfilSO : OpstaSistemskaOperacija
     {
-        public bool Sacuvano { get; private set; }
+        public bool Izmenjeno { get; private set; }
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            if (broker.Sacuvaj(objekat) != 1)
+            if (broker.Izmeni(objekat) != 1)
             {
-                Sacuvano = false;
+                Izmenjeno = false;
             }
             else
             {
-                Sacuvano = true;
+                Izmenjeno = true;
             }
         }
 

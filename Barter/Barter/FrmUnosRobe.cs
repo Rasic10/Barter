@@ -26,7 +26,8 @@ namespace Barter
         {
             dtpDatumUnosaRobe.Value = DateTime.Now;
             dtpDatumUnosaRobe.Enabled = false;
-            kategorije = Kontroler.Kontroler.Instance.VratiListuKategorija();
+            kategorije = new BindingList<Kategorija>(Kontroler.Kontroler.Instance.VratiListuKategorija());
+            // kategorije = Kontroler.Kontroler.Instance.VratiListuKategorija(); //stara verzija
             cbKategorija.DataSource = kategorije;
         }
 
@@ -78,7 +79,8 @@ namespace Barter
                     CenaRobe = cena,
                     DatumUnosaRobe = datumUnosaRobe,
                     KorisnikRobe = Sesija.Instance.Korisnik,
-                    KategorijaRobe = (Kategorija)cbKategorija.SelectedItem
+                    KategorijaRobe = (Kategorija)cbKategorija.SelectedItem,
+                    RazmenaUlozeneRobe = null
                 };
                 bool uspesnoUnetaRoba = Kontroler.Kontroler.Instance.UnesiRobu(r);
                 if(uspesnoUnetaRoba)

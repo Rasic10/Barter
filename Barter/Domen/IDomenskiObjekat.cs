@@ -11,18 +11,26 @@ namespace Domen
     {
         string VratiImeKlase();
 
-        string VratiUslovZaNadjiSlog();
+        string VratiSlozenUslov();
 
         IDomenskiObjekat VratiObjekat(SqlDataReader reader);
 
         string VratiVrednostiAtributa();
+
+        List<IDomenskiObjekat> VratiListu(SqlDataReader reader);
+
+        IDomenskiObjekat VratiUgnjezdeni();
+
+        void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat);
+
+        string VratiImePrimarnogKljuca();
+
+        string PostaviVrednostiAtributa();
         
-        //string PostaviVrednostiAtributa();
+        string VratiUslovPoIDu();
+
+        IEnumerable<IDomenskiObjekat> VratiSlabeObjekte();
         //string VratiUslovZaNadjiSlogove(string text);
-        //List<IDomenskiObjekat> VratiListu(SqlDataReader reader);
-        //IDomenskiObjekat VratiUgnjezdeni();
-        //void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat);
-        //object VratiImePrimarnogKljuca();
-        //IEnumerable<IDomenskiObjekat> VratiSlabeObjekte();
+
     }
 }

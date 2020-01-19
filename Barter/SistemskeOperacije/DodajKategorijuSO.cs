@@ -7,25 +7,18 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class RegistrujKorisnikaSO : OpstaSistemskaOperacija
+    public class DodajKategorijuSO : OpstaSistemskaOperacija
     {
-        public bool Sacuvano { get; private set; }
+        public int ID { get; private set; }
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            if (broker.Sacuvaj(objekat) != 1)
-            {
-                Sacuvano = false;
-            }
-            else
-            {
-                Sacuvano = true;
-            }
+            ID = broker.SacuvajIUzvratiID(objekat);
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
-            if (!(objekat is Korisnik))
+            if (!(objekat is Kategorija))
             {
                 throw new ArgumentException();
             }

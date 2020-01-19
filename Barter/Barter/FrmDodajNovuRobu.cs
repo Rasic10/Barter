@@ -76,7 +76,7 @@ namespace Barter
                     DatumUnosaRobe = DateTime.Now,
                     KorisnikRobe = dodaj.KorisnikRobe,
                     KategorijaRobe = dodaj.KategorijaRobe,
-                    //RazmenaID
+                    RazmenaUlozeneRobe = new RazmenaRobe()
                 };
 
                 dodaj.KolicinaRobe -= r.KolicinaRobe;
