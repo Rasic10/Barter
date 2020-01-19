@@ -100,7 +100,7 @@ namespace BrokerBazePodataka
             command.ExecuteNonQuery();
         }
 
-        // ...#...
+        // ...#...ODRADJENOsaDO
         public bool DaLiPostojiKorisnik(string korIme, string email)
         {
             SqlCommand command = connection.CreateCommand();
@@ -124,8 +124,8 @@ namespace BrokerBazePodataka
             command.Parameters.AddWithValue("@KorisnikID", k.KorisnikID);
             return command.ExecuteNonQuery();
         }
-        
-        // ...#... potrebno doraditi
+
+        // ...#...ODRADJENOsaDO
         public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
         {
             try
@@ -302,7 +302,7 @@ namespace BrokerBazePodataka
         public IDomenskiObjekat VratiJedan(IDomenskiObjekat objekat)
         {
             IDomenskiObjekat rezultat;
-            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiSlozenUslov()}", connection, transaction);
+            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
             SqlDataReader reader = command.ExecuteReader();
             rezultat = objekat.VratiObjekat(reader);
             reader.Close();
@@ -316,21 +316,24 @@ namespace BrokerBazePodataka
             return command.ExecuteNonQuery();
         }
 
-        // ...
-        public List<IDomenskiObjekat> VratiSve(IDomenskiObjekat objekat)
+        // ...#...
+        public List<IDomenskiObjekat> VratiSve(IDomenskiObjekat objekat, string operacija)
         {
-            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} ", connection, transaction);
+            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiSlozenUslov(operacija)}", connection, transaction);
             SqlDataReader reader = command.ExecuteReader();
             List<IDomenskiObjekat> rezultat = objekat.VratiListu(reader);
             reader.Close();
 
+            int broj = 1;
             foreach (IDomenskiObjekat rez in rezultat)
             {
-                // Type t = objekat.GetType();
-                // t.GetProperties // proci kroz propertije, pittam da li je domenski objekat, ako jeste ucitavma ga
-                if (rez.VratiUgnjezdeni() == null)
-                    break;
-                rez.setujUgnjezdeni(VratiJedan(rez.VratiUgnjezdeni()));
+                broj = 1;
+                
+                while (rez.VratiUgnjezdeni(broj) != null)
+                {
+                    rez.setujUgnjezdeni(VratiJedan(rez.VratiUgnjezdeni(broj)), broj);
+                    broj++;
+                }
             }
             return rezultat;
         }

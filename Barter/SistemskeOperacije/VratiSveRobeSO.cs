@@ -7,18 +7,19 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class VratiSveLokacijeSO : OpstaSistemskaOperacija
+    public class VratiSveRobeSO : OpstaSistemskaOperacija
     {
-        public List<Lokacija> Lokacije { get; private set; }
+        public List<Roba> Robe { get; private set; }
+        public string Operacija { get; set; }
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            Lokacije = broker.VratiSve(objekat, ">").Cast<Lokacija>().ToList();
+            Robe = broker.VratiSve(objekat, Operacija).Cast<Roba>().ToList();
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
-            if (!(objekat is Lokacija))
+            if (!(objekat is Roba))
             {
                 throw new ArgumentException();
             }

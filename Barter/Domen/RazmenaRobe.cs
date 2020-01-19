@@ -30,7 +30,7 @@ namespace Domen
             throw new NotImplementedException();
         }
 
-        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj)
         {
             throw new NotImplementedException();
         }
@@ -57,12 +57,12 @@ namespace Domen
             throw new NotImplementedException();
         }
 
-        public IDomenskiObjekat VratiUgnjezdeni()
+        public IDomenskiObjekat VratiUgnjezdeni(int broj)
         {
             throw new NotImplementedException();
         }
 
-        public string VratiSlozenUslov()
+        public string VratiSlozenUslov(string operacija)
         {
             throw new NotImplementedException();
         }

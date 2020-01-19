@@ -11,7 +11,7 @@ namespace Domen
     {
         string VratiImeKlase();
 
-        string VratiSlozenUslov();
+        string VratiSlozenUslov(string operacija);
 
         IDomenskiObjekat VratiObjekat(SqlDataReader reader);
 
@@ -19,9 +19,9 @@ namespace Domen
 
         List<IDomenskiObjekat> VratiListu(SqlDataReader reader);
 
-        IDomenskiObjekat VratiUgnjezdeni();
+        IDomenskiObjekat VratiUgnjezdeni(int broj);
 
-        void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat);
+        void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj);
 
         string VratiImePrimarnogKljuca();
 
@@ -30,7 +30,6 @@ namespace Domen
         string VratiUslovPoIDu();
 
         IEnumerable<IDomenskiObjekat> VratiSlabeObjekte();
-        //string VratiUslovZaNadjiSlogove(string text);
 
     }
 }

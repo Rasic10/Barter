@@ -59,7 +59,7 @@ namespace Barter
             this.Close();
         }
 
-        // ...
+        // ...#...
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if(tbKolicina.BackColor == Color.Green)

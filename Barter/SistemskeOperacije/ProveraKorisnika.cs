@@ -7,18 +7,25 @@ using Domen;
 
 namespace SistemskeOperacije
 {
-    public class VratiSveLokacijeSO : OpstaSistemskaOperacija
+    public class ProveraKorisnika : OpstaSistemskaOperacija
     {
-        public List<Lokacija> Lokacije { get; private set; }
+        public bool Postoji { get; private set; }
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            Lokacije = broker.VratiSve(objekat, ">").Cast<Lokacija>().ToList();
+            if (broker.VratiSve(objekat, $"OR email = '{((Korisnik)objekat).Email}'").Count > 0)
+            {
+                Postoji = true;
+            }
+            else
+            {
+                Postoji = false;
+            }
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
-            if (!(objekat is Lokacija))
+            if (!(objekat is Korisnik))
             {
                 throw new ArgumentException();
             }

@@ -57,19 +57,20 @@ namespace Domen
         }
 
         // ...#...
-        public IDomenskiObjekat VratiUgnjezdeni()
+        public IDomenskiObjekat VratiUgnjezdeni(int broj)
         {
             return null;
         }
 
-        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj)
         {
             throw new NotImplementedException();
         }
 
-        public string VratiSlozenUslov()
+        // ...#
+        public string VratiSlozenUslov(string operacija)
         {
-            throw new NotImplementedException();
+            return $"Ptt > 0";
         }
 
         public string VratiVrednostiAtributa()

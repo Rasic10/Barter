@@ -19,7 +19,7 @@ namespace Barter
         {
             InitializeComponent();
 
-            listaRobe = Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "=");
+            listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
             dgvRoba.DataSource = listaRobe;
         }
 

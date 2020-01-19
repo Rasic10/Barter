@@ -43,25 +43,36 @@ namespace Domen
             return kategorije;
         }
 
+        // ...#...
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            Kategorija kategorija = null;
+            while (reader.Read())
+            {
+                kategorija = new Kategorija
+                {
+                    KategorijaID = reader.GetInt32(0),
+                    VrstaKategorije = reader.GetString(1)
+                };
+            }
+            return kategorija;
         }
 
         // ...#...
-        public IDomenskiObjekat VratiUgnjezdeni()
+        public IDomenskiObjekat VratiUgnjezdeni(int broj)
         {
             return null;
         }
 
-        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj)
         {
             throw new NotImplementedException();
         }
 
-        public string VratiSlozenUslov()
+        // ...
+        public string VratiSlozenUslov(string operacija)
         {
-            throw new NotImplementedException();
+            return $"KategorijaID > 0";
         }
 
         // ...#...
@@ -81,9 +92,10 @@ namespace Domen
             throw new NotImplementedException();
         }
 
+        // ...#...
         public string VratiUslovPoIDu()
         {
-            throw new NotImplementedException();
+            return $"KategorijaID = {KategorijaID}";
         }
 
         public IEnumerable<IDomenskiObjekat> VratiSlabeObjekte()

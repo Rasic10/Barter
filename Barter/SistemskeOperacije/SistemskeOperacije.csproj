@@ -48,9 +48,11 @@
     <Compile Include="OpstaSistemskaOperacija.cs" />
     <Compile Include="PrijavaKorisnikaSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveraKorisnika.cs" />
     <Compile Include="RegistrujKorisnikaSO.cs" />
     <Compile Include="VratiSveKategorijeSO.cs" />
     <Compile Include="VratiSveLokacijeSO.cs" />
+    <Compile Include="VratiSveRobeSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BrokerBazePodataka\BrokerBazePodataka.csproj">

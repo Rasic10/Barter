@@ -32,9 +32,11 @@ namespace Domen
             throw new NotImplementedException();
         }
 
-        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        // ...#...
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj)
         {
-            throw new NotImplementedException();
+            if (broj == 1) KorisnikRobe = (Korisnik)domenskiObjekat;
+            if (broj == 2) KategorijaRobe = (Kategorija)domenskiObjekat;
         }
 
         public override string ToString()
@@ -53,9 +55,46 @@ namespace Domen
             throw new NotImplementedException();
         }
 
+        // ...#...
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<IDomenskiObjekat> robe = new List<IDomenskiObjekat>();
+            while (reader.Read())
+            {
+                Roba roba = new Roba
+                {
+                    RobaID = reader.GetInt32(0),
+                    NazivRobe = reader.GetString(1),
+                    KolicinaRobe = reader.GetDouble(2),
+                    CenaRobe = reader.GetDouble(3),
+                    DatumUnosaRobe = reader.GetDateTime(4),
+                    KorisnikRobe = new Korisnik
+                    {
+                        KorisnikID = reader.GetInt32(5)
+                    },
+                    KategorijaRobe = new Kategorija
+                    {
+                        KategorijaID = reader.GetInt32(6)
+                    }
+                };
+
+                if (!reader.IsDBNull(7))
+                {
+                    roba.RazmenaUlozeneRobe = new RazmenaRobe { RazmenaID = reader.GetInt32(7) };
+                }
+                else
+                {
+                    roba.razmenaUlozeneRobe = new RazmenaRobe { RazmenaID = -1 };
+                }
+
+                robe.Add(roba);
+            }
+            return robe;
+
+            //if (!SqlReader.IsDBNull(indexFirstName))
+            //{
+            //    employee.FirstName = sqlreader.GetString(indexFirstName);
+            //}
         }
 
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
@@ -63,14 +102,19 @@ namespace Domen
             throw new NotImplementedException();
         }
 
-        public IDomenskiObjekat VratiUgnjezdeni()
+        // ...#...
+        public IDomenskiObjekat VratiUgnjezdeni(int broj)
         {
-            throw new NotImplementedException();
+            if (broj == 1) return KorisnikRobe;
+            if (broj == 2) return KategorijaRobe;
+            
+            return null;
         }
 
-        public string VratiSlozenUslov()
+        // ...#...
+        public string VratiSlozenUslov(string operacija)
         {
-            throw new NotImplementedException();
+            return $"KorisnikRobe {operacija} {KorisnikRobe.KorisnikID}";
         }
 
         // ...#...

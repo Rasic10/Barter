@@ -13,7 +13,7 @@ namespace SistemskeOperacije
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            Kateogrije = broker.VratiSve(objekat).Cast<Kategorija>().ToList();
+            Kateogrije = broker.VratiSve(objekat, ">").Cast<Kategorija>().ToList();
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)

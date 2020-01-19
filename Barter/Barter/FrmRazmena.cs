@@ -38,7 +38,7 @@ namespace Barter
             tbCenaRobe.Text = roba.CenaRobe.ToString();
             tbDostupnaKolicina.Text = roba.KolicinaRobe.ToString();
             dgvUlozenaRoba.DataSource = ulozenaRoba;
-            robaKorisnika = Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "=");
+            robaKorisnika = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
         }
 
         // ...#...

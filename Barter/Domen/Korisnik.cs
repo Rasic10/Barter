@@ -41,9 +41,9 @@ namespace Domen
         }
 
         // ...#...
-        public string VratiSlozenUslov()
+        public string VratiSlozenUslov(string operacija)
         {
-            return $"UsernameKorisnika = '{UsernameKorisnika}' and sifra = '{Sifra}'";
+            return $"UsernameKorisnika = '{UsernameKorisnika}' {operacija}";
         }
 
         // ...#...
@@ -73,17 +73,35 @@ namespace Domen
             return $"'{UsernameKorisnika}', '{ImeKorisnika}', '{PrezimeKorisnika}', '{Email}', '{Sifra}', '{DatumRodjenja}', '{Adresa}', {Lokacija.Ptt}";
         }
 
+        // ...#...
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<IDomenskiObjekat> korisnici = new List<IDomenskiObjekat>();
+
+            while (reader.Read())
+            {
+                Korisnik korisnik = new Korisnik
+                {
+                    KorisnikID = reader.GetInt32(0),
+                    UsernameKorisnika = reader.GetString(1),
+                    ImeKorisnika = reader.GetString(2),
+                    PrezimeKorisnika = reader.GetString(3),
+                    Email = reader.GetString(4),
+                    Sifra = reader.GetString(5),
+                    DatumRodjenja = reader.GetDateTime(6),
+                    Adresa = reader.GetString(7)
+                };
+                korisnici.Add(korisnik);
+            }
+            return korisnici;
         }
 
-        public IDomenskiObjekat VratiUgnjezdeni()
+        public IDomenskiObjekat VratiUgnjezdeni(int broj)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
-        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat)
+        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj)
         {
             throw new NotImplementedException();
         }

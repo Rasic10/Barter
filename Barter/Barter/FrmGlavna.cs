@@ -25,7 +25,7 @@ namespace Barter
         {
             InitializeComponent();
             korisnik = k;
-            listaRobe = Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!=");
+            listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!="));
             dgvGlavna.DataSource = listaRobe;
 
             DataGridViewButtonColumn button = new DataGridViewButtonColumn();

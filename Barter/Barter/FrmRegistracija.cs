@@ -167,6 +167,7 @@ namespace Barter
             }
         }
 
+        // ...
         private bool PromenaSifre()
         {
             if (tbNovaSifra.Text != "")
@@ -193,13 +194,14 @@ namespace Barter
             }
         }
 
+        // ...
         private bool ValidacijaRegistracije()
         {
             if (tbKorisnickoIme.Text != "" && tbEmail.Text != "" && tbNovaSifra.Text != "" && tbPotvrdaNoveSifre.Text != "")
             {
                 try
                 {
-                    if (!Kontroler.Kontroler.Instance.ProveraKorisnikaIMaila(tbKorisnickoIme.Text, tbEmail.Text))
+                    if (!Kontroler.Kontroler.Instance.ProveraKorisnikaIMaila(new Korisnik { UsernameKorisnika = tbKorisnickoIme.Text, Email = tbEmail.Text }))
                     {
                         if (tbNovaSifra.Text == tbPotvrdaNoveSifre.Text)
                         {

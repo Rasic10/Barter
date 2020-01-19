@@ -38,7 +38,7 @@ namespace Kontroler
             OpstaSistemskaOperacija sistemskaOperacija = new PrijavaKorisnikaSO();
             sistemskaOperacija.Izvrsi(korisnik);
             return ((PrijavaKorisnikaSO)sistemskaOperacija).Korisnik;
-            //return broker.Prijava(korIme, sifra);
+            //return broker.Prijava(korisnik.UsernameKorisnika, korisnik.Sifra);
         }
 
         // ...#...SO
@@ -64,10 +64,14 @@ namespace Kontroler
             //}
         }
 
-        // ...
-        public BindingList<Roba> VratiListuRobe(Korisnik korisnik, string operacija)
+        // ...#...SO
+        public List<Roba> VratiListuRobe(Korisnik korisnik, string operacija) // promenjeno BindingList u List
         {
-            return broker.VratiListuRobe(korisnik, operacija);
+            OpstaSistemskaOperacija sistemskaOperacija = new VratiSveRobeSO();
+            ((VratiSveRobeSO)sistemskaOperacija).Operacija = operacija;
+            sistemskaOperacija.Izvrsi(new Roba() { KorisnikRobe = korisnik });
+            return ((VratiSveRobeSO)sistemskaOperacija).Robe;
+            //return broker.VratiListuRobe(korisnik, operacija);
         }
 
         // ...#...SO
@@ -146,23 +150,27 @@ namespace Kontroler
             //}
         }
 
-        public bool ProveraKorisnikaIMaila(string korIme, string email)
+        // ...#...SO
+        public bool ProveraKorisnikaIMaila(Korisnik korisnik)
         {
-            try
-            {
-                broker.OtvoriKonekciju();
-                if (broker.DaLiPostojiKorisnik(korIme, email)) return true;
-                else return false;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-                throw new Exception("Doslo je do greske pri radu sa bazom!");
-            }
-            finally
-            {
-                broker.ZatvoriKonekciju();
-            }
+            OpstaSistemskaOperacija sistemskaOperacija = new ProveraKorisnika();
+            sistemskaOperacija.Izvrsi(korisnik);
+            return ((ProveraKorisnika)sistemskaOperacija).Postoji;
+            //try
+            //{
+            //    broker.OtvoriKonekciju();
+            //    if (broker.DaLiPostojiKorisnik(korIme, email)) return true;
+            //    else return false;
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine(">>> " + e.Message);
+            //    throw new Exception("Doslo je do greske pri radu sa bazom!");
+            //}
+            //finally
+            //{
+            //    broker.ZatvoriKonekciju();
+            //}
         }
 
         // ...#...SO
