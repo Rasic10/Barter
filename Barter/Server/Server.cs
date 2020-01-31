@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -15,7 +16,7 @@ namespace Server
         private FrmServer frmServer;
         private List<Obrada> klijenti = new List<Obrada>();
         private Socket osluskujuciSoket;
-        //public event Action OsveziFormu;
+        private List<Thread> nitiKlijenata = new List<Thread>();
 
         // ...#...
         public Server(FrmServer frmServer)
@@ -29,7 +30,6 @@ namespace Server
             try
             {
                 osluskujuciSoket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                osluskujuciSoket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 osluskujuciSoket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9876));
                 osluskujuciSoket.Listen(5);
 
@@ -45,7 +45,7 @@ namespace Server
             }
         }
 
-        // ...
+        // ...#...
         private void Osluskuj()
         {
             bool kraj = false;
@@ -56,29 +56,41 @@ namespace Server
                     Socket klijent = osluskujuciSoket.Accept();
                     Obrada obrada = new Obrada(klijent, frmServer);
                     klijenti.Add(obrada);
-                    new Thread(obrada.Obradjuj).Start();
+                    Thread nit = new Thread(obrada.ObradiKlijenta);
+                    nit.IsBackground = true;
+                    nitiKlijenata.Add(nit);
+                    nit.Start();
                 }
                 catch (ThreadInterruptedException e)
                 {
+                    string s = e.Message;
                     kraj = true;
                 }
                 catch (SocketException e)
                 {
+                    string s = e.Message;
                     kraj = true;
                 }
             }
         }
 
-        // ...
+        // zavrseno
         internal bool Zaustavi()
         {
             try
             {
-                //for (int i = 0; i < klijenti.Count; i++)
-                //{
-                //    klijenti[i].Ugasi();
-                //}
-                //klijenti = new List<Obrada>();
+                for (int i = 0; i < klijenti.Count; i++)
+                {
+                    try
+                    {
+                        klijenti[i].IskljuciKlijentaIProslediPorukuKraj();
+                        nitiKlijenata[i].Abort();
+                    }
+                    catch (IOException)
+                    {
+                    }
+                }
+                klijenti = new List<Obrada>();
                 osluskujuciSoket.Close();
                 return true;
             }

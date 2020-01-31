@@ -1,4 +1,5 @@
 ﻿using Domen;
+using Kontroler;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,9 +16,9 @@ namespace Server
     {
         private Socket klijent;
         private FrmServer frmServer;
-        private NetworkStream klijentskiTok;
+        public NetworkStream klijentskiTok;
         private BinaryFormatter formatter = new BinaryFormatter();
-        private bool kraj;
+        public bool kraj;
 
         // ...#...
         public Obrada(Socket klijent, FrmServer frmServer)
@@ -28,32 +29,168 @@ namespace Server
         }
 
         // ...
-        public void Obradjuj()
+        public void ObradiKlijenta()
         {
             kraj = false;
             while (!kraj)
             {
                 try
                 {
-                    Zahtev z = (Zahtev)formatter.Deserialize(klijentskiTok);
-                    Odgovor odg = new Odgovor();
-                    switch (z.Operacija)
+                    Zahtev zahtev = (Zahtev)formatter.Deserialize(klijentskiTok);
+                    Odgovor odgovor = new Odgovor();
+                    switch (zahtev.Operacija)
                     {
-                        case Operacija.Operacija1:
-                            //pozivanje metoda
+                        case Operacija.PrijaviKorisnika:
+                            odgovor = PrijaviKorisnika((Korisnik)zahtev.Objekat);
                             break;
+                        case Operacija.VratiLokacije:
+                            odgovor = VratiLokacije();
+                            break;
+                        case Operacija.Registracija:
+                            odgovor = Registracija((Korisnik)zahtev.Objekat);
+                            break;
+                        case Operacija.ProveraKorisnika:
+                            odgovor = ProveraKorisnika((Korisnik)zahtev.Objekat);
+                            break;
+                        case Operacija.VratiListuRobe:
+                            odgovor = VratiListuRobe((Korisnik)zahtev.Objekat, zahtev.Text);
+                            break;
+                        case Operacija.IzmenaProfila:
+                            odgovor = IzmenaProfila((Korisnik)zahtev.Objekat);
+                            break;
+                        case Operacija.VratiKategorije:
+                            odgovor = VratiKategorije();
+                            break;
+                        case Operacija.UnesiKategoriju:
+                            odgovor = UnesiKategoriju((Kategorija)zahtev.Objekat);
+                            break;
+                        case Operacija.UnesiRobu:
+                            odgovor = UnesiRobu((Roba)zahtev.Objekat);
+                            break;
+
                     }
-                    ProslediOdgovor(odg);
+                    ProslediOdgovor(odgovor);
                 }
-                catch (ThreadInterruptedException e)
+                catch (Exception e)
                 {
-                    kraj = false;
-                }
-                catch (IOException e)
-                {
-                    kraj = false;
+                    string s = e.Message;
+                    kraj = true;
                 }
             }
+        }
+
+        // 
+        private Odgovor UnesiRobu(Roba roba)
+        {
+            bool uspesno = Kontroler.Kontroler.Instance.UnesiRobu(roba);
+            Odgovor odgovor = new Odgovor();
+            if (uspesno != false)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor VratiKategorije()
+        {
+            List<Kategorija> kateogrije = Kontroler.Kontroler.Instance.VratiListuKategorija();
+            Odgovor odgovor = new Odgovor();
+            odgovor.Objekat = kateogrije;
+            if (kateogrije.Count == 0)
+                odgovor.Signal = Signal.Error;
+            else
+                odgovor.Signal = Signal.Ok;
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor VratiListuRobe(Korisnik objekat, string text)
+        {
+            List<Roba> lokacije = Kontroler.Kontroler.Instance.VratiListuRobe(objekat, text);
+            Odgovor odgovor = new Odgovor();
+            odgovor.Objekat = lokacije;
+            if (odgovor.Objekat == null)
+                odgovor.Signal = Signal.Error;
+            else
+                odgovor.Signal = Signal.Ok;
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor ProveraKorisnika(Korisnik korisnik)
+        {
+            bool postoji = Kontroler.Kontroler.Instance.ProveraKorisnikaIMaila(korisnik);
+            Odgovor odgovor = new Odgovor();
+            if (postoji == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
+        // ...#...
+        internal void IskljuciKlijentaIProslediPorukuKraj()
+        {
+            //ProslediOdgovor(new Odgovor { Signal = Signal.Kraj });
+            klijent.Close();
+        }
+
+        // ...#...
+        private Odgovor Registracija(Korisnik korisnik)
+        {
+            bool uspesno = Kontroler.Kontroler.Instance.Registracija(korisnik);
+            Odgovor odgovor = new Odgovor();
+            if (uspesno == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor VratiLokacije()
+        {
+            List<Lokacija> lokacije = Kontroler.Kontroler.Instance.VratiSveLokacije();
+            Odgovor odgovor = new Odgovor();
+            odgovor.Objekat = lokacije;
+            if (odgovor.Objekat == null)
+                odgovor.Signal = Signal.Error;
+            else
+                odgovor.Signal = Signal.Ok;
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor PrijaviKorisnika(Korisnik korisnik)
+        {
+            Korisnik k = Kontroler.Kontroler.Instance.Prijava(korisnik);
+            Odgovor odgovor = new Odgovor();
+            if (k == null)
+            {
+                odgovor.Signal = Signal.Error;
+                odgovor.Poruka = "Korisnik nije pronadjen!";
+                odgovor.Objekat = new Korisnik();
+            }
+            else
+            {
+                odgovor.Signal = Signal.Ok;
+                odgovor.Poruka = "Korisnik je pronadjen!";
+                odgovor.Objekat = k;
+            }
+            return odgovor;
         }
 
         // ...#...
@@ -61,5 +198,38 @@ namespace Server
         {
             formatter.Serialize(klijentskiTok, odgovor);
         }
+
+        // ...#...
+        private Odgovor IzmenaProfila(Korisnik korisnik)
+        {
+            bool izmena = Kontroler.Kontroler.Instance.IzmenaProfila(korisnik);
+            Odgovor odgovor = new Odgovor();
+            if (izmena == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor UnesiKategoriju(Kategorija kategorija)
+        {
+            int uspesno = Kontroler.Kontroler.Instance.UnesiKategoriju(kategorija);
+            Odgovor odgovor = new Odgovor();
+            if (uspesno != -1)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace Barter
 {
     public partial class FrmRegistracija : Form
     {
-        // Info: Konstruktor za registraciju
+        // Info: Konstruktor za registraciju - zavrseno
         public FrmRegistracija(string title)
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace Barter
             }
         }
 
-        // Info: Konstruktor za profil
+        // Info: Konstruktor za profil - zavrseno
         public FrmRegistracija(string title, Korisnik k)
         {
             InitializeComponent();
@@ -39,87 +39,122 @@ namespace Barter
             }
         }
 
-        // ...
+        // zavrseno - Problem: postavljenje lokacije
         private void SredjivanjeFrmProfil(Korisnik k)
         {
-            tbKorisnickoIme.Text = k.UsernameKorisnika;
-            tbKorisnickoIme.Enabled = false;
-            tbEmail.Text = k.Email;
-            tbEmail.Enabled = false;
-            tbIme.Text = k.ImeKorisnika;
-            tbPrezime.Text = k.PrezimeKorisnika;
-            tbAdresa.Text = k.Adresa;
-            dtpDatumRodjenja.Value = k.DatumRodjenja;
-            // Problem: postavi lokaciju na datu lokaciju
-            cbLokacija.DataSource = Kontroler.Kontroler.Instance.VratiSveLokacije();
+            try
+            {
+                tbKorisnickoIme.Text = k.UsernameKorisnika;
+                tbKorisnickoIme.Enabled = false;
+                tbEmail.Text = k.Email;
+                tbEmail.Enabled = false;
+                tbIme.Text = k.ImeKorisnika;
+                tbPrezime.Text = k.PrezimeKorisnika;
+                tbAdresa.Text = k.Adresa;
+                dtpDatumRodjenja.Value = k.DatumRodjenja;
+                // Problem: postavi lokaciju na datu lokaciju
+                // cbLokacija.DataSource = Kontroler.Kontroler.Instance.VratiSveLokacije();
+                cbLokacija.DataSource = Komunikacija.Instance.VratiLokacije();
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
         }
 
-        // ...#...
+        // zavrseno
         private void SredjivanjeFrmRegistracija()
         {
-            gbSifra.Text = "Sifra:";
-            lblStaraSifra.Visible = false;
-            tbStaraSifra.Visible = false;
-            lblNovaSifra.Text = "Sifra:*";
-            lblPotvrdaNoveSifre.Text = "Potvrda sifre:*";
-            cbLokacija.DataSource = Kontroler.Kontroler.Instance.VratiSveLokacije();
+            try
+            {
+                gbSifra.Text = "Sifra:";
+                lblStaraSifra.Visible = false;
+                tbStaraSifra.Visible = false;
+                lblNovaSifra.Text = "Sifra:*";
+                lblPotvrdaNoveSifre.Text = "Potvrda sifre:*";
+                //cbLokacija.DataSource = Kontroler.Kontroler.Instance.VratiSveLokacije();
+                cbLokacija.DataSource = Komunikacija.Instance.VratiLokacije();
+            }
+            catch (ExceptionServer es)
+            {
+                MessageBox.Show(es.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                throw new ExceptionServer("");
+            }
         }
 
-        // ...#...
+        // zavrseno
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // ...
+        // zavrseno
         private void btnPotvrdi_Click(object sender, EventArgs e)
         {
-            // Registracija
-            if (lblTitle.Text == "REGISTRACIJA")
+            // Registracija - zavrseno
+            try
             {
-                if (ValidacijaRegistracije())
+                if (lblTitle.Text == "REGISTRACIJA")
                 {
-                    DateTime datumRodjenja = dtpDatumRodjenja.Value;
-                    if (datumRodjenja.Year > DateTime.Now.Year - 18)
+                    if (ValidacijaRegistracije())
                     {
-                        MessageBox.Show("Korisnik mora da bude stariji od 18 godina!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    Lokacija lokacija = (Lokacija)cbLokacija.SelectedItem;
-                    Korisnik k = new Korisnik
-                    {
-                        UsernameKorisnika = tbKorisnickoIme.Text,
-                        ImeKorisnika = tbIme.Text,
-                        PrezimeKorisnika = tbPrezime.Text,
-                        Email = tbEmail.Text,
-                        Sifra = tbNovaSifra.Text,
-                        DatumRodjenja = datumRodjenja,
-                        Adresa = tbAdresa.Text,
-                        Lokacija = lokacija
-                    };
-                    bool uspesnaReg = Kontroler.Kontroler.Instance.Registracija(k);
-                    if (uspesnaReg)
-                    {
-                        MessageBox.Show($"Uspesno ste registrovani {k.UsernameKorisnika}", "Registracija", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        DateTime datumRodjenja = dtpDatumRodjenja.Value;
+                        if (datumRodjenja.Year > DateTime.Now.Year - 18)
+                        {
+                            MessageBox.Show("Korisnik mora da bude stariji od 18 godina!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        Lokacija lokacija = (Lokacija)cbLokacija.SelectedItem;
+                        Korisnik k = new Korisnik
+                        {
+                            UsernameKorisnika = tbKorisnickoIme.Text,
+                            ImeKorisnika = tbIme.Text,
+                            PrezimeKorisnika = tbPrezime.Text,
+                            Email = tbEmail.Text,
+                            Sifra = tbNovaSifra.Text,
+                            DatumRodjenja = datumRodjenja,
+                            Adresa = tbAdresa.Text,
+                            Lokacija = lokacija
+                        };
+                        // bool uspesnaReg = Kontroler.Kontroler.Instance.Registracija(k);
+                        bool uspesnaReg = Komunikacija.Instance.Registracija(k);
+                        if (uspesnaReg)
+                        {
+                            MessageBox.Show($"Uspesno ste registrovani {k.UsernameKorisnika}", "Registracija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Neuspesna registracija, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Neuspesna registracija, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
-                else
-                {
-                    return;
-                }
+            }
+            catch (ExceptionServer es)
+            {
+                MessageBox.Show(es.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                throw new ExceptionServer("");
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
-            // Profil
-            if (lblTitle.Text == "PROFIL")
+            // Profil - zavrseno
+            try
             {
-                Korisnik noviPodaci = new Korisnik();
-                try
+                if (lblTitle.Text == "PROFIL")
                 {
+                    Korisnik noviPodaci = new Korisnik();
+                
                     if (PromenaSifre())
                     {
                         noviPodaci.Sifra = tbNovaSifra.Text;
@@ -147,7 +182,9 @@ namespace Barter
                     noviPodaci.Adresa = tbAdresa.Text;
                     noviPodaci.Lokacija = lokacija;
 
-                    bool uspesnaIzmenaProfila = Kontroler.Kontroler.Instance.IzmenaProfila(noviPodaci);
+                    // bool uspesnaIzmenaProfila = Kontroler.Kontroler.Instance.IzmenaProfila(noviPodaci);
+                    bool uspesnaIzmenaProfila = Komunikacija.Instance.IzmenaProfila(noviPodaci);
+
                     if (uspesnaIzmenaProfila)
                     {
                         MessageBox.Show($"Uspesno ste izmenili podatke profila {Sesija.Instance.Korisnik.UsernameKorisnika}", "Profil", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -159,15 +196,20 @@ namespace Barter
                         MessageBox.Show("Neuspesna izmena podataka profila, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ee)
-                {
-                    MessageBox.Show(ee.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
+            catch (Exception ep)
+            {
+                MessageBox.Show(ep.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
-        // ...
+        // zavrseno
         private bool PromenaSifre()
         {
             if (tbNovaSifra.Text != "")
@@ -180,7 +222,7 @@ namespace Barter
                     }
                     else
                     {
-                        throw new Exception("Poklapanje nove sifre nije uspenos!");
+                        throw new Exception("Poklapanje nove sifre nije uspesno!");
                     }
                 }
                 else
@@ -194,14 +236,15 @@ namespace Barter
             }
         }
 
-        // ...
+        // zavrseno
         private bool ValidacijaRegistracije()
         {
             if (tbKorisnickoIme.Text != "" && tbEmail.Text != "" && tbNovaSifra.Text != "" && tbPotvrdaNoveSifre.Text != "")
             {
                 try
                 {
-                    if (!Kontroler.Kontroler.Instance.ProveraKorisnikaIMaila(new Korisnik { UsernameKorisnika = tbKorisnickoIme.Text, Email = tbEmail.Text }))
+                    //if (!Kontroler.Kontroler.Instance.ProveraKorisnikaIMaila(new Korisnik { UsernameKorisnika = tbKorisnickoIme.Text, Email = tbEmail.Text }))
+                    if (!Komunikacija.Instance.ProveraKorisnikaIMaila(new Korisnik { UsernameKorisnika = tbKorisnickoIme.Text, Email = tbEmail.Text }))
                     {
                         if (tbNovaSifra.Text == tbPotvrdaNoveSifre.Text)
                         {
@@ -218,6 +261,10 @@ namespace Barter
                         MessageBox.Show("Postoji korisnik sa datim korisnickim imenom ili email adresom!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return false;
                     }
+                }
+                catch (ExceptionServer es)
+                {
+                    throw new ExceptionServer("Server je zaustavljen!");
                 }
                 catch (Exception e)
                 {

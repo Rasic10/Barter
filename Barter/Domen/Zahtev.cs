@@ -11,12 +11,21 @@ namespace Domen
     {
         public Operacija Operacija { get; set; }
         public object Objekat { get; set; }
+        public string Text { get; set; }
     }
 
     public enum Operacija
     {
-        Operacija1,
-        Operacija2,
-        Operacija3
+        PrijaviKorisnika,
+        VratiLokacije,
+        Registracija,
+        ProveraKorisnika,
+        VratiListuRobe,
+        IzmenaProfila,
+        VratiKategorije,
+        UnesiKategoriju,
+        UnesiRobu,
+
+
     }
 }

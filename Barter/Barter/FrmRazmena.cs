@@ -28,26 +28,35 @@ namespace Barter
             SredjivanjeFrmRazmena(korisnik, roba);
         }
 
-        // ...#...
+        // zavrseno
         private void SredjivanjeFrmRazmena(Korisnik korisnik, Roba roba)
         {
-            trazenaRoba = roba;
-            tbKorisnikRobe.Text = roba.KorisnikRobe.UsernameKorisnika;
-            dtpDatumRazmeneRobe.Value = DateTime.Now;
-            tbNazivRobe.Text = roba.NazivRobe;
-            tbCenaRobe.Text = roba.CenaRobe.ToString();
-            tbDostupnaKolicina.Text = roba.KolicinaRobe.ToString();
-            dgvUlozenaRoba.DataSource = ulozenaRoba;
-            robaKorisnika = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
+            try
+            {
+                trazenaRoba = roba;
+                tbKorisnikRobe.Text = roba.KorisnikRobe.UsernameKorisnika;
+                dtpDatumRazmeneRobe.Value = DateTime.Now;
+                tbNazivRobe.Text = roba.NazivRobe;
+                tbCenaRobe.Text = roba.CenaRobe.ToString();
+                tbDostupnaKolicina.Text = roba.KolicinaRobe.ToString();
+                dgvUlozenaRoba.DataSource = ulozenaRoba;
+                //robaKorisnika = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
+                robaKorisnika = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
         }
 
-        // ...#...
+        // zavrseno
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // ...#...
+        // zavrseno
         private void tbTrazenaKolicinaRobe_TextChanged(object sender, EventArgs e)
         {
             if(int.TryParse(tbTrazenaKolicinaRobe.Text, out int trazenaKolicinaRobe))

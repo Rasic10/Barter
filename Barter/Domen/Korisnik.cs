@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domen
 {
+    [Serializable]
     public class Korisnik : IDomenskiObjekat
     {
         private int korisnikID;
@@ -96,12 +97,12 @@ namespace Domen
             return korisnici;
         }
 
-        public IDomenskiObjekat VratiUgnjezdeni(int broj)
+        public IDomenskiObjekat VratiPoddomen(int broj)
         {
             return null;
         }
 
-        public void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj)
+        public void PostaviPoddomen(IDomenskiObjekat domenskiObjekat, int broj)
         {
             throw new NotImplementedException();
         }

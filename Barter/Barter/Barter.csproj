@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionServer.cs" />
     <Compile Include="FrmDodajNovuRobu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +90,7 @@
     <Compile Include="FrmUnosRobe.Designer.cs">
       <DependentUpon>FrmUnosRobe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Komunikacija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesija.cs" />

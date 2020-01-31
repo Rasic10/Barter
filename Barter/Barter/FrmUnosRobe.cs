@@ -21,23 +21,32 @@ namespace Barter
             SredjivanjeFrmUnosRobe();
         }
 
-        // ...#...
+        // zavrseno
         private void SredjivanjeFrmUnosRobe()
         {
-            dtpDatumUnosaRobe.Value = DateTime.Now;
-            dtpDatumUnosaRobe.Enabled = false;
-            kategorije = new BindingList<Kategorija>(Kontroler.Kontroler.Instance.VratiListuKategorija());
-            // kategorije = Kontroler.Kontroler.Instance.VratiListuKategorija(); //stara verzija
-            cbKategorija.DataSource = kategorije;
+            try
+            {
+                dtpDatumUnosaRobe.Value = DateTime.Now;
+                dtpDatumUnosaRobe.Enabled = false;
+                //kategorije = new BindingList<Kategorija>(Kontroler.Kontroler.Instance.VratiListuKategorija());
+                kategorije = new BindingList<Kategorija>(Komunikacija.Instance.VratiListuKategorija());
+                // kategorije = Kontroler.Kontroler.Instance.VratiListuKategorija(); //stara verzija
+                cbKategorija.DataSource = kategorije;
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
         }
 
-        // ...#...
+        // zavrseno
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // ...#...
+        // zavrseno
         private void btnUnesiKategoriju_Click(object sender, EventArgs e)
         {
             if(tbNazivKategorije.Text != "")
@@ -46,11 +55,12 @@ namespace Barter
                 {
                     VrstaKategorije = tbNazivKategorije.Text
                 };
-                int uspesnoUnosaKategorije = Kontroler.Kontroler.Instance.UnesiKategoriju(k);
-                if(uspesnoUnosaKategorije != -1)
+                //int uspesnoUnosaKategorije = Kontroler.Kontroler.Instance.UnesiKategoriju(k);
+                int uspesanUnosKategorije = Komunikacija.Instance.UnesiKategoriju(k);
+                if(uspesanUnosKategorije != -1)
                 {
                     MessageBox.Show($"Uspesno uneta kategorija {k.VrstaKategorije}!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    k.KategorijaID = uspesnoUnosaKategorije;
+                    k.KategorijaID = uspesanUnosKategorije;
                     kategorije.Add(k);
                     cbKategorija.Refresh();
                     tbNazivKategorije.Text = "";
@@ -66,7 +76,7 @@ namespace Barter
             }
         }
 
-        // ...#...
+        // zavrseno
         private void btnUnesiRobu_Click(object sender, EventArgs e)
         {
             if(ValidacijaUnosaRobe(out float kolicina, out float cena))
@@ -82,7 +92,8 @@ namespace Barter
                     KategorijaRobe = (Kategorija)cbKategorija.SelectedItem,
                     RazmenaUlozeneRobe = null
                 };
-                bool uspesnoUnetaRoba = Kontroler.Kontroler.Instance.UnesiRobu(r);
+                //bool uspesnoUnetaRoba = Kontroler.Kontroler.Instance.UnesiRobu(r);
+                bool uspesnoUnetaRoba = Komunikacija.Instance.UnesiRobu(r);
                 if(uspesnoUnetaRoba)
                 {
                     MessageBox.Show($"Uspesno uneta roba {r.NazivRobe}!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -99,7 +110,7 @@ namespace Barter
             }
         }
 
-        // ...#...
+        // zavrseno
         private bool ValidacijaUnosaRobe(out float k, out float c)
         {
             k = 0;

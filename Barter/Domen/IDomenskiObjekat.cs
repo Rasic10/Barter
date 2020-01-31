@@ -19,9 +19,9 @@ namespace Domen
 
         List<IDomenskiObjekat> VratiListu(SqlDataReader reader);
 
-        IDomenskiObjekat VratiUgnjezdeni(int broj);
+        IDomenskiObjekat VratiPoddomen(int broj);
 
-        void setujUgnjezdeni(IDomenskiObjekat domenskiObjekat, int broj);
+        void PostaviPoddomen(IDomenskiObjekat domenskiObjekat, int broj);
 
         string VratiImePrimarnogKljuca();
 

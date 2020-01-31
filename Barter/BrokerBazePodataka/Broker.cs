@@ -329,9 +329,9 @@ namespace BrokerBazePodataka
             {
                 broj = 1;
                 
-                while (rez.VratiUgnjezdeni(broj) != null)
+                while (rez.VratiPoddomen(broj) != null)
                 {
-                    rez.setujUgnjezdeni(VratiJedan(rez.VratiUgnjezdeni(broj)), broj);
+                    rez.PostaviPoddomen(VratiJedan(rez.VratiPoddomen(broj)), broj);
                     broj++;
                 }
             }

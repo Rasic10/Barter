@@ -18,6 +18,6 @@ namespace Domen
     {
         Ok,
         Error,
-        KrajServer
+        Kraj
     }
 }

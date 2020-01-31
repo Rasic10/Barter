@@ -13,7 +13,14 @@ namespace SistemskeOperacije
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            Korisnik = (Korisnik)broker.VratiSve(objekat, $"AND sifra = '{((Korisnik)objekat).Sifra}'")[0];
+            List<IDomenskiObjekat> korisnik = broker.VratiSve(objekat, $"AND sifra = '{((Korisnik)objekat).Sifra}'");
+            if (korisnik.Count == 0)
+                Korisnik = null;
+            else
+            {
+                Korisnik = (Korisnik)korisnik[0];
+            } 
+            //Korisnik = (Korisnik)broker.VratiSve(objekat, $"AND sifra = '{((Korisnik)objekat).Sifra}'")[0];
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)

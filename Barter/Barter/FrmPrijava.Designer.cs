@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Barter.Properties.Resources._2Qhhdda6Qnbf3tnCvdyBTsBNJTUibVN25EXYg8Vp34pMkRR27YfWJ5HRNHgczVDeA2nSuq8aVJtL778boQ9k;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(600, 334);
             this.Controls.Add(this.btnClose);
@@ -145,6 +145,7 @@
             this.Name = "FrmPrijava";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrijava";
+            this.Load += new System.EventHandler(this.FrmPrijava_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

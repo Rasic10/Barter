@@ -21,54 +21,100 @@ namespace Barter
             InitializeComponent();
         }
 
+        // zavrseno
         public FrmGlavna(Korisnik k)
         {
             InitializeComponent();
-            korisnik = k;
-            listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!="));
-            dgvGlavna.DataSource = listaRobe;
+            try
+            {
+                korisnik = k;
+                //listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!="));
+                listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(korisnik, "!="));
+                dgvGlavna.DataSource = listaRobe;
 
-            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-            button.Name = "Razmena";
-            button.HeaderText = "Razmena";
-            button.Text = "Razmeni";
-            button.UseColumnTextForButtonValue = true; //dont forget this line
-            
-            this.dgvGlavna.Columns.Add(button);
-            
+                DataGridViewButtonColumn button = new DataGridViewButtonColumn();
+                button.Name = "Razmena";
+                button.HeaderText = "Razmena";
+                button.Text = "Razmeni";
+                button.UseColumnTextForButtonValue = true; //ova linija je obavezna
+
+                this.dgvGlavna.Columns.Add(button);
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer("");
+            }
         }
 
+        // zavrseno
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // zavrseno
         private void bttProfil_Click(object sender, EventArgs e)
         {
-            FrmRegistracija forma = new FrmRegistracija("PROFIL", Sesija.Instance.Korisnik);
-            forma.ShowDialog();
+            try
+            {
+                FrmRegistracija forma = new FrmRegistracija("PROFIL", Sesija.Instance.Korisnik);
+                forma.ShowDialog();
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
         }
 
+        // zavrseno
         private void bttUnosRobe_Click(object sender, EventArgs e)
         {
-            FrmUnosRobe forma = new FrmUnosRobe();
-            forma.ShowDialog();
+            try
+            {
+                FrmUnosRobe forma = new FrmUnosRobe();
+                forma.ShowDialog();
+            }
+            catch (ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
         }
-
+        
+        // 
         private void bttRoba_Click(object sender, EventArgs e)
         {
-            FrmRoba frmRoba = new FrmRoba();
-            frmRoba.ShowDialog();
+            try
+            {
+                FrmRoba frmRoba = new FrmRoba();
+                frmRoba.ShowDialog();
+            }
+            catch(ExceptionServer es)
+            {
+                this.Close();
+                throw new ExceptionServer(es.Message);
+            }
         }
 
+        // 
         private void dgvGlavna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                FrmRazmena frmRazmena = new FrmRazmena(Sesija.Instance.Korisnik, listaRobe[e.RowIndex]);
-                frmRazmena.ShowDialog();
+                try
+                {
+                    FrmRazmena frmRazmena = new FrmRazmena(Sesija.Instance.Korisnik, listaRobe[e.RowIndex]);
+                    frmRazmena.ShowDialog();
+                }
+                catch (ExceptionServer es)
+                {
+                    this.Close();
+                    throw new ExceptionServer(es.Message);
+                }
             }
         }
     }
