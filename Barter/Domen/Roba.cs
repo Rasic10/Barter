@@ -28,9 +28,10 @@ namespace Domen
         public Kategorija KategorijaRobe { get => kategorijaRobe; set => kategorijaRobe = value; }
         public RazmenaRobe RazmenaUlozeneRobe { get => razmenaUlozeneRobe; set => razmenaUlozeneRobe = value; }
 
+        // ...#...
         public string PostaviVrednostiAtributa()
         {
-            throw new NotImplementedException();
+            return $"NazivRobe = '{NazivRobe}', KolicinaRobe = {KolicinaRobe}, CenaRobe = {CenaRobe}, DatumUnosaRobe = '{DatumUnosaRobe}', KorisnikRobe = '{KorisnikRobe.KorisnikID}', KategorijaRobe = {KategorijaRobe.KategorijaID}";
         }
 
         // ...#...
@@ -131,9 +132,10 @@ namespace Domen
             }            
         }
 
+        // ...#...
         public string VratiUslovPoIDu()
         {
-            throw new NotImplementedException();
+            return $"RobaID = {RobaID}";
         }
 
         public IEnumerable<IDomenskiObjekat> VratiSlabeObjekte()

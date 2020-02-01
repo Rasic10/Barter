@@ -58,9 +58,11 @@ namespace Domen
             throw new NotImplementedException();
         }
 
+        // ...#...
         public IDomenskiObjekat VratiPoddomen(int broj)
         {
-            throw new NotImplementedException();
+            if (broj == 1) return TrazenaRoba;
+            return null;
         }
 
         public string VratiSlozenUslov(string operacija)

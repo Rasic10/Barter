@@ -270,12 +270,12 @@ namespace Barter
             return -1;
         }
 
-        // z
+        // zavrseno
         internal bool UnesiRobu(Roba roba)
         {
             try
             {
-                Zahtev zahtev = new Zahtev { Objekat = roba, Operacija = Operacija.UnesiKategoriju };
+                Zahtev zahtev = new Zahtev { Objekat = roba, Operacija = Operacija.UnesiRobu };
                 formatter.Serialize(stream, zahtev);
                 Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
                 switch (odgovor.Signal)
@@ -297,6 +297,59 @@ namespace Barter
             return false;
         }
 
+        // zavrseno
+        internal bool SacuvajRazmenu(RazmenaRobe rr)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev { Objekat = rr, Operacija = Operacija.DodajRazmenu };
+                formatter.Serialize(stream, zahtev);
+                Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+                switch (odgovor.Signal)
+                {
+                    case Signal.Ok:
+                        return true;
+                    case Signal.Error:
+                        return false;
+                }
+                return false;
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                klijent.Close();
+                throw new ExceptionServer("Server je zaustavljen!");
+            }
+
+            return false;
+        }
+
+        // zavrseno
+        internal bool ObrisiRobu(Roba roba)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev { Objekat = roba, Operacija = Operacija.ObrisiRobu };
+                formatter.Serialize(stream, zahtev);
+                Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+                switch (odgovor.Signal)
+                {
+                    case Signal.Ok:
+                        return true;
+                    case Signal.Error:
+                        return false;
+                }
+                return false;
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                klijent.Close();
+                throw new ExceptionServer("Server je zaustavljen!");
+            }
+
+            return false;
+        }
 
     }
 }

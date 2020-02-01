@@ -41,7 +41,7 @@ namespace Barter
                 tbDostupnaKolicina.Text = roba.KolicinaRobe.ToString();
                 dgvUlozenaRoba.DataSource = ulozenaRoba;
                 //robaKorisnika = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
-                robaKorisnika = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
+                robaKorisnika = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "=").Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
             }
             catch (ExceptionServer es)
             {
@@ -107,13 +107,14 @@ namespace Barter
             }
         }
 
-        // ...#...
+        // zavrseno
         private void btnPotvrdiRazmenu_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Da li zelite da izvrsite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (tbTrazenaKolicinaRobe.BackColor == Color.Green)
                 {
+                    trazenaRoba.KolicinaRobe -= Convert.ToInt32(tbTrazenaKolicinaRobe.Text);
                     RazmenaRobe rr = new RazmenaRobe
                     {
                         DatumRazmeneRobe = dtpDatumRazmeneRobe.Value,
@@ -124,7 +125,8 @@ namespace Barter
                         UlozenaRoba = ulozenaRoba.ToList()
                     };
 
-                    bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(rr);
+                    //bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(rr);
+                    bool uspesno = Komunikacija.Instance.SacuvajRazmenu(rr);
 
                     if (uspesno)
                     {

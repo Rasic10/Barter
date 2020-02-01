@@ -29,7 +29,7 @@ namespace Barter
             {
                 korisnik = k;
                 //listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!="));
-                listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(korisnik, "!="));
+                listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(korisnik, "!=").Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
                 dgvGlavna.DataSource = listaRobe;
 
                 DataGridViewButtonColumn button = new DataGridViewButtonColumn();
@@ -82,8 +82,8 @@ namespace Barter
                 throw new ExceptionServer(es.Message);
             }
         }
-        
-        // 
+
+        // zavrseno
         private void bttRoba_Click(object sender, EventArgs e)
         {
             try
@@ -98,7 +98,7 @@ namespace Barter
             }
         }
 
-        // 
+        // zavrseno
         private void dgvGlavna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;

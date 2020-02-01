@@ -364,7 +364,21 @@ namespace BrokerBazePodataka
                 command2.ExecuteScalar();
             }
 
+            IDomenskiObjekat trazenaRoba = objekat.VratiPoddomen(1);
+            if (Izmeni(trazenaRoba) != 1)
+            {
+                throw new Exception();
+            }
+
             return true;
         }
+
+        // ...#....
+        public int Obrisi(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"DELETE FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
+            return command.ExecuteNonQuery();
+        }
+
     }
 }

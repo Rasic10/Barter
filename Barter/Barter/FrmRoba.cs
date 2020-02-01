@@ -15,7 +15,7 @@ namespace Barter
     {
         private BindingList<Roba> listaRobe = new BindingList<Roba>();
 
-        // zavrseno Problem: treba ucitati samo onu robu koja nije za razmenu
+        // zavrseno
         public FrmRoba()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace Barter
             //listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
             try
             {
-                listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
+                listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "=").Where(lr => lr.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
                 dgvRoba.DataSource = listaRobe;
             }
             catch (ExceptionServer es)
@@ -39,8 +39,38 @@ namespace Barter
             this.Close();
         }
 
-        // 
+        // zavrseno
         private void btnObrisiRobu_Click(object sender, EventArgs e)
+        {
+            if (dgvRoba.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    Roba robaZaBrisanje = (Roba)dgvRoba.SelectedRows[0].DataBoundItem;
+                    if (Komunikacija.Instance.ObrisiRobu(robaZaBrisanje))
+                    {
+                        listaRobe.Remove(robaZaBrisanje);
+                        MessageBox.Show("Roba je uspesno obrisana!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Roba nije uspesno obrisana!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (ExceptionServer es)
+                {
+                    this.Close();
+                    throw new ExceptionServer(es.Message);
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Niste oznacili robu za brisanje!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        // 
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

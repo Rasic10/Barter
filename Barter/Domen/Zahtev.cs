@@ -25,7 +25,8 @@ namespace Domen
         VratiKategorije,
         UnesiKategoriju,
         UnesiRobu,
-
+        DodajRazmenu,
+        ObrisiRobu,
 
     }
 }

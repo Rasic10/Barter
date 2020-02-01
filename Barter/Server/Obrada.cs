@@ -67,7 +67,12 @@ namespace Server
                         case Operacija.UnesiRobu:
                             odgovor = UnesiRobu((Roba)zahtev.Objekat);
                             break;
-
+                        case Operacija.DodajRazmenu:
+                            odgovor = DodajRazmenu((RazmenaRobe)zahtev.Objekat);
+                            break;
+                        case Operacija.ObrisiRobu:
+                            odgovor = ObrisiRobu((Roba)zahtev.Objekat);
+                            break;
                     }
                     ProslediOdgovor(odgovor);
                 }
@@ -79,12 +84,44 @@ namespace Server
             }
         }
 
-        // 
+        // ...#...
+        private Odgovor ObrisiRobu(Roba roba)
+        {
+            bool uspesno = Kontroler.Kontroler.Instance.ObrisiRobu(roba);
+            Odgovor odgovor = new Odgovor();
+            if (uspesno == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor DodajRazmenu(RazmenaRobe razmenaRobe)
+        {
+            bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(razmenaRobe);
+            Odgovor odgovor = new Odgovor();
+            if (uspesno == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
+        }
+
+        // ...#...
         private Odgovor UnesiRobu(Roba roba)
         {
             bool uspesno = Kontroler.Kontroler.Instance.UnesiRobu(roba);
             Odgovor odgovor = new Odgovor();
-            if (uspesno != false)
+            if (uspesno == true)
             {
                 odgovor.Signal = Signal.Ok;
             }

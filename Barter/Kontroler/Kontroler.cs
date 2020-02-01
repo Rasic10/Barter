@@ -105,6 +105,14 @@ namespace Kontroler
             //}
         }
 
+        // zavrseno
+        public bool ObrisiRobu(Roba roba)
+        {
+            OpstaSistemskaOperacija sistemskaOperacija = new ObrisiRobuSO();
+            sistemskaOperacija.Izvrsi(roba);
+            return ((ObrisiRobuSO)sistemskaOperacija).Obrisano;
+        }
+
         // ...#...SO
         public List<Kategorija> VratiListuKategorija() // promenjeno BindingList u List
         {
