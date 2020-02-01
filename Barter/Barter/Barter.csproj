@@ -90,6 +90,11 @@
     <Compile Include="FrmUnosRobe.Designer.cs">
       <DependentUpon>FrmUnosRobe.cs</DependentUpon>
     </Compile>
+    <Compile Include="KKIDodajNovuRobu.cs" />
+    <Compile Include="KKIPrijava.cs" />
+    <Compile Include="KKIRegistracija.cs" />
+    <Compile Include="KKIRoba.cs" />
+    <Compile Include="KKIUnosRobe.cs" />
     <Compile Include="Komunikacija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,109 +13,57 @@ namespace Barter
 {
     public partial class FrmGlavna : Form
     {
-        private BindingList<Roba> listaRobe = new BindingList<Roba>();
-        private Korisnik korisnik = null;
+        KKIGlavna kontroler = new KKIGlavna();
 
+        // end
         public FrmGlavna()
         {
             InitializeComponent();
+            kontroler.FrmClose += FrmClose;
         }
 
-        // zavrseno
+        // end
         public FrmGlavna(Korisnik k)
         {
             InitializeComponent();
-            try
-            {
-                korisnik = k;
-                //listaRobe = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(korisnik, "!="));
-                listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(korisnik, "!=").Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
-                dgvGlavna.DataSource = listaRobe;
-
-                DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-                button.Name = "Razmena";
-                button.HeaderText = "Razmena";
-                button.Text = "Razmeni";
-                button.UseColumnTextForButtonValue = true; //ova linija je obavezna
-
-                this.dgvGlavna.Columns.Add(button);
-            }
-            catch (ExceptionServer es)
-            {
-                this.Close();
-                throw new ExceptionServer("");
-            }
+            kontroler.FrmClose += FrmClose;
+            kontroler.SrediFormu(k, dgvGlavna);
         }
 
-        // zavrseno
+        // end
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FrmClose();
         }
 
-        // zavrseno
+        // end
         private void bttProfil_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FrmRegistracija forma = new FrmRegistracija("PROFIL", Sesija.Instance.Korisnik);
-                forma.ShowDialog();
-            }
-            catch (ExceptionServer es)
-            {
-                this.Close();
-                throw new ExceptionServer(es.Message);
-            }
+            kontroler.OtvoriFormuProfil();
         }
 
-        // zavrseno
+        // end
         private void bttUnosRobe_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FrmUnosRobe forma = new FrmUnosRobe();
-                forma.ShowDialog();
-            }
-            catch (ExceptionServer es)
-            {
-                this.Close();
-                throw new ExceptionServer(es.Message);
-            }
+            kontroler.OtvoriFormuUnosRobe();
         }
 
-        // zavrseno
+        // end
         private void bttRoba_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FrmRoba frmRoba = new FrmRoba();
-                frmRoba.ShowDialog();
-            }
-            catch(ExceptionServer es)
-            {
-                this.Close();
-                throw new ExceptionServer(es.Message);
-            }
+            kontroler.OtvoriFormuRoba();
         }
 
-        // zavrseno
+        // end
         private void dgvGlavna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
+            kontroler.OtvoriFormuRazmena(sender, e);
+        }
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            {
-                try
-                {
-                    FrmRazmena frmRazmena = new FrmRazmena(Sesija.Instance.Korisnik, listaRobe[e.RowIndex]);
-                    frmRazmena.ShowDialog();
-                }
-                catch (ExceptionServer es)
-                {
-                    this.Close();
-                    throw new ExceptionServer(es.Message);
-                }
-            }
+        // end
+        private void FrmClose()
+        {
+            this.Close();
         }
     }
 }

@@ -13,136 +13,57 @@ namespace Barter
 {
     public partial class FrmRazmena : Form
     {
-        Roba trazenaRoba;
-        BindingList<Roba> robaKorisnika = new BindingList<Roba>();
-        BindingList<Roba> ulozenaRoba = new BindingList<Roba>();
+        KKIRazmena kontroler = new KKIRazmena();
 
+        // end
         public FrmRazmena()
         {
-
+            InitializeComponent();
+            kontroler.FrmClose += FrmClose;
         }
 
+        // end
         public FrmRazmena(Korisnik korisnik, Roba roba)
         {
             InitializeComponent();
-            SredjivanjeFrmRazmena(korisnik, roba);
+            kontroler.FrmClose += FrmClose;
+            kontroler.SrediFormu(korisnik, roba, tbKorisnikRobe, dtpDatumRazmeneRobe, tbNazivRobe, tbCenaRobe, tbDostupnaKolicina, dgvUlozenaRoba);
         }
 
-        // zavrseno
-        private void SredjivanjeFrmRazmena(Korisnik korisnik, Roba roba)
-        {
-            try
-            {
-                trazenaRoba = roba;
-                tbKorisnikRobe.Text = roba.KorisnikRobe.UsernameKorisnika;
-                dtpDatumRazmeneRobe.Value = DateTime.Now;
-                tbNazivRobe.Text = roba.NazivRobe;
-                tbCenaRobe.Text = roba.CenaRobe.ToString();
-                tbDostupnaKolicina.Text = roba.KolicinaRobe.ToString();
-                dgvUlozenaRoba.DataSource = ulozenaRoba;
-                //robaKorisnika = new BindingList<Roba>(Kontroler.Kontroler.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "="));
-                robaKorisnika = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(Sesija.Instance.Korisnik, "=").Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
-            }
-            catch (ExceptionServer es)
-            {
-                this.Close();
-                throw new ExceptionServer(es.Message);
-            }
-        }
-
-        // zavrseno
+        // end
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FrmClose();
         }
 
-        // zavrseno
+        // end
         private void tbTrazenaKolicinaRobe_TextChanged(object sender, EventArgs e)
         {
-            if(int.TryParse(tbTrazenaKolicinaRobe.Text, out int trazenaKolicinaRobe))
-            {
-                if (trazenaKolicinaRobe <= Convert.ToDouble(tbDostupnaKolicina.Text))
-                {
-                    tbTrazenaKolicinaRobe.BackColor = Color.Green;
-                    lblNapomena.Text = "";
-                    tbUkupnaCena.Text = (Convert.ToDouble(tbCenaRobe.Text) * trazenaKolicinaRobe).ToString();
-                }
-                else
-                {
-                    tbTrazenaKolicinaRobe.BackColor = Color.Red;
-                    lblNapomena.Text = "(nije dostupna trazena kolicina)";
-                    tbUkupnaCena.Text = "";
-                }
-            }
-            else
-            {
-                tbTrazenaKolicinaRobe.BackColor = Color.Red;
-                lblNapomena.Text = "(morate uneti broj)";
-                tbUkupnaCena.Text = "";
-            }
+            kontroler.ProveraDostupnostiTrazeneRobe(tbTrazenaKolicinaRobe, tbDostupnaKolicina, lblNapomena, tbUkupnaCena, tbCenaRobe);
         }
 
-        // ...#...
+        // end
         private void btnDodajRobu_Click(object sender, EventArgs e)
         {
-            FrmDodajNovuRobu frmDodajNovuRobu = new FrmDodajNovuRobu(robaKorisnika, ulozenaRoba);
-            frmDodajNovuRobu.ShowDialog();
+            kontroler.DodajNovuRobu();
         }
 
-        // ...#...
+        // end
         private void btnObrisiRobu_Click(object sender, EventArgs e)
         {
-            if (dgvUlozenaRoba.SelectedRows.Count > 0)
-            {
-                Roba robaZaBrisanje = (Roba)dgvUlozenaRoba.SelectedRows[0].DataBoundItem;
-                foreach(var r in robaKorisnika)
-                {
-                    if (r.NazivRobe == robaZaBrisanje.NazivRobe)
-                    {
-                        r.KolicinaRobe += robaZaBrisanje.KolicinaRobe;
-                        break;
-                    }
-                }
-                ulozenaRoba.Remove(robaZaBrisanje);
-            }
+            kontroler.ObrisiRobu(dgvUlozenaRoba);
         }
 
-        // zavrseno
+        // end
         private void btnPotvrdiRazmenu_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Da li zelite da izvrsite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (tbTrazenaKolicinaRobe.BackColor == Color.Green)
-                {
-                    trazenaRoba.KolicinaRobe -= Convert.ToInt32(tbTrazenaKolicinaRobe.Text);
-                    RazmenaRobe rr = new RazmenaRobe
-                    {
-                        DatumRazmeneRobe = dtpDatumRazmeneRobe.Value,
-                        KolicinaRobe = Convert.ToInt32(tbTrazenaKolicinaRobe.Text),
-                        KorisnikTrazeneRobe = trazenaRoba.KorisnikRobe,
-                        KorisnikUlozeneRobe = Sesija.Instance.Korisnik,
-                        TrazenaRoba = trazenaRoba,
-                        UlozenaRoba = ulozenaRoba.ToList()
-                    };
+            kontroler.PotvrdiRazmenu(tbTrazenaKolicinaRobe, dtpDatumRazmeneRobe);
+        }
 
-                    //bool uspesno = Kontroler.Kontroler.Instance.SacuvajRazmenu(rr);
-                    bool uspesno = Komunikacija.Instance.SacuvajRazmenu(rr);
-
-                    if (uspesno)
-                    {
-                        MessageBox.Show("Uspesno sacuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Neuspesno sacuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Trazena roba nije lepo uneta!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } 
-            }
+        // end
+        private void FrmClose()
+        {
+            this.Close();
         }
     }
 }

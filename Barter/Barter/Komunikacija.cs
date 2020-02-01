@@ -104,8 +104,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return null;
         }
 
         // zavrseno
@@ -131,8 +129,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return false;
         }
 
         // zavrseno
@@ -158,8 +154,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return false;
         }
 
         // zavrseno
@@ -185,8 +179,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return null;
         }
 
         // zavrseno
@@ -212,8 +204,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return false;
         }
 
         // zavrseno
@@ -239,8 +229,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return null;
         }
 
         // zavrseno
@@ -266,8 +254,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return -1;
         }
 
         // zavrseno
@@ -293,8 +279,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return false;
         }
 
         // zavrseno
@@ -320,8 +304,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return false;
         }
 
         // zavrseno
@@ -347,8 +329,6 @@ namespace Barter
                 klijent.Close();
                 throw new ExceptionServer("Server je zaustavljen!");
             }
-
-            return false;
         }
 
     }

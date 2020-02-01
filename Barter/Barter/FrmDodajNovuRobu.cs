@@ -13,80 +13,46 @@ namespace Barter
 {
     public partial class FrmDodajNovuRobu : Form
     {
-        BindingList<Roba> robaKor;
-        BindingList<Roba> ulozRoba;
+        KKIDodajNovuRobu kontroler = new KKIDodajNovuRobu();
 
+        // end
         public FrmDodajNovuRobu()
         {
             InitializeComponent();
+            kontroler.FrmClose += FrmClose;
         }
 
-        // ...#...
+        // end
         public FrmDodajNovuRobu(BindingList<Roba> robaKorisnika, BindingList<Roba> ulozenaRoba)
         {
             InitializeComponent();
-            cbNaziv.DataSource = robaKorisnika.ToList<Roba>();
-            robaKor = robaKorisnika;
-            ulozRoba = ulozenaRoba;
+            kontroler.FrmClose += FrmClose;
+
+            kontroler.SrediFormu(cbNaziv, robaKorisnika, ulozenaRoba);
         }
 
-        // ...#...
+        // end
         private void tbKolicina_TextChanged(object sender, EventArgs e)
         {
-            if (double.TryParse(tbKolicina.Text, out double kolicina))
-            {
-                if (kolicina > 0 && kolicina <= ((Roba)cbNaziv.SelectedItem).KolicinaRobe)
-                {
-                    tbKolicina.BackColor = Color.Green;
-                    lblNapomena.Text = "";
-                }
-                else
-                {
-                    tbKolicina.BackColor = Color.Red;
-                    lblNapomena.Text = "(nije dostupna trazena kolicina)";
-                }
-            }
-            else
-            {
-                tbKolicina.BackColor = Color.Red;
-                lblNapomena.Text = "(morate uneti broj)";
-            }
+            kontroler.ProveraDostupnostiKolicine(tbKolicina, cbNaziv, lblNapomena);
         }
 
-        // ...#...
+        // end
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FrmClose();
         }
 
-        // ...#...
+        // end
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            if(tbKolicina.BackColor == Color.Green)
-            {
-                Roba dodaj = (Roba)cbNaziv.SelectedItem;
+            kontroler.DodajRobu(tbKolicina, cbNaziv);
+        }
 
-                Roba r = new Roba
-                {
-                    //Dodat ID zbog update-a
-                    RobaID = dodaj.RobaID,
-                    NazivRobe = dodaj.NazivRobe,
-                    KolicinaRobe = Convert.ToDouble(tbKolicina.Text),
-                    CenaRobe = dodaj.CenaRobe,
-                    DatumUnosaRobe = DateTime.Now,
-                    KorisnikRobe = dodaj.KorisnikRobe,
-                    KategorijaRobe = dodaj.KategorijaRobe,
-                    RazmenaUlozeneRobe = new RazmenaRobe()
-                };
-
-                dodaj.KolicinaRobe -= r.KolicinaRobe;
-
-                ulozRoba.Add(r);
-            } 
-            else
-            {
-                MessageBox.Show("Neuspesno dodavanje, pokusajte ponovo!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        // end
+        private void FrmClose()
+        {
+            this.Close();
         }
     }
 }
