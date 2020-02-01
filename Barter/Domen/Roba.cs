@@ -41,6 +41,7 @@ namespace Domen
             if (broj == 2) KategorijaRobe = (Kategorija)domenskiObjekat;
         }
 
+        // ...#...
         public override string ToString()
         {
             return NazivRobe;
@@ -99,9 +100,22 @@ namespace Domen
             //}
         }
 
+        // ...#...
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            Roba roba = null;
+            while (reader.Read())
+            {
+                roba = new Roba
+                {
+                    RobaID = reader.GetInt32(0),
+                    NazivRobe = reader.GetString(1),
+                    KolicinaRobe = reader.GetDouble(2),
+                    CenaRobe = reader.GetDouble(3),
+                    DatumUnosaRobe = reader.GetDateTime(4)
+                };
+            }
+            return roba;
         }
 
         // ...#...

@@ -55,6 +55,21 @@ namespace Barter
         }
 
         // end
+        internal void OtvoriFormuRazmenaInOut(string title)
+        {
+            try
+            {
+                FrmRazmenaInOut forma = new FrmRazmenaInOut(title);
+                forma.ShowDialog();
+            }
+            catch (ExceptionServer es)
+            {
+                FrmClose();
+                throw new ExceptionServer(es.Message);
+            }
+        }
+        
+        // end Problem
         internal void OtvoriFormuRazmena(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;

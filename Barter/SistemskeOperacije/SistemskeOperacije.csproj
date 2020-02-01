@@ -53,6 +53,7 @@
     <Compile Include="RegistrujKorisnikaSO.cs" />
     <Compile Include="VratiSveKategorijeSO.cs" />
     <Compile Include="VratiSveLokacijeSO.cs" />
+    <Compile Include="VratiSveRazmeneRobeSO.cs" />
     <Compile Include="VratiSveRobeSO.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -265,6 +265,7 @@
             this.bttRazmenaIn.TabIndex = 12;
             this.bttRazmenaIn.Text = "Razmena\r\nIn";
             this.bttRazmenaIn.UseVisualStyleBackColor = false;
+            this.bttRazmenaIn.Click += new System.EventHandler(this.bttRazmenaIn_Click);
             // 
             // bttRazmenaOut
             // 
@@ -282,6 +283,7 @@
             this.bttRazmenaOut.TabIndex = 13;
             this.bttRazmenaOut.Text = "Razmena\r\nOut";
             this.bttRazmenaOut.UseVisualStyleBackColor = false;
+            this.bttRazmenaOut.Click += new System.EventHandler(this.bttRazmenaOut_Click);
             // 
             // button1
             // 

@@ -364,7 +364,7 @@ namespace BrokerBazePodataka
                 command2.ExecuteScalar();
             }
 
-            IDomenskiObjekat trazenaRoba = objekat.VratiPoddomen(1);
+            IDomenskiObjekat trazenaRoba = objekat.VratiPoddomen(3);
             if (Izmeni(trazenaRoba) != 1)
             {
                 throw new Exception();

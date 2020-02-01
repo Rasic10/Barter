@@ -181,6 +181,31 @@ namespace Barter
             }
         }
 
+        // 
+        internal List<RazmenaRobe> VratiListuRazmeneRobe(Korisnik korisnik, string uslov)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev { Objekat = korisnik, Text = uslov, Operacija = Operacija.VratiListuRazmeneRobe };
+                formatter.Serialize(stream, zahtev);
+                Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+                switch (odgovor.Signal)
+                {
+                    case Signal.Ok:
+                        return (List<RazmenaRobe>)odgovor.Objekat;
+                    case Signal.Error:
+                        return new List<RazmenaRobe>();
+                }
+                return null;
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                klijent.Close();
+                throw new ExceptionServer("Server je zaustavljen!");
+            }
+        }
+
         // zavrseno
         internal bool IzmenaProfila(Korisnik noviPodaci)
         {

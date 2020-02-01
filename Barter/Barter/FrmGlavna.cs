@@ -65,5 +65,17 @@ namespace Barter
         {
             this.Close();
         }
+
+        // end
+        private void bttRazmenaIn_Click(object sender, EventArgs e)
+        {
+            kontroler.OtvoriFormuRazmenaInOut("RAZMENA IN");
+        }
+
+        // end
+        private void bttRazmenaOut_Click(object sender, EventArgs e)
+        {
+            kontroler.OtvoriFormuRazmenaInOut("RAZMENA OUT");
+        }
     }
 }

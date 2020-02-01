@@ -73,6 +73,9 @@ namespace Server
                         case Operacija.ObrisiRobu:
                             odgovor = ObrisiRobu((Roba)zahtev.Objekat);
                             break;
+                        case Operacija.VratiListuRazmeneRobe:
+                            odgovor = VratiListuRazmeneRobe((Korisnik)zahtev.Objekat, zahtev.Text);
+                            break;
                     }
                     ProslediOdgovor(odgovor);
                 }
@@ -151,6 +154,19 @@ namespace Server
             List<Roba> lokacije = Kontroler.Kontroler.Instance.VratiListuRobe(objekat, text);
             Odgovor odgovor = new Odgovor();
             odgovor.Objekat = lokacije;
+            if (odgovor.Objekat == null)
+                odgovor.Signal = Signal.Error;
+            else
+                odgovor.Signal = Signal.Ok;
+            return odgovor;
+        }
+
+        // ...
+        private Odgovor VratiListuRazmeneRobe(Korisnik objekat, string text)
+        {
+            List<RazmenaRobe> razmeneRobe = Kontroler.Kontroler.Instance.VratiListuRazmeneRobe(objekat, text);
+            Odgovor odgovor = new Odgovor();
+            odgovor.Objekat = razmeneRobe;
             if (odgovor.Objekat == null)
                 odgovor.Signal = Signal.Error;
             else

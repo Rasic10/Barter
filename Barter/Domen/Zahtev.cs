@@ -27,6 +27,6 @@ namespace Domen
         UnesiRobu,
         DodajRazmenu,
         ObrisiRobu,
-
+        VratiListuRazmeneRobe,
     }
 }

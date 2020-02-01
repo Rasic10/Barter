@@ -31,9 +31,12 @@ namespace Domen
             throw new NotImplementedException();
         }
 
+        // ...#...
         public void PostaviPoddomen(IDomenskiObjekat domenskiObjekat, int broj)
         {
-            throw new NotImplementedException();
+            if (broj == 1) KorisnikTrazeneRobe = (Korisnik)domenskiObjekat;
+            if (broj == 2) KorisnikUlozeneRobe = (Korisnik)domenskiObjekat;
+            if (broj == 3) TrazenaRoba = (Roba)domenskiObjekat;
         }
 
         // ...#...
@@ -48,9 +51,33 @@ namespace Domen
             return "inserted.RazmenaID";
         }
 
+        // ...#...
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<IDomenskiObjekat> razmenaRobe = new List<IDomenskiObjekat>();
+            while (reader.Read())
+            {
+                RazmenaRobe roba = new RazmenaRobe
+                {
+                    RazmenaID = reader.GetInt32(0),
+                    DatumRazmeneRobe = reader.GetDateTime(1),
+                    KolicinaRobe = reader.GetDouble(2),
+                    KorisnikTrazeneRobe = new Korisnik
+                    {
+                        KorisnikID = reader.GetInt32(3)
+                    },
+                    KorisnikUlozeneRobe = new Korisnik
+                    {
+                        KorisnikID = reader.GetInt32(4)
+                    },
+                    TrazenaRoba = new Roba
+                    {
+                        RobaID = reader.GetInt32(5)
+                    }
+                };
+                razmenaRobe.Add(roba);
+            }
+            return razmenaRobe;
         }
 
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
@@ -61,13 +88,20 @@ namespace Domen
         // ...#...
         public IDomenskiObjekat VratiPoddomen(int broj)
         {
-            if (broj == 1) return TrazenaRoba;
+            if (broj == 1) return KorisnikTrazeneRobe;
+            if (broj == 2) return KorisnikUlozeneRobe;
+            if (broj == 3) return TrazenaRoba;
             return null;
         }
 
+        // ...#...
         public string VratiSlozenUslov(string operacija)
         {
-            throw new NotImplementedException();
+            if (operacija.Split(' ')[0] == "KorisnikTrazeneRobe")
+                return $"KorisnikTrazeneRobe {operacija.Split(' ')[1]} {KorisnikTrazeneRobe.KorisnikID}";
+            if (operacija.Split(' ')[0] == "KorisnikUlozeneRobe")
+                return $"KorisnikUlozeneRobe {operacija.Split(' ')[1]} {KorisnikUlozeneRobe.KorisnikID}";
+            return $"1 = 1";
         }
 
         // ...#...
