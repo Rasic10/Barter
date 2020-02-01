@@ -14,18 +14,27 @@ namespace Barter
         public event Action FrmClose;
 
         // end
-        internal void SrediFormu(string title, DataGridView dgvRazmena)
+        internal void SrediFormu(string title, DataGridView dgvRazmena, Label lblTitle)
         {
-            // Razmena in - end
-            if (title == "RAZMENA IN")
+            try
             {
-                dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
-            }
+                // Razmena in - end
+                if (title == "RAZMENA IN")
+                {
+                    dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
+                }
 
-            // Razmena Out - end
-            if (title == "RAZMENA OUT")
+                // Razmena Out - end
+                if (title == "RAZMENA OUT")
+                {
+                    lblTitle.Text = title;
+                    dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
+                }
+            }
+            catch (ExceptionServer es)
             {
-                dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
+                FrmClose();
+                throw new ExceptionServer(es.Message);
             }
         }
     }

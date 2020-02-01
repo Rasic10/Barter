@@ -58,5 +58,35 @@ namespace Barter
                 MessageBox.Show("Niste oznacili robu za brisanje!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        // 
+        internal void IzmeniRobu(DataGridView dgvRoba)
+        {
+            if (dgvRoba.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    Roba robaZaIzmenu = (Roba)dgvRoba.SelectedRows[0].DataBoundItem;
+                    robaZaIzmenu.DatumUnosaRobe = DateTime.Now;
+                    if (Komunikacija.Instance.IzmeniRobu(robaZaIzmenu))
+                    {
+                        MessageBox.Show("Roba je uspesno izmenjena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Roba nije uspesno izmenjena!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (ExceptionServer es)
+                {
+                    FrmClose();
+                    throw new ExceptionServer(es.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Niste oznacili robu za brisanje!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

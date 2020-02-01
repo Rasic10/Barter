@@ -26,7 +26,7 @@ namespace Barter
         {
             InitializeComponent();
             kontroler.FrmClose += FrmClose;
-            kontroler.SrediFormu(title, dgvRazmena);
+            kontroler.SrediFormu(title, dgvRazmena, lblTitle);
         }
 
         // end

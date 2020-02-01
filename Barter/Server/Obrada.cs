@@ -76,6 +76,9 @@ namespace Server
                         case Operacija.VratiListuRazmeneRobe:
                             odgovor = VratiListuRazmeneRobe((Korisnik)zahtev.Objekat, zahtev.Text);
                             break;
+                        case Operacija.IzmeniRobu:
+                            odgovor = IzmeniRobu((Roba)zahtev.Objekat);
+                            break;
                     }
                     ProslediOdgovor(odgovor);
                 }
@@ -85,6 +88,22 @@ namespace Server
                     kraj = true;
                 }
             }
+        }
+
+        // 
+        private Odgovor IzmeniRobu(Roba roba)
+        {
+            bool izmena = Kontroler.Kontroler.Instance.IzmeniRobu(roba);
+            Odgovor odgovor = new Odgovor();
+            if (izmena == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
         }
 
         // ...#...
@@ -161,7 +180,7 @@ namespace Server
             return odgovor;
         }
 
-        // ...
+        // ...#...
         private Odgovor VratiListuRazmeneRobe(Korisnik objekat, string text)
         {
             List<RazmenaRobe> razmeneRobe = Kontroler.Kontroler.Instance.VratiListuRazmeneRobe(objekat, text);

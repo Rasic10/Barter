@@ -28,5 +28,6 @@ namespace Domen
         DodajRazmenu,
         ObrisiRobu,
         VratiListuRazmeneRobe,
+        IzmeniRobu,
     }
 }

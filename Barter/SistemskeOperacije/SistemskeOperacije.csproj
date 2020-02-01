@@ -45,6 +45,7 @@
     <Compile Include="DodajRazmenuSO.cs" />
     <Compile Include="DodajRobuSO.cs" />
     <Compile Include="IzmeniProfilSO.cs" />
+    <Compile Include="IzmeniRobuSO.cs" />
     <Compile Include="ObrisiRobuSO.cs" />
     <Compile Include="OpstaSistemskaOperacija.cs" />
     <Compile Include="PrijavaKorisnikaSO.cs" />

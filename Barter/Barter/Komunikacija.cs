@@ -106,6 +106,31 @@ namespace Barter
             }
         }
 
+        //
+        internal bool IzmeniRobu(Roba robaZaIzmenu)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev { Objekat = robaZaIzmenu, Operacija = Operacija.IzmeniRobu };
+                formatter.Serialize(stream, zahtev);
+                Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+                switch (odgovor.Signal)
+                {
+                    case Signal.Ok:
+                        return true;
+                    case Signal.Error:
+                        return false;
+                }
+                return false;
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                klijent.Close();
+                throw new ExceptionServer("Server je zaustavljen!");
+            }
+        }
+
         // zavrseno
         internal bool Registracija(Korisnik k)
         {
@@ -181,7 +206,7 @@ namespace Barter
             }
         }
 
-        // 
+        // zavrseno
         internal List<RazmenaRobe> VratiListuRazmeneRobe(Korisnik korisnik, string uslov)
         {
             try

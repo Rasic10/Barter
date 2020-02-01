@@ -119,6 +119,14 @@ namespace Kontroler
         }
 
         // zavrseno
+        public bool IzmeniRobu(Roba roba)
+        {
+            OpstaSistemskaOperacija sistemskaOperacija = new IzmeniRobuSO();
+            sistemskaOperacija.Izvrsi(roba);
+            return ((IzmeniRobuSO)sistemskaOperacija).Izmenjeno;
+        }
+
+        // zavrseno
         public bool ObrisiRobu(Roba roba)
         {
             OpstaSistemskaOperacija sistemskaOperacija = new ObrisiRobuSO();

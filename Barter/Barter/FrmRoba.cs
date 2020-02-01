@@ -41,7 +41,7 @@ namespace Barter
         // 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            kontroler.IzmeniRobu(dgvRoba);
         }
 
         // end
