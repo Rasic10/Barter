@@ -39,14 +39,14 @@ namespace Barter
         }
 
         // end
-        internal void DodajNovuRobu()
+        internal void DodajNovuRobu(TextBox tbRazlikaUCeni)
         {
-            FrmDodajNovuRobu frmDodajNovuRobu = new FrmDodajNovuRobu(robaKorisnika, ulozenaRoba);
+            FrmDodajNovuRobu frmDodajNovuRobu = new FrmDodajNovuRobu(robaKorisnika, ulozenaRoba, tbRazlikaUCeni);
             frmDodajNovuRobu.ShowDialog();
         }
 
         // end
-        internal void ObrisiRobu(DataGridView dgvUlozenaRoba)
+        internal void ObrisiRobu(DataGridView dgvUlozenaRoba, TextBox tbRazlikaUCeni)
         {
             if (dgvUlozenaRoba.SelectedRows.Count > 0)
             {
@@ -60,7 +60,34 @@ namespace Barter
                     }
                 }
                 ulozenaRoba.Remove(robaZaBrisanje);
+
+                // smanjivanje razlike u ceni
+                tbRazlikaUCeni.Text = (Convert.ToDouble(tbRazlikaUCeni.Text) + robaZaBrisanje.KolicinaRobe * robaZaBrisanje.CenaRobe).ToString(); 
             }
+        }
+
+        // end
+        internal void SrediTrackBar(TrackBar tBarPoklapanjeCene, TextBox tbRazlikaUCeni)
+        {
+            double razlikaUCeni = Convert.ToDouble(tbRazlikaUCeni.Text);
+
+            if (Math.Abs(Convert.ToInt32(razlikaUCeni) / 10) > 30)
+            {
+                tBarPoklapanjeCene.Value = Math.Sign(razlikaUCeni) * 30 + 30;
+            }
+            else
+            {
+                tBarPoklapanjeCene.Value = Convert.ToInt32(razlikaUCeni) / 10 + 30;
+            }
+        }
+
+        // end
+        internal void SrediRazlikuUCeni(object sender, DataGridViewRowsAddedEventArgs e, TextBox tbRazlikaUCeni)
+        {
+            Roba r = ulozenaRoba[e.RowIndex];
+            double razlikaUCeni = Convert.ToDouble(tbRazlikaUCeni.Text);
+            razlikaUCeni -= r.KolicinaRobe * r.CenaRobe;
+            tbRazlikaUCeni.Text = razlikaUCeni.ToString();
         }
 
         // end
@@ -101,7 +128,7 @@ namespace Barter
         }
 
         // end
-        internal void ProveraDostupnostiTrazeneRobe(TextBox tbTrazenaKolicinaRobe, TextBox tbDostupnaKolicina, Label lblNapomena, TextBox tbUkupnaCena, TextBox tbCenaRobe)
+        internal void ProveraDostupnostiTrazeneRobe(TextBox tbTrazenaKolicinaRobe, TextBox tbDostupnaKolicina, Label lblNapomena, TextBox tbRazlikaUCeni, TextBox tbCenaRobe, TrackBar tBarPoklapanjeCene)
         {
             if (int.TryParse(tbTrazenaKolicinaRobe.Text, out int trazenaKolicinaRobe))
             {
@@ -109,20 +136,26 @@ namespace Barter
                 {
                     tbTrazenaKolicinaRobe.BackColor = Color.Green;
                     lblNapomena.Text = "";
-                    tbUkupnaCena.Text = (Convert.ToDouble(tbCenaRobe.Text) * trazenaKolicinaRobe).ToString();
+
+                    double razlikaUCeni = (Convert.ToDouble(tbCenaRobe.Text) * trazenaKolicinaRobe);
+                    foreach(var r in ulozenaRoba)
+                    {
+                        razlikaUCeni -= r.CenaRobe * r.KolicinaRobe;
+                    }
+                    tbRazlikaUCeni.Text = razlikaUCeni.ToString();
                 }
                 else
                 {
                     tbTrazenaKolicinaRobe.BackColor = Color.Red;
                     lblNapomena.Text = "(nije dostupna trazena kolicina)";
-                    tbUkupnaCena.Text = "";
+                    tbRazlikaUCeni.Text = "0";
                 }
             }
             else
             {
                 tbTrazenaKolicinaRobe.BackColor = Color.Red;
                 lblNapomena.Text = "(morate uneti broj)";
-                tbUkupnaCena.Text = "";
+                tbRazlikaUCeni.Text = "0";
             }
         }
     }

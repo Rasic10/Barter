@@ -59,7 +59,7 @@ namespace Barter
             }
         }
 
-        // 
+        // end
         internal void IzmeniRobu(DataGridView dgvRoba)
         {
             if (dgvRoba.SelectedRows.Count > 0)
@@ -85,7 +85,7 @@ namespace Barter
             }
             else
             {
-                MessageBox.Show("Niste oznacili robu za brisanje!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Niste oznacili robu za izmenu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

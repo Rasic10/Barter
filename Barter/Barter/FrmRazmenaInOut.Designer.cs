@@ -38,6 +38,8 @@
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikUlozeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.razmenaRobeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnPretraga = new System.Windows.Forms.Button();
+            this.tbPretraga = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRazmena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.razmenaRobeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -132,12 +134,33 @@
             // 
             this.razmenaRobeBindingSource.DataSource = typeof(Domen.RazmenaRobe);
             // 
+            // btnPretraga
+            // 
+            this.btnPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretraga.Location = new System.Drawing.Point(549, 45);
+            this.btnPretraga.Name = "btnPretraga";
+            this.btnPretraga.Size = new System.Drawing.Size(143, 33);
+            this.btnPretraga.TabIndex = 28;
+            this.btnPretraga.Text = "Pretraga";
+            this.btnPretraga.UseVisualStyleBackColor = true;
+            // 
+            // tbPretraga
+            // 
+            this.tbPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPretraga.Location = new System.Drawing.Point(12, 48);
+            this.tbPretraga.Name = "tbPretraga";
+            this.tbPretraga.Size = new System.Drawing.Size(531, 26);
+            this.tbPretraga.TabIndex = 27;
+            this.tbPretraga.Text = "Pretraga po nazivu robe...";
+            // 
             // FrmRazmenaInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(739, 364);
+            this.Controls.Add(this.btnPretraga);
+            this.Controls.Add(this.tbPretraga);
             this.Controls.Add(this.dgvRazmena);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnClose);
@@ -163,5 +186,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikTrazeneRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikUlozeneRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource razmenaRobeBindingSource;
+        private System.Windows.Forms.Button btnPretraga;
+        private System.Windows.Forms.TextBox tbPretraga;
     }
 }

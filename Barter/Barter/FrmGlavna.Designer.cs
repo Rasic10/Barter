@@ -50,6 +50,8 @@
             this.bttRazmenaIn = new System.Windows.Forms.Button();
             this.bttRazmenaOut = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.tbPretraga = new System.Windows.Forms.TextBox();
+            this.btnPretraga = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlavna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -303,12 +305,34 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tbPretraga
+            // 
+            this.tbPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPretraga.Location = new System.Drawing.Point(248, 189);
+            this.tbPretraga.Name = "tbPretraga";
+            this.tbPretraga.Size = new System.Drawing.Size(531, 26);
+            this.tbPretraga.TabIndex = 15;
+            this.tbPretraga.Text = "Pretraga po nazivu robe...";
+            // 
+            // btnPretraga
+            // 
+            this.btnPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretraga.Location = new System.Drawing.Point(785, 186);
+            this.btnPretraga.Name = "btnPretraga";
+            this.btnPretraga.Size = new System.Drawing.Size(143, 33);
+            this.btnPretraga.TabIndex = 16;
+            this.btnPretraga.Text = "Pretraga";
+            this.btnPretraga.UseVisualStyleBackColor = true;
+            this.btnPretraga.Click += new System.EventHandler(this.btnPretraga_Click);
+            // 
             // FrmGlavna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1180, 585);
+            this.Controls.Add(this.btnPretraga);
+            this.Controls.Add(this.tbPretraga);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bttRazmenaOut);
             this.Controls.Add(this.bttRazmenaIn);
@@ -335,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -360,6 +385,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datumUnosaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kategorijaRobeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox tbPretraga;
+        private System.Windows.Forms.Button btnPretraga;
     }
 }
 

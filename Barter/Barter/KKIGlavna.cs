@@ -68,8 +68,14 @@ namespace Barter
                 throw new ExceptionServer(es.Message);
             }
         }
-        
-        // end Problem
+
+        // 
+        internal void PretragaRobe(string text, DataGridView dgvGlavna)
+        {
+            
+        }
+
+        // end
         internal void OtvoriFormuRazmena(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;

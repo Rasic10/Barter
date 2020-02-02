@@ -39,19 +39,19 @@ namespace Barter
         // end
         private void tbTrazenaKolicinaRobe_TextChanged(object sender, EventArgs e)
         {
-            kontroler.ProveraDostupnostiTrazeneRobe(tbTrazenaKolicinaRobe, tbDostupnaKolicina, lblNapomena, tbUkupnaCena, tbCenaRobe);
+            kontroler.ProveraDostupnostiTrazeneRobe(tbTrazenaKolicinaRobe, tbDostupnaKolicina, lblNapomena, tbRazlikaUCeni, tbCenaRobe, tBarPoklapanjeCene);
         }
 
         // end
         private void btnDodajRobu_Click(object sender, EventArgs e)
         {
-            kontroler.DodajNovuRobu();
+            kontroler.DodajNovuRobu(tbRazlikaUCeni);
         }
 
         // end
         private void btnObrisiRobu_Click(object sender, EventArgs e)
         {
-            kontroler.ObrisiRobu(dgvUlozenaRoba);
+            kontroler.ObrisiRobu(dgvUlozenaRoba, tbRazlikaUCeni);
         }
 
         // end
@@ -64,6 +64,18 @@ namespace Barter
         private void FrmClose()
         {
             this.Close();
+        }
+
+        // end
+        private void dgvUlozenaRoba_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            kontroler.SrediRazlikuUCeni(sender, e, tbRazlikaUCeni);
+        }
+
+        // end
+        private void tbRazlikaUCeni_TextChanged(object sender, EventArgs e)
+        {
+            kontroler.SrediTrackBar(tBarPoklapanjeCene, tbRazlikaUCeni);
         }
     }
 }

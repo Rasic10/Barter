@@ -47,22 +47,23 @@
             this.btnDodajRobu = new System.Windows.Forms.Button();
             this.btnObrisiRobu = new System.Windows.Forms.Button();
             this.dgvUlozenaRoba = new System.Windows.Forms.DataGridView();
-            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbUkupnaCena = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.tbRazlikaUCeni = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tBarPoklapanjeCene = new System.Windows.Forms.TrackBar();
             this.btnPotvrdiRazmenu = new System.Windows.Forms.Button();
             this.lblNapomena = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUlozenaRoba)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarPoklapanjeCene)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,56 +263,24 @@
             this.dgvUlozenaRoba.Name = "dgvUlozenaRoba";
             this.dgvUlozenaRoba.Size = new System.Drawing.Size(526, 150);
             this.dgvUlozenaRoba.TabIndex = 37;
+            this.dgvUlozenaRoba.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvUlozenaRoba_RowsAdded);
             // 
-            // nazivRobeDataGridViewTextBoxColumn
+            // tbRazlikaUCeni
             // 
-            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
-            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
-            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
-            this.nazivRobeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cenaRobeDataGridViewTextBoxColumn
-            // 
-            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
-            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
-            this.cenaRobeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kolicinaRobeDataGridViewTextBoxColumn
-            // 
-            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // robaBindingSource
-            // 
-            this.robaBindingSource.DataSource = typeof(Domen.Roba);
-            // 
-            // tbUkupnaCena
-            // 
-            this.tbUkupnaCena.Enabled = false;
-            this.tbUkupnaCena.Font = new System.Drawing.Font("Cooper Black", 11.25F);
-            this.tbUkupnaCena.Location = new System.Drawing.Point(362, 451);
-            this.tbUkupnaCena.Name = "tbUkupnaCena";
-            this.tbUkupnaCena.Size = new System.Drawing.Size(182, 25);
-            this.tbUkupnaCena.TabIndex = 36;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(358, 427);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 21);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Ukupna cena:";
+            this.tbRazlikaUCeni.Enabled = false;
+            this.tbRazlikaUCeni.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbRazlikaUCeni.Location = new System.Drawing.Point(362, 451);
+            this.tbRazlikaUCeni.Name = "tbRazlikaUCeni";
+            this.tbRazlikaUCeni.Size = new System.Drawing.Size(182, 25);
+            this.tbRazlikaUCeni.TabIndex = 36;
+            this.tbRazlikaUCeni.Text = "0";
+            this.tbRazlikaUCeni.TextChanged += new System.EventHandler(this.tbRazlikaUCeni_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(79, 427);
+            this.label8.Location = new System.Drawing.Point(358, 427);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(154, 21);
             this.label8.TabIndex = 38;
@@ -329,7 +298,7 @@
             // 
             this.tBarPoklapanjeCene.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tBarPoklapanjeCene.Enabled = false;
-            this.tBarPoklapanjeCene.Location = new System.Drawing.Point(16, 451);
+            this.tBarPoklapanjeCene.Location = new System.Drawing.Point(22, 435);
             this.tBarPoklapanjeCene.Maximum = 60;
             this.tBarPoklapanjeCene.Name = "tBarPoklapanjeCene";
             this.tBarPoklapanjeCene.Size = new System.Drawing.Size(282, 45);
@@ -365,6 +334,41 @@
             this.lblNapomena.TabIndex = 41;
             this.lblNapomena.Text = "    ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Barter.Properties.Resources.boje;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 483);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(270, 45);
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // nazivRobeDataGridViewTextBoxColumn
+            // 
+            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
+            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
+            this.nazivRobeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // cenaRobeDataGridViewTextBoxColumn
+            // 
+            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
+            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
+            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
+            this.cenaRobeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // kolicinaRobeDataGridViewTextBoxColumn
+            // 
+            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
+            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // robaBindingSource
+            // 
+            this.robaBindingSource.DataSource = typeof(Domen.Roba);
+            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
@@ -382,13 +386,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(603, 538);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblNapomena);
             this.Controls.Add(this.btnPotvrdiRazmenu);
-            this.Controls.Add(this.tBarPoklapanjeCene);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbUkupnaCena);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbRazlikaUCeni);
             this.Controls.Add(this.dgvUlozenaRoba);
             this.Controls.Add(this.btnObrisiRobu);
             this.Controls.Add(this.btnDodajRobu);
@@ -402,6 +405,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.tBarPoklapanjeCene);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRazmena";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -409,8 +413,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUlozenaRoba)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarPoklapanjeCene)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -439,8 +444,7 @@
         private System.Windows.Forms.Button btnObrisiRobu;
         private System.Windows.Forms.DataGridView dgvUlozenaRoba;
         private System.Windows.Forms.BindingSource robaBindingSource;
-        private System.Windows.Forms.TextBox tbUkupnaCena;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbRazlikaUCeni;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.TrackBar tBarPoklapanjeCene;
@@ -449,5 +453,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

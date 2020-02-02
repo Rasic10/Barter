@@ -77,5 +77,11 @@ namespace Barter
         {
             kontroler.OtvoriFormuRazmenaInOut("RAZMENA OUT");
         }
+
+        // end
+        private void btnPretraga_Click(object sender, EventArgs e)
+        {
+            kontroler.PretragaRobe(tbPretraga.Text, dgvGlavna);
+        }
     }
 }

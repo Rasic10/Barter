@@ -94,6 +94,16 @@ namespace Barter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boje {
+            get {
+                object obj = ResourceManager.GetObject("boje", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap j4hUfjpDXV12l {
             get {
                 object obj = ResourceManager.GetObject("j4hUfjpDXV12l", resourceCulture);

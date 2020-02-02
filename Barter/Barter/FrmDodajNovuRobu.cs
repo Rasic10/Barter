@@ -23,7 +23,7 @@ namespace Barter
         }
 
         // end
-        public FrmDodajNovuRobu(BindingList<Roba> robaKorisnika, BindingList<Roba> ulozenaRoba)
+        public FrmDodajNovuRobu(BindingList<Roba> robaKorisnika, BindingList<Roba> ulozenaRoba, TextBox tbRazlikaUCeni)
         {
             InitializeComponent();
             kontroler.FrmClose += FrmClose;
