@@ -57,13 +57,6 @@ namespace BrokerBazePodataka
         }
 
         // ...#...
-        public int Sacuvaj(IDomenskiObjekat objekat)
-        {
-            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} VALUES ({objekat.VratiVrednostiAtributa()})", connection, transaction);
-            return command.ExecuteNonQuery();
-        }
-
-        // ...#...
         public List<IDomenskiObjekat> VratiSve(IDomenskiObjekat objekat, string operacija)
         {
             SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiSlozenUslov(operacija)}", connection, transaction);
@@ -86,16 +79,31 @@ namespace BrokerBazePodataka
         }
 
         // ...#...
-        public int SacuvajIUzvratiID(IDomenskiObjekat objekat)
+        public List<IDomenskiObjekat> VratiPretragu(IDomenskiObjekat objekat, string tekst)
         {
-            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} OUTPUT {objekat.VratiImePrimarnogKljuca()} VALUES({objekat.VratiVrednostiAtributa()})", connection, transaction);
-            return (int)command.ExecuteScalar();
+            SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiPretragu(tekst)}", connection, transaction);
+            SqlDataReader reader = command.ExecuteReader();
+            List<IDomenskiObjekat> rezultat = objekat.VratiListu(reader);
+            reader.Close();
+
+            int broj = 1;
+            foreach (IDomenskiObjekat rez in rezultat)
+            {
+                broj = 1;
+
+                while (rez.VratiPoddomen(broj) != null)
+                {
+                    rez.PostaviPoddomen(VratiJedan(rez.VratiPoddomen(broj)), broj);
+                    broj++;
+                }
+            }
+            return rezultat;
         }
 
         // ...#...
-        public int Izmeni(IDomenskiObjekat objekat)
+        public int Sacuvaj(IDomenskiObjekat objekat)
         {
-            SqlCommand command = new SqlCommand($"UPDATE {objekat.VratiImeKlase()} SET {objekat.PostaviVrednostiAtributa()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
+            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} VALUES ({objekat.VratiVrednostiAtributa()})", connection, transaction);
             return command.ExecuteNonQuery();
         }
 
@@ -118,6 +126,20 @@ namespace BrokerBazePodataka
             }
 
             return true;
+        }
+
+        // ...#...
+        public int SacuvajIUzvratiID(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"INSERT INTO {objekat.VratiImeKlase()} OUTPUT {objekat.VratiImePrimarnogKljuca()} VALUES({objekat.VratiVrednostiAtributa()})", connection, transaction);
+            return (int)command.ExecuteScalar();
+        }
+
+        // ...#...
+        public int Izmeni(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"UPDATE {objekat.VratiImeKlase()} SET {objekat.PostaviVrednostiAtributa()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
+            return command.ExecuteNonQuery();
         }
 
         // ...#....

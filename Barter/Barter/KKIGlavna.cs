@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,19 @@ namespace Barter
         private Korisnik korisnik = null;
 
         // end
-        internal void SrediFormu(Korisnik k, DataGridView dgvGlavna)
+        internal void SrediFormu(IDomenskiObjekat k, DataGridView dgvGlavna)
         {
             try
             {
-                korisnik = k;
+                if (!(k is Korisnik))
+                {
+                    throw new Exception("Poslati objekat nije tipa korisnik");
+                }
+                else
+                {
+                    korisnik = (Korisnik)k;
+                }
+                
                 listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiListuRobe(korisnik, "!=").Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
                 dgvGlavna.DataSource = listaRobe;
 
@@ -36,6 +45,11 @@ namespace Barter
             {
                 FrmClose();
                 throw new ExceptionServer(es.Message);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                FrmClose();
             }
         }
 
@@ -69,10 +83,11 @@ namespace Barter
             }
         }
 
-        // 
+        // end 
         internal void PretragaRobe(string text, DataGridView dgvGlavna)
         {
-            
+            BindingList<Roba>  listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiPretraguRobe(text).Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
+            dgvGlavna.DataSource = listaRobe;
         }
 
         // end

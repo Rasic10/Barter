@@ -120,5 +120,11 @@ namespace Domen
         {
             return UlozenaRoba;
         }
+
+        // 
+        public string VratiPretragu(string tekst)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

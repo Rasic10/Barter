@@ -143,6 +143,7 @@
             this.btnPretraga.TabIndex = 28;
             this.btnPretraga.Text = "Pretraga";
             this.btnPretraga.UseVisualStyleBackColor = true;
+            this.btnPretraga.Click += new System.EventHandler(this.btnPretraga_Click);
             // 
             // tbPretraga
             // 

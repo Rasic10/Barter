@@ -40,5 +40,11 @@ namespace Barter
         {
             FrmClose();
         }
+
+        // end
+        private void btnPretraga_Click(object sender, EventArgs e)
+        {
+            kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
+        }
     }
 }

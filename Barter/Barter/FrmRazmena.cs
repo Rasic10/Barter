@@ -23,7 +23,7 @@ namespace Barter
         }
 
         // end
-        public FrmRazmena(Korisnik korisnik, Roba roba)
+        public FrmRazmena(IDomenskiObjekat korisnik, IDomenskiObjekat roba)
         {
             InitializeComponent();
             kontroler.FrmClose += FrmClose;
@@ -61,12 +61,6 @@ namespace Barter
         }
 
         // end
-        private void FrmClose()
-        {
-            this.Close();
-        }
-
-        // end
         private void dgvUlozenaRoba_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             kontroler.SrediRazlikuUCeni(sender, e, tbRazlikaUCeni);
@@ -76,6 +70,12 @@ namespace Barter
         private void tbRazlikaUCeni_TextChanged(object sender, EventArgs e)
         {
             kontroler.SrediTrackBar(tBarPoklapanjeCene, tbRazlikaUCeni);
+        }
+
+        // end
+        private void FrmClose()
+        {
+            this.Close();
         }
     }
 }

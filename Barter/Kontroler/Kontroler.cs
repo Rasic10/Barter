@@ -118,6 +118,28 @@ namespace Kontroler
             //}
         }
 
+        // ...#...SO
+        public List<RazmenaRobe> VratiPretraguRazmene(Korisnik korisnik, string operacija)
+        {
+            OpstaSistemskaOperacija sistemskaOperacija = new VratiPretraguRazmeneRobeSO();
+            ((VratiPretraguRazmeneRobeSO)sistemskaOperacija).Operacija = operacija;
+            if (operacija.Split(' ')[0] == "KorisnikTrazeneRobe")
+                sistemskaOperacija.Izvrsi(new RazmenaRobe() { KorisnikTrazeneRobe = korisnik });
+            else if (operacija.Split(' ')[0] == "KorisnikUlozeneRobe")
+                sistemskaOperacija.Izvrsi(new RazmenaRobe() { KorisnikUlozeneRobe = korisnik });
+            else return new List<RazmenaRobe>();
+            return ((VratiPretraguRazmeneRobeSO)sistemskaOperacija).RazmeneRobe;
+        }
+
+        // ...#...SO
+        public List<Roba> VratiPretraguRobe(Korisnik korisnik, string tekst)
+        {
+            OpstaSistemskaOperacija sistemskaOperacija = new VratiPretraguRobeSO();
+            ((VratiPretraguRobeSO)sistemskaOperacija).Tekst = tekst;
+            sistemskaOperacija.Izvrsi(new Roba() { KorisnikRobe = korisnik });
+            return ((VratiPretraguRobeSO)sistemskaOperacija).Pretraga;
+        }
+
         // zavrseno
         public bool IzmeniRobu(Roba roba)
         {

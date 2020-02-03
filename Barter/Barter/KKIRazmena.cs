@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,21 @@ namespace Barter
         BindingList<Roba> ulozenaRoba = new BindingList<Roba>();
 
         // end
-        internal void SrediFormu(Korisnik korisnik, Roba roba, TextBox tbKorisnikRobe, DateTimePicker dtpDatumRazmeneRobe, TextBox tbNazivRobe, TextBox tbCenaRobe, TextBox tbDostupnaKolicina, DataGridView dgvUlozenaRoba)
+        internal void SrediFormu(IDomenskiObjekat iKorisnik, IDomenskiObjekat iRoba, TextBox tbKorisnikRobe, DateTimePicker dtpDatumRazmeneRobe, TextBox tbNazivRobe, TextBox tbCenaRobe, TextBox tbDostupnaKolicina, DataGridView dgvUlozenaRoba)
         {
             try
             {
+                Roba roba;
+                Korisnik korisnik;
+                if (!(iKorisnik is Korisnik) || !(iRoba is Roba))
+                {
+                    throw new Exception("Nisu prosledjeni pravi objekti");
+                }
+                else
+                {
+                    roba = (Roba)iRoba;
+                    korisnik = (Korisnik)iKorisnik;
+                }
                 trazenaRoba = roba;
                 tbKorisnikRobe.Text = roba.KorisnikRobe.UsernameKorisnika;
                 dtpDatumRazmeneRobe.Value = DateTime.Now;
@@ -35,6 +47,11 @@ namespace Barter
             {
                 FrmClose();
                 throw new ExceptionServer(es.Message);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                FrmClose();
             }
         }
 

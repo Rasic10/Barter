@@ -82,6 +82,31 @@ namespace Barter
         }
 
         // zavrseno
+        internal IList<RazmenaRobe> VratiPretraguRazmeneRobe(Korisnik korisnik, string uslov)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev { Objekat = korisnik, Text = uslov, Operacija = Operacija.VratiPretraguRazmene };
+                formatter.Serialize(stream, zahtev);
+                Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+                switch (odgovor.Signal)
+                {
+                    case Signal.Ok:
+                        return (List<RazmenaRobe>)odgovor.Objekat;
+                    case Signal.Error:
+                        return new List<RazmenaRobe>();
+                }
+                return null;
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                klijent.Close();
+                throw new ExceptionServer("Server je zaustavljen!");
+            }
+        }
+
+        // zavrseno
         internal List<Lokacija> VratiLokacije()
         {
             try
@@ -106,7 +131,32 @@ namespace Barter
             }
         }
 
-        //
+        // zavrseno
+        internal List<Roba> VratiPretraguRobe(string text)
+        {
+            try
+            {
+                Zahtev zahtev = new Zahtev { Objekat = Sesija.Instance.Korisnik, Text = text, Operacija = Operacija.VratiPretraguRobe };
+                formatter.Serialize(stream, zahtev);
+                Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+                switch (odgovor.Signal)
+                {
+                    case Signal.Ok:
+                        return (List<Roba>)odgovor.Objekat;
+                    case Signal.Error:
+                        return new List<Roba>();
+                }
+                return null;
+            }
+            catch (IOException e)
+            {
+                Debug.WriteLine(">>> " + e.Message);
+                klijent.Close();
+                throw new ExceptionServer("Server je zaustavljen!");
+            }
+        }
+
+        // zavrseno
         internal bool IzmeniRobu(Roba robaZaIzmenu)
         {
             try

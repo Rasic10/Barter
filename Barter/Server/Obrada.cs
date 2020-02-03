@@ -79,6 +79,12 @@ namespace Server
                         case Operacija.IzmeniRobu:
                             odgovor = IzmeniRobu((Roba)zahtev.Objekat);
                             break;
+                        case Operacija.VratiPretraguRobe:
+                            odgovor = VratiPretraguRobe((Korisnik)zahtev.Objekat, zahtev.Text);
+                            break;
+                        case Operacija.VratiPretraguRazmene:
+                            odgovor = VratiPretraguRazmene((Korisnik)zahtev.Objekat, zahtev.Text);
+                            break;
                     }
                     ProslediOdgovor(odgovor);
                 }
@@ -90,7 +96,33 @@ namespace Server
             }
         }
 
-        // 
+        // ...#...
+        private Odgovor VratiPretraguRazmene(Korisnik objekat, string text)
+        {
+            List<RazmenaRobe> razmeneRobe = Kontroler.Kontroler.Instance.VratiPretraguRazmene(objekat, text);
+            Odgovor odgovor = new Odgovor();
+            odgovor.Objekat = razmeneRobe;
+            if (odgovor.Objekat == null)
+                odgovor.Signal = Signal.Error;
+            else
+                odgovor.Signal = Signal.Ok;
+            return odgovor;
+        }
+
+        // ...#...
+        private Odgovor VratiPretraguRobe(Korisnik objekat, string text)
+        {
+            List<Roba> pretragaRobe = Kontroler.Kontroler.Instance.VratiPretraguRobe(objekat, text);
+            Odgovor odgovor = new Odgovor();
+            odgovor.Objekat = pretragaRobe;
+            if (odgovor.Objekat == null)
+                odgovor.Signal = Signal.Error;
+            else
+                odgovor.Signal = Signal.Ok;
+            return odgovor;
+        }
+
+        // ...#...
         private Odgovor IzmeniRobu(Roba roba)
         {
             bool izmena = Kontroler.Kontroler.Instance.IzmeniRobu(roba);
@@ -170,9 +202,9 @@ namespace Server
         // ...#...
         private Odgovor VratiListuRobe(Korisnik objekat, string text)
         {
-            List<Roba> lokacije = Kontroler.Kontroler.Instance.VratiListuRobe(objekat, text);
+            List<Roba> robe = Kontroler.Kontroler.Instance.VratiListuRobe(objekat, text);
             Odgovor odgovor = new Odgovor();
-            odgovor.Objekat = lokacije;
+            odgovor.Objekat = robe;
             if (odgovor.Objekat == null)
                 odgovor.Signal = Signal.Error;
             else

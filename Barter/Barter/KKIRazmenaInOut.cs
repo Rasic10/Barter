@@ -37,5 +37,29 @@ namespace Barter
                 throw new ExceptionServer(es.Message);
             }
         }
+
+        // end
+        internal void PretragaRobe(string text, DataGridView dgvRazmena, string title)
+        {
+            try
+            {
+                // Razmena in - end
+                if (title == "RAZMENA IN")
+                {
+                    dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiPretraguRazmeneRobe(Sesija.Instance.Korisnik, $"KorisnikUlozeneRobe = {text}"));
+                }
+
+                // Razmena Out - end
+                if (title == "RAZMENA OUT")
+                {
+                    dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiPretraguRazmeneRobe(Sesija.Instance.Korisnik, $"KorisnikTrazeneRobe = {text}"));
+                }
+            }
+            catch (ExceptionServer es)
+            {
+                FrmClose();
+                throw new ExceptionServer(es.Message);
+            }
+        }
     }
 }

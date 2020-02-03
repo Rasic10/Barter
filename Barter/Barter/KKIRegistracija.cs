@@ -123,7 +123,7 @@ namespace Barter
 
                         if (uspesnaRegistracija)
                         {
-                            MessageBox.Show($"Uspesno ste registrovani {k.UsernameKorisnika}", "Registracija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Novi korisnik je dodat u sistem!", "Registracija", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             FrmClose();
                         }
                         else

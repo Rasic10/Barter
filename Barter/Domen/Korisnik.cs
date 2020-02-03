@@ -128,5 +128,10 @@ namespace Domen
         {
             throw new NotImplementedException();
         }
+
+        public string VratiPretragu(string tekst)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

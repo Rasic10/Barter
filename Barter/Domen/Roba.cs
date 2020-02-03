@@ -156,5 +156,11 @@ namespace Domen
         {
             throw new NotImplementedException();
         }
+
+        // ...#...
+        public string VratiPretragu(string tekst)
+        {
+            return $"KorisnikRobe != {KorisnikRobe.KorisnikID} AND NazivRobe LIKE '%{tekst}%'";
+        }
     }
 }

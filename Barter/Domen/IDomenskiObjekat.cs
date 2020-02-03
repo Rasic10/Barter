@@ -31,5 +31,6 @@ namespace Domen
 
         IEnumerable<IDomenskiObjekat> VratiSlabeObjekte();
 
+        string VratiPretragu(string tekst);
     }
 }

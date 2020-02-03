@@ -29,5 +29,7 @@ namespace Domen
         ObrisiRobu,
         VratiListuRazmeneRobe,
         IzmeniRobu,
+        VratiPretraguRobe,
+        VratiPretraguRazmene,
     }
 }

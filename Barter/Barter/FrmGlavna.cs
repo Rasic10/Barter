@@ -23,7 +23,7 @@ namespace Barter
         }
 
         // end
-        public FrmGlavna(Korisnik k)
+        public FrmGlavna(IDomenskiObjekat k)
         {
             InitializeComponent();
             kontroler.FrmClose += FrmClose;
@@ -61,12 +61,6 @@ namespace Barter
         }
 
         // end
-        private void FrmClose()
-        {
-            this.Close();
-        }
-
-        // end
         private void bttRazmenaIn_Click(object sender, EventArgs e)
         {
             kontroler.OtvoriFormuRazmenaInOut("RAZMENA IN");
@@ -83,5 +77,12 @@ namespace Barter
         {
             kontroler.PretragaRobe(tbPretraga.Text, dgvGlavna);
         }
+
+        // end
+        private void FrmClose()
+        {
+            this.Close();
+        }
+
     }
 }
