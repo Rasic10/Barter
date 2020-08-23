@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnPokreni = new System.Windows.Forms.Button();
             this.btnZaustavi = new System.Windows.Forms.Button();
+            this.dgvKorisnici = new System.Windows.Forms.DataGridView();
+            this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.imeKorisnikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prezimeKorisnikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPokreni
@@ -52,15 +59,52 @@
             this.btnZaustavi.UseVisualStyleBackColor = true;
             this.btnZaustavi.Click += new System.EventHandler(this.btnZaustavi_Click);
             // 
+            // dgvKorisnici
+            // 
+            this.dgvKorisnici.AllowUserToAddRows = false;
+            this.dgvKorisnici.AllowUserToDeleteRows = false;
+            this.dgvKorisnici.AutoGenerateColumns = false;
+            this.dgvKorisnici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKorisnici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.imeKorisnikaDataGridViewTextBoxColumn,
+            this.prezimeKorisnikaDataGridViewTextBoxColumn});
+            this.dgvKorisnici.DataSource = this.korisnikBindingSource;
+            this.dgvKorisnici.Location = new System.Drawing.Point(12, 78);
+            this.dgvKorisnici.Name = "dgvKorisnici";
+            this.dgvKorisnici.ReadOnly = true;
+            this.dgvKorisnici.Size = new System.Drawing.Size(301, 150);
+            this.dgvKorisnici.TabIndex = 2;
+            // 
+            // korisnikBindingSource
+            // 
+            this.korisnikBindingSource.DataSource = typeof(Domen.Korisnik);
+            // 
+            // imeKorisnikaDataGridViewTextBoxColumn
+            // 
+            this.imeKorisnikaDataGridViewTextBoxColumn.DataPropertyName = "ImeKorisnika";
+            this.imeKorisnikaDataGridViewTextBoxColumn.HeaderText = "ImeKorisnika";
+            this.imeKorisnikaDataGridViewTextBoxColumn.Name = "imeKorisnikaDataGridViewTextBoxColumn";
+            this.imeKorisnikaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prezimeKorisnikaDataGridViewTextBoxColumn
+            // 
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.DataPropertyName = "PrezimeKorisnika";
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.HeaderText = "PrezimeKorisnika";
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.Name = "prezimeKorisnikaDataGridViewTextBoxColumn";
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 114);
+            this.ClientSize = new System.Drawing.Size(325, 304);
+            this.Controls.Add(this.dgvKorisnici);
             this.Controls.Add(this.btnZaustavi);
             this.Controls.Add(this.btnPokreni);
             this.Name = "FrmServer";
             this.Text = "Server";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +113,10 @@
 
         private System.Windows.Forms.Button btnPokreni;
         private System.Windows.Forms.Button btnZaustavi;
+        private System.Windows.Forms.DataGridView dgvKorisnici;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imeKorisnikaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prezimeKorisnikaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource korisnikBindingSource;
     }
 }
 

@@ -17,3 +17,41 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Server\bin\Debug\SistemskeOp
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Server\bin\Debug\Kontroler.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Server\bin\Debug\BrokerBazePodataka.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Server\bin\Debug\SistemskeOperacije.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Server.exe.config
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Server.exe
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Server.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\SistemskeOperacije.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.FrmServer.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.exe
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Server.exe.config
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Server.exe
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Server.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Domen.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Kontroler.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\BrokerBazePodataka.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\SistemskeOperacije.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Domen.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\Kontroler.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\BrokerBazePodataka.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\SistemskeOperacije.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csprojAssemblyReference.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.FrmServer.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.Properties.Resources.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.CopyComplete
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.exe
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.pdb

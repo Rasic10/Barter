@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGlavna));
             this.dgvGlavna = new System.Windows.Forms.DataGridView();
             this.robaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +77,7 @@
             this.kategorijaRobeDataGridViewTextBoxColumn});
             this.dgvGlavna.DataSource = this.robaBindingSource;
             this.dgvGlavna.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvGlavna.Location = new System.Drawing.Point(248, 227);
+            this.dgvGlavna.Location = new System.Drawing.Point(248, 124);
             this.dgvGlavna.Name = "dgvGlavna";
             this.dgvGlavna.ReadOnly = true;
             this.dgvGlavna.Size = new System.Drawing.Size(680, 286);
@@ -146,7 +145,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Barter.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(955, 141);
+            this.pictureBox1.Location = new System.Drawing.Point(955, 63);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(76, 69);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -157,7 +156,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Barter.Properties.Resources.transportna_kutija_600x400x400mm;
-            this.pictureBox2.Location = new System.Drawing.Point(955, 216);
+            this.pictureBox2.Location = new System.Drawing.Point(955, 138);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(76, 69);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,7 +167,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::Barter.Properties.Resources.plusKutija;
-            this.pictureBox3.Location = new System.Drawing.Point(955, 291);
+            this.pictureBox3.Location = new System.Drawing.Point(955, 213);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(76, 69);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -179,7 +178,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::Barter.Properties.Resources._0003808_e005_smjer_300;
-            this.pictureBox4.Location = new System.Drawing.Point(955, 366);
+            this.pictureBox4.Location = new System.Drawing.Point(955, 288);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(76, 69);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -190,7 +189,7 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::Barter.Properties.Resources._5006_500x500;
-            this.pictureBox5.Location = new System.Drawing.Point(955, 441);
+            this.pictureBox5.Location = new System.Drawing.Point(955, 363);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(76, 69);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -207,7 +206,7 @@
             this.bttProfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.bttProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttProfil.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttProfil.Location = new System.Drawing.Point(1040, 141);
+            this.bttProfil.Location = new System.Drawing.Point(1040, 63);
             this.bttProfil.Name = "bttProfil";
             this.bttProfil.Size = new System.Drawing.Size(128, 69);
             this.bttProfil.TabIndex = 9;
@@ -225,7 +224,7 @@
             this.bttRoba.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.bttRoba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttRoba.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttRoba.Location = new System.Drawing.Point(1040, 216);
+            this.bttRoba.Location = new System.Drawing.Point(1040, 138);
             this.bttRoba.Name = "bttRoba";
             this.bttRoba.Size = new System.Drawing.Size(128, 69);
             this.bttRoba.TabIndex = 10;
@@ -243,7 +242,7 @@
             this.bttUnosRobe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.bttUnosRobe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttUnosRobe.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttUnosRobe.Location = new System.Drawing.Point(1040, 291);
+            this.bttUnosRobe.Location = new System.Drawing.Point(1040, 213);
             this.bttUnosRobe.Name = "bttUnosRobe";
             this.bttUnosRobe.Size = new System.Drawing.Size(128, 69);
             this.bttUnosRobe.TabIndex = 11;
@@ -261,7 +260,7 @@
             this.bttRazmenaIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.bttRazmenaIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttRazmenaIn.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttRazmenaIn.Location = new System.Drawing.Point(1040, 366);
+            this.bttRazmenaIn.Location = new System.Drawing.Point(1040, 288);
             this.bttRazmenaIn.Name = "bttRazmenaIn";
             this.bttRazmenaIn.Size = new System.Drawing.Size(128, 69);
             this.bttRazmenaIn.TabIndex = 12;
@@ -279,7 +278,7 @@
             this.bttRazmenaOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
             this.bttRazmenaOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bttRazmenaOut.Font = new System.Drawing.Font("Cooper Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttRazmenaOut.Location = new System.Drawing.Point(1040, 441);
+            this.bttRazmenaOut.Location = new System.Drawing.Point(1040, 363);
             this.bttRazmenaOut.Name = "bttRazmenaOut";
             this.bttRazmenaOut.Size = new System.Drawing.Size(128, 69);
             this.bttRazmenaOut.TabIndex = 13;
@@ -308,7 +307,7 @@
             // tbPretraga
             // 
             this.tbPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPretraga.Location = new System.Drawing.Point(248, 189);
+            this.tbPretraga.Location = new System.Drawing.Point(248, 86);
             this.tbPretraga.Name = "tbPretraga";
             this.tbPretraga.Size = new System.Drawing.Size(531, 26);
             this.tbPretraga.TabIndex = 15;
@@ -317,7 +316,7 @@
             // btnPretraga
             // 
             this.btnPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPretraga.Location = new System.Drawing.Point(785, 186);
+            this.btnPretraga.Location = new System.Drawing.Point(785, 83);
             this.btnPretraga.Name = "btnPretraga";
             this.btnPretraga.Size = new System.Drawing.Size(143, 33);
             this.btnPretraga.TabIndex = 16;
@@ -329,8 +328,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1180, 585);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1180, 450);
             this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.tbPretraga);
             this.Controls.Add(this.button1);

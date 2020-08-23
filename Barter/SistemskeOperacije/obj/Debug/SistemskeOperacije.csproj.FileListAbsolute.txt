@@ -9,3 +9,25 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CopyComplete
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\SistemskeOperacije.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\SistemskeOperacije.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\SistemskeOperacije.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\BrokerBazePodataka.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\Domen.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\BrokerBazePodataka.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\bin\Debug\Domen.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csprojAssemblyReference.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CoreCompileInputs.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.csproj.CopyComplete
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\SistemskeOperacije\obj\Debug\SistemskeOperacije.pdb

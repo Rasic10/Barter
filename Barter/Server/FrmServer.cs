@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domen;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Server
     public partial class FrmServer : Form
     {
         private Server server;
+        public BindingList<Korisnik> listaKorisnika = new BindingList<Korisnik>();
 
         public FrmServer()
         {
@@ -20,6 +22,7 @@ namespace Server
             btnPokreni.Enabled = true;
             btnZaustavi.Enabled = false;
             server = new Server(this);
+            dgvKorisnici.DataSource = listaKorisnika;
         }
 
         // ...#...

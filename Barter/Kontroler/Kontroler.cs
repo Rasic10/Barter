@@ -38,7 +38,6 @@ namespace Kontroler
             OpstaSistemskaOperacija sistemskaOperacija = new PrijavaKorisnikaSO();
             sistemskaOperacija.Izvrsi(korisnik);
             return ((PrijavaKorisnikaSO)sistemskaOperacija).Korisnik;
-            //return broker.Prijava(korisnik.UsernameKorisnika, korisnik.Sifra);
         }
 
         // ...#...SO
@@ -47,21 +46,6 @@ namespace Kontroler
             OpstaSistemskaOperacija sistemskaOperacija = new RegistrujKorisnikaSO();
             sistemskaOperacija.Izvrsi(korisnik);
             return ((RegistrujKorisnikaSO)sistemskaOperacija).Sacuvano;
-            //try
-            //{
-            //    broker.OtvoriKonekciju();
-            //    broker.Registracija(k);
-            //    return true;
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.WriteLine(">>> " + e.Message);
-            //    return false;
-            //}
-            //finally
-            //{
-            //    broker.ZatvoriKonekciju();
-            //}
         }
 
         // ...#...SO
@@ -71,7 +55,6 @@ namespace Kontroler
             ((VratiSveRobeSO)sistemskaOperacija).Operacija = operacija;
             sistemskaOperacija.Izvrsi(new Roba() { KorisnikRobe = korisnik });
             return ((VratiSveRobeSO)sistemskaOperacija).Robe;
-            //return broker.VratiListuRobe(korisnik, operacija);
         }
 
         // ...#...SO
@@ -93,7 +76,6 @@ namespace Kontroler
             OpstaSistemskaOperacija sistemskaOperacija = new VratiSveLokacijeSO();
             sistemskaOperacija.Izvrsi(new Lokacija());
             return ((VratiSveLokacijeSO)sistemskaOperacija).Lokacije;
-            //return broker.VratiSveLokacije();
         }
 
         // ...#...SO
@@ -102,20 +84,6 @@ namespace Kontroler
             OpstaSistemskaOperacija sistemskaOperacija = new DodajKategorijuSO();
             sistemskaOperacija.Izvrsi(kategorija);
             return ((DodajKategorijuSO)sistemskaOperacija).ID;
-            //try
-            //{
-            //    broker.OtvoriKonekciju();
-            //    return broker.UnesiKateogoriju(k);
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.WriteLine(">>> " + e.Message);
-            //    return -1;
-            //}
-            //finally
-            //{
-            //    broker.ZatvoriKonekciju();
-            //}
         }
 
         // ...#...SO

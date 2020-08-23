@@ -7,3 +7,21 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CopyComplete
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\BrokerBazePodataka.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\Domen.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\bin\Debug\Domen.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csprojAssemblyReference.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CoreCompileInputs.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.csproj.CopyComplete
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\BrokerBazePodataka\obj\Debug\BrokerBazePodataka.pdb

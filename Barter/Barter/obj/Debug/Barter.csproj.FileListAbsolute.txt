@@ -24,3 +24,55 @@ C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmD
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.dll
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.pdb
 C:\Users\Nemanja\Desktop\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRazmenaInOut.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe.config
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.pdb
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmDodajNovuRobu.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmGlavna.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmPrijava.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRazmena.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRazmenaInOut.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRegistracija.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRoba.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmUnosRobe.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.Properties.Resources.resources
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.GenerateResource.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.exe
+C:\Users\Nemanja\Desktop\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe.config
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.exe
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Barter.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.dll
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Domen.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\Kontroler.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\BrokerBazePodataka.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\SistemskeOperacije.pdb
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csprojAssemblyReference.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmDodajNovuRobu.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmGlavna.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmPrijava.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRazmena.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRazmenaInOut.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRegistracija.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmRoba.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.FrmUnosRobe.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.Properties.Resources.resources
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.GenerateResource.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CoreCompileInputs.cache
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CopyComplete
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.exe
+D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.pdb

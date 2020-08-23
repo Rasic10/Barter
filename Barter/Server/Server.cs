@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Domen;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -18,12 +20,14 @@ namespace Server
         private Socket osluskujuciSoket;
         private List<Thread> nitiKlijenata = new List<Thread>();
 
+        private BindingList<Korisnik> listaKorisnika = new BindingList<Korisnik>();
+
         // ...#...
         public Server(FrmServer frmServer)
         {
             this.frmServer = frmServer;
         }
-
+        
         // ...#...
         internal bool Pokreni()
         {

@@ -19,6 +19,8 @@ namespace Server
         public NetworkStream klijentskiTok;
         private BinaryFormatter formatter = new BinaryFormatter();
         public bool kraj;
+        private Korisnik korisnik = null;
+   
 
         // ...#...
         public Obrada(Socket klijent, FrmServer frmServer)
@@ -28,7 +30,7 @@ namespace Server
             this.klijentskiTok = new NetworkStream(klijent);
         }
 
-        // ...
+        // ...#...
         public void ObradiKlijenta()
         {
             kraj = false;
@@ -87,6 +89,12 @@ namespace Server
                             break;
                     }
                     ProslediOdgovor(odgovor);
+                }
+                catch(IOException ioe)
+                {
+                    string s = ioe.Message;
+                    kraj = true;
+                    if ( korisnik != null) frmServer.Invoke(new Action(() => frmServer.listaKorisnika.Remove(korisnik)));
                 }
                 catch (Exception e)
                 {
@@ -293,6 +301,9 @@ namespace Server
                 odgovor.Signal = Signal.Ok;
                 odgovor.Poruka = "Korisnik je pronadjen!";
                 odgovor.Objekat = k;
+                this.korisnik = k;
+                frmServer.Invoke(new Action(() => frmServer.listaKorisnika.Add(k) ));
+                //frmServer.listaKorisnika.Add(k);
             }
             return odgovor;
         }
