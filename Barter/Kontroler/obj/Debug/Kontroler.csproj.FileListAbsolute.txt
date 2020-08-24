@@ -37,3 +37,16 @@ D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\
 D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csproj.CopyComplete
 D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.dll
 D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\Kontroler.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\BrokerBazePodataka.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\SistemskeOperacije.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\BrokerBazePodataka.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\bin\Debug\SistemskeOperacije.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.csproj.CopyComplete
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Kontroler\obj\Debug\Kontroler.pdb

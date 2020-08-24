@@ -16,3 +16,9 @@ D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Dome
 D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.csproj.CoreCompileInputs.cache
 D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.dll
 D:\Nemanja\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\bin\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\bin\Debug\Domen.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.csprojAssemblyReference.cache
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.csproj.CoreCompileInputs.cache
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Domen\obj\Debug\Domen.pdb

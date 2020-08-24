@@ -46,5 +46,11 @@ namespace Barter
         {
             kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
         }
+
+        // end
+        private void dgvRazmenaInOut_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kontroler.OnClick(sender, e);
+        }
     }
 }
