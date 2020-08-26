@@ -74,3 +74,5 @@ C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server
 C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.csproj.CopyComplete
 C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.exe
 C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\obj\Debug\Server.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\itextsharp.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Server\bin\Debug\itextsharp.xml

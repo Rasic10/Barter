@@ -102,3 +102,5 @@ C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter
 C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.csproj.CopyComplete
 C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.exe
 C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\obj\Debug\Barter.pdb
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\itextsharp.dll
+C:\Users\Nemanja\Desktop\A DIPLOMSKI\Diplomski\Projekat - Softveri\Barter\Barter\bin\Debug\itextsharp.xml

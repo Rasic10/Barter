@@ -44,7 +44,8 @@ namespace Barter
         // end
         private void btnPretraga_Click(object sender, EventArgs e)
         {
-            kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
+            kontroler.exportGridToPdf(dgvRazmena, "Tabela");
+            //kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
         }
 
         // end
