@@ -38,6 +38,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.trazenaRobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatumRazmeneRobe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumRazmeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +86,7 @@
             this.dgvRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.trazenaRobaDataGridViewTextBoxColumn,
+            this.DatumRazmeneRobe,
             this.kolicinaRobeDataGridViewTextBoxColumn,
             this.datumRazmeneRobeDataGridViewTextBoxColumn,
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn,
@@ -147,6 +149,14 @@
             this.trazenaRobaDataGridViewTextBoxColumn.Name = "trazenaRobaDataGridViewTextBoxColumn";
             this.trazenaRobaDataGridViewTextBoxColumn.ReadOnly = true;
             this.trazenaRobaDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // DatumRazmeneRobe
+            // 
+            this.DatumRazmeneRobe.DataPropertyName = "DatumRazmeneRobe";
+            this.DatumRazmeneRobe.HeaderText = "Datum razmene robe";
+            this.DatumRazmeneRobe.Name = "DatumRazmeneRobe";
+            this.DatumRazmeneRobe.ReadOnly = true;
+            this.DatumRazmeneRobe.Visible = false;
             // 
             // kolicinaRobeDataGridViewTextBoxColumn
             // 
@@ -239,6 +249,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn trazenaRobaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatumRazmeneRobe;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumRazmeneRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikTrazeneRobeDataGridViewTextBoxColumn;

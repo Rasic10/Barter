@@ -16,6 +16,7 @@ namespace Barter
     public class KKIRazmenaInOut
     {
         public event Action FrmClose;
+        public List<RazmenaRobe> data = null;
 
         // end
         internal void SrediFormu(string title, DataGridView dgvRazmena, Label lblTitle)
@@ -25,6 +26,7 @@ namespace Barter
                 // Razmena in - end
                 if (title == "RAZMENA IN")
                 {
+                    data =  Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe =");
                     dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
                 }
 
@@ -32,6 +34,7 @@ namespace Barter
                 if (title == "RAZMENA OUT")
                 {
                     lblTitle.Text = title;
+                    data = Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe =");
                     dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
 
                     //dgvRazmena.Columns["Da"].
@@ -94,6 +97,8 @@ namespace Barter
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfTable.DefaultCell.BorderWidth = 1;
 
+
+
             Font text = new Font(bf, 10, Font.NORMAL);
             //Add header
             foreach(DataGridViewColumn column in dgvRazmena.Columns)
@@ -118,10 +123,17 @@ namespace Barter
             {
                 using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    Document pdfDoc = new Document(PageSize.A4_LANDSCAPE, 10f, 10f, 10f, 0f);
                     PdfWriter.GetInstance(pdfDoc, stream);
+                    Header header = new Header("Nesto", "Naslov");
                     pdfDoc.Open();
+                    pdfDoc.AddSubject("Ajde nesto da se prikaze");
+                    pdfDoc.AddTitle("Mozda sad bude bolje");
+                    pdfDoc.Add(header);
                     pdfDoc.Add(pdfTable);
+                    
+
+                    
                     pdfDoc.Close();
                     stream.Close();
                 }

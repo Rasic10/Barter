@@ -37,6 +37,7 @@ namespace Domen
             if (broj == 1) KorisnikTrazeneRobe = (Korisnik)domenskiObjekat;
             if (broj == 2) KorisnikUlozeneRobe = (Korisnik)domenskiObjekat;
             if (broj == 3) TrazenaRoba = (Roba)domenskiObjekat;
+            if (broj > 3) UlozenaRoba[broj - 4] = (Roba)domenskiObjekat;
         }
 
         // ...#...
@@ -55,9 +56,16 @@ namespace Domen
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
             List<IDomenskiObjekat> razmenaRobe = new List<IDomenskiObjekat>();
+            RazmenaRobe roba = null;
             while (reader.Read())
             {
-                RazmenaRobe roba = new RazmenaRobe
+                if(roba != null && roba.RazmenaID == reader.GetInt32(0))
+                {
+                    roba.ulozenaRoba.Add(new Roba { RobaID = reader.GetInt32(6) });
+                    continue;
+                }
+
+                roba = new RazmenaRobe
                 {
                     RazmenaID = reader.GetInt32(0),
                     DatumRazmeneRobe = reader.GetDateTime(1),
@@ -73,6 +81,13 @@ namespace Domen
                     TrazenaRoba = new Roba
                     {
                         RobaID = reader.GetInt32(5)
+                    },
+                    UlozenaRoba = new List<Roba>
+                    {
+                        new Roba
+                        {
+                            RobaID = reader.GetInt32(6)
+                        }
                     }
                 };
                 razmenaRobe.Add(roba);
@@ -91,6 +106,7 @@ namespace Domen
             if (broj == 1) return KorisnikTrazeneRobe;
             if (broj == 2) return KorisnikUlozeneRobe;
             if (broj == 3) return TrazenaRoba;
+            if (broj - 4 >= 0 && broj - 4 < UlozenaRoba.Count()) return UlozenaRoba[broj - 4];
             return null;
         }
 

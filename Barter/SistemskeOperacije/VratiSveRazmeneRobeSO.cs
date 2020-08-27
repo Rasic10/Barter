@@ -14,7 +14,7 @@ namespace SistemskeOperacije
 
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
-            RazmeneRobe = broker.VratiSve(objekat, Operacija).Cast<RazmenaRobe>().ToList();
+            RazmeneRobe = broker.VratiRazmenuRobe(objekat, Operacija).Cast<RazmenaRobe>().ToList();
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)

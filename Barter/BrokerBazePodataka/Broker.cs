@@ -63,12 +63,33 @@ namespace BrokerBazePodataka
             SqlDataReader reader = command.ExecuteReader();
             List<IDomenskiObjekat> rezultat = objekat.VratiListu(reader);
             reader.Close();
-
+            
             int broj = 1;
             foreach (IDomenskiObjekat rez in rezultat)
             {
                 broj = 1;
                 
+                while (rez.VratiPoddomen(broj) != null)
+                {
+                    rez.PostaviPoddomen(VratiJedan(rez.VratiPoddomen(broj)), broj);
+                    broj++;
+                }
+            }
+            return rezultat;
+        }
+
+        public List<IDomenskiObjekat> VratiRazmenuRobe(IDomenskiObjekat objekat, string operacija)
+        {
+            SqlCommand command = new SqlCommand($"SELECT RazmenaRobe.*, Roba.RobaID FROM {objekat.VratiImeKlase()} JOIN Roba ON RazmenaRobe.RazmenaID = Roba.RazmenaUlozeneRobe WHERE {objekat.VratiSlozenUslov(operacija)}", connection, transaction);
+            SqlDataReader reader = command.ExecuteReader();
+            List<IDomenskiObjekat> rezultat = objekat.VratiListu(reader);
+            reader.Close();
+
+            int broj = 1;
+            foreach (IDomenskiObjekat rez in rezultat)
+            {
+                broj = 1;
+
                 while (rez.VratiPoddomen(broj) != null)
                 {
                     rez.PostaviPoddomen(VratiJedan(rez.VratiPoddomen(broj)), broj);
