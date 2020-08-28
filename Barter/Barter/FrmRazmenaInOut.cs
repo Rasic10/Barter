@@ -13,6 +13,7 @@ namespace Barter
     public partial class FrmRazmenaInOut : Form
     {
         KKIRazmenaInOut kontroler = new KKIRazmenaInOut();
+        public string title = "";
 
         // end
         public FrmRazmenaInOut()
@@ -26,7 +27,7 @@ namespace Barter
         {
             InitializeComponent();
             kontroler.FrmClose += FrmClose;
-            kontroler.SrediFormu(title, dgvRazmena, lblTitle);
+            this.title = title;
         }
 
         // end
@@ -52,6 +53,12 @@ namespace Barter
         private void dgvRazmenaInOut_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             kontroler.OnClick(sender, e);
+        }
+
+        private void FrmRazmenaInOut_Load(object sender, EventArgs e)
+        {
+            kontroler.SrediFormu(title, dgvRazmena, lblTitle);
+
         }
     }
 }

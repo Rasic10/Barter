@@ -28,6 +28,16 @@ namespace Barter
                 {
                     data =  Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe =");
                     dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
+                    
+                    //Console.WriteLine();
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        foreach(var roba in data[i].UlozenaRoba)
+                        {
+                            ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + ",\n";
+                        }
+                    }
+
                 }
 
                 // Razmena Out - end
@@ -46,6 +56,14 @@ namespace Barter
                     //buttonAccept.UseColumnTextForButtonValue = true; //ova linija je obavezna
 
                     //dgvRazmena.Columns.Add(buttonAccept);
+
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        foreach (var roba in data[i].UlozenaRoba)
+                        {
+                            ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + "g,\n";
+                        }
+                    }
                 }
             }
             catch (ExceptionServer es)
@@ -65,6 +83,7 @@ namespace Barter
                 try
                 {
                     MessageBox.Show($"Click on image!");
+                    
                 }
                 catch (ExceptionServer es)
                 {

@@ -32,20 +32,21 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvRazmena = new System.Windows.Forms.DataGridView();
-            this.razmenaRobeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnPretraga = new System.Windows.Forms.Button();
-            this.tbPretraga = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.trazenaRobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumRazmeneRobe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumRazmeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikUlozeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UlozenaRoba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAccept = new System.Windows.Forms.DataGridViewImageColumn();
             this.colCancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.buttonPdf = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.razmenaRobeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnPretraga = new System.Windows.Forms.Button();
+            this.tbPretraga = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRazmena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.razmenaRobeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +92,7 @@
             this.datumRazmeneRobeDataGridViewTextBoxColumn,
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn,
             this.korisnikUlozeneRobeDataGridViewTextBoxColumn,
+            this.UlozenaRoba,
             this.colAccept,
             this.colCancel,
             this.buttonPdf});
@@ -98,49 +100,9 @@
             this.dgvRazmena.Location = new System.Drawing.Point(12, 84);
             this.dgvRazmena.Name = "dgvRazmena";
             this.dgvRazmena.ReadOnly = true;
-            this.dgvRazmena.Size = new System.Drawing.Size(715, 268);
+            this.dgvRazmena.Size = new System.Drawing.Size(810, 268);
             this.dgvRazmena.TabIndex = 26;
             this.dgvRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRazmenaInOut_CellContentClick);
-            // 
-            // razmenaRobeBindingSource
-            // 
-            this.razmenaRobeBindingSource.DataSource = typeof(Domen.RazmenaRobe);
-            // 
-            // btnPretraga
-            // 
-            this.btnPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPretraga.Location = new System.Drawing.Point(549, 45);
-            this.btnPretraga.Name = "btnPretraga";
-            this.btnPretraga.Size = new System.Drawing.Size(143, 33);
-            this.btnPretraga.TabIndex = 28;
-            this.btnPretraga.Text = "Pretraga";
-            this.btnPretraga.UseVisualStyleBackColor = true;
-            this.btnPretraga.Click += new System.EventHandler(this.btnPretraga_Click);
-            // 
-            // tbPretraga
-            // 
-            this.tbPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPretraga.Location = new System.Drawing.Point(12, 48);
-            this.tbPretraga.Name = "tbPretraga";
-            this.tbPretraga.Size = new System.Drawing.Size(531, 26);
-            this.tbPretraga.TabIndex = 27;
-            this.tbPretraga.Text = "Pretraga po nazivu robe...";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Column1";
-            this.dataGridViewImageColumn1.Image = global::Barter.Properties.Resources.pngwing_com;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 30;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::Barter.Properties.Resources.pngwing_com__1_;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
             // trazenaRobaDataGridViewTextBoxColumn
             // 
@@ -189,6 +151,12 @@
             this.korisnikUlozeneRobeDataGridViewTextBoxColumn.ReadOnly = true;
             this.korisnikUlozeneRobeDataGridViewTextBoxColumn.Width = 132;
             // 
+            // UlozenaRoba
+            // 
+            this.UlozenaRoba.HeaderText = "Ulozena roba";
+            this.UlozenaRoba.Name = "UlozenaRoba";
+            this.UlozenaRoba.ReadOnly = true;
+            // 
             // colAccept
             // 
             this.colAccept.HeaderText = "";
@@ -216,12 +184,52 @@
             this.buttonPdf.UseColumnTextForButtonValue = true;
             this.buttonPdf.Width = 40;
             // 
+            // razmenaRobeBindingSource
+            // 
+            this.razmenaRobeBindingSource.DataSource = typeof(Domen.RazmenaRobe);
+            // 
+            // btnPretraga
+            // 
+            this.btnPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretraga.Location = new System.Drawing.Point(549, 45);
+            this.btnPretraga.Name = "btnPretraga";
+            this.btnPretraga.Size = new System.Drawing.Size(143, 33);
+            this.btnPretraga.TabIndex = 28;
+            this.btnPretraga.Text = "Pretraga";
+            this.btnPretraga.UseVisualStyleBackColor = true;
+            this.btnPretraga.Click += new System.EventHandler(this.btnPretraga_Click);
+            // 
+            // tbPretraga
+            // 
+            this.tbPretraga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPretraga.Location = new System.Drawing.Point(12, 48);
+            this.tbPretraga.Name = "tbPretraga";
+            this.tbPretraga.Size = new System.Drawing.Size(531, 26);
+            this.tbPretraga.TabIndex = 27;
+            this.tbPretraga.Text = "Pretraga po nazivu robe...";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Column1";
+            this.dataGridViewImageColumn1.Image = global::Barter.Properties.Resources.pngwing_com;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 30;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::Barter.Properties.Resources.pngwing_com__1_;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            // 
             // FrmRazmenaInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(739, 364);
+            this.ClientSize = new System.Drawing.Size(833, 373);
             this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.tbPretraga);
             this.Controls.Add(this.dgvRazmena);
@@ -231,6 +239,7 @@
             this.Name = "FrmRazmenaInOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRazmenaInOut";
+            this.Load += new System.EventHandler(this.FrmRazmenaInOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRazmena)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.razmenaRobeBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -254,6 +263,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datumRazmeneRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikTrazeneRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikUlozeneRobeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UlozenaRoba;
         private System.Windows.Forms.DataGridViewImageColumn colAccept;
         private System.Windows.Forms.DataGridViewImageColumn colCancel;
         private System.Windows.Forms.DataGridViewButtonColumn buttonPdf;
