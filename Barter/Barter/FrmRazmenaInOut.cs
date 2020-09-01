@@ -52,7 +52,7 @@ namespace Barter
         // end
         private void dgvRazmenaInOut_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            kontroler.OnClick(sender, e);
+            kontroler.OnClick(sender, e, dgvRazmena);
         }
 
         private void FrmRazmenaInOut_Load(object sender, EventArgs e)

@@ -74,7 +74,7 @@ namespace Barter
         }
 
         //
-        internal void OnClick(object sender, DataGridViewCellEventArgs e)
+        internal void OnClick(object sender, DataGridViewCellEventArgs e, DataGridView dgvRazmena)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -82,8 +82,8 @@ namespace Barter
             {
                 try
                 {
-                    MessageBox.Show($"Click on image!");
-                    
+                    if (e.ColumnIndex == 7) dgvRazmena.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
+                    if (e.ColumnIndex == 8) dgvRazmena.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
                 }
                 catch (ExceptionServer es)
                 {
@@ -116,8 +116,6 @@ namespace Barter
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfTable.DefaultCell.BorderWidth = 1;
 
-
-
             Font text = new Font(bf, 10, Font.NORMAL);
             //Add header
             foreach(DataGridViewColumn column in dgvRazmena.Columns)
@@ -142,17 +140,36 @@ namespace Barter
             {
                 using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4_LANDSCAPE, 10f, 10f, 10f, 0f);
-                    PdfWriter.GetInstance(pdfDoc, stream);
-                    Header header = new Header("Nesto", "Naslov");
-                    pdfDoc.Open();
-                    pdfDoc.AddSubject("Ajde nesto da se prikaze");
-                    pdfDoc.AddTitle("Mozda sad bude bolje");
-                    pdfDoc.Add(header);
-                    pdfDoc.Add(pdfTable);
-                    
+                    Document pdfDoc = new Document(PageSize.A4_LANDSCAPE);
+                    Font font = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 15, BaseColor.BLACK);
+                    Font fontTitle = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 20, Font.BOLD, BaseColor.BLACK);
 
-                    
+                    PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+
+                    System.Drawing.Image image1 = System.Drawing.Image.FromFile("C://Users/Nemanja/Desktop/NRCompar.png");
+                    Image iTextImage1 = Image.GetInstance(image1, System.Drawing.Imaging.ImageFormat.Png);
+                    iTextImage1.Alignment = Element.ALIGN_CENTER;
+                    pdfDoc.Add(iTextImage1);
+
+                    Paragraph parag1 = new Paragraph("Izveštaj razmene", fontTitle);
+                    parag1.Alignment = Element.ALIGN_CENTER;
+                    pdfDoc.Add(parag1);
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    Paragraph parag2 = new Paragraph("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font);
+                    parag2.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag2);
+
+                    Paragraph parag3 = new Paragraph("Datum izvestaja: " + DateTime.Now.ToString("dd/MM/yyyy"), font);
+                    parag3.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag3);
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    pdfDoc.AddAuthor(Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika);
+
+                    pdfDoc.Add(pdfTable);
+
                     pdfDoc.Close();
                     stream.Close();
                 }
