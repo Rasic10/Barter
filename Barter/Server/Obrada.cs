@@ -87,6 +87,9 @@ namespace Server
                         case Operacija.VratiPretraguRazmene:
                             odgovor = VratiPretraguRazmene((Korisnik)zahtev.Objekat, zahtev.Text);
                             break;
+                        case Operacija.PotvrdiRazmenuRobe:
+                            odgovor = PotvrdaRazmeneRobe((RazmenaRobe)zahtev.Objekat);
+                            break;
                     }
                     ProslediOdgovor(odgovor);
                 }
@@ -102,6 +105,22 @@ namespace Server
                     kraj = true;
                 }
             }
+        }
+
+        // 
+        private Odgovor PotvrdaRazmeneRobe(RazmenaRobe razmenaRobe)
+        {
+            bool izmena = Kontroler.Kontroler.Instance.PotvrdiRazmenuRobe(razmenaRobe);
+            Odgovor odgovor = new Odgovor();
+            if (izmena == true)
+            {
+                odgovor.Signal = Signal.Ok;
+            }
+            else
+            {
+                odgovor.Signal = Signal.Error;
+            }
+            return odgovor;
         }
 
         // ...#...

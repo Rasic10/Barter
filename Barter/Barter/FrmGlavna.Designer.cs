@@ -77,10 +77,10 @@
             this.kategorijaRobeDataGridViewTextBoxColumn});
             this.dgvGlavna.DataSource = this.robaBindingSource;
             this.dgvGlavna.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvGlavna.Location = new System.Drawing.Point(248, 124);
+            this.dgvGlavna.Location = new System.Drawing.Point(248, 122);
             this.dgvGlavna.Name = "dgvGlavna";
             this.dgvGlavna.ReadOnly = true;
-            this.dgvGlavna.Size = new System.Drawing.Size(680, 286);
+            this.dgvGlavna.Size = new System.Drawing.Size(690, 286);
             this.dgvGlavna.TabIndex = 0;
             this.dgvGlavna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGlavna_CellContentClick);
             // 

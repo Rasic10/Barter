@@ -58,7 +58,6 @@ namespace Barter
         private void FrmRazmenaInOut_Load(object sender, EventArgs e)
         {
             kontroler.SrediFormu(title, dgvRazmena, lblTitle);
-
         }
     }
 }

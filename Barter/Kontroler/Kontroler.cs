@@ -124,6 +124,14 @@ namespace Kontroler
             return ((ObrisiRobuSO)sistemskaOperacija).Obrisano;
         }
 
+        // 
+        public bool PotvrdiRazmenuRobe(RazmenaRobe razmenaRobe)
+        {
+            OpstaSistemskaOperacija sistemskaOperacija = new PotvrdiRazmenuRobeSO();
+            sistemskaOperacija.Izvrsi(razmenaRobe);
+            return ((PotvrdiRazmenuRobeSO)sistemskaOperacija).Izmenjeno;
+        }
+
         // ...#...SO
         public List<Kategorija> VratiListuKategorija() // promenjeno BindingList u List
         {

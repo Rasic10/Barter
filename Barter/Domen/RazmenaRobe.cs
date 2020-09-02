@@ -17,6 +17,7 @@ namespace Domen
         private Korisnik korisnikUlozeneRobe;
         private Roba trazenaRoba;
         private List<Roba> ulozenaRoba;
+        private bool potvrdaRazmene;
 
         public int RazmenaID { get => razmenaID; set => razmenaID = value; }
         public DateTime DatumRazmeneRobe { get => datumRazmeneRobe; set => datumRazmeneRobe = value; }
@@ -25,10 +26,12 @@ namespace Domen
         public Korisnik KorisnikUlozeneRobe { get => korisnikUlozeneRobe; set => korisnikUlozeneRobe = value; }
         public Roba TrazenaRoba { get => trazenaRoba; set => trazenaRoba = value; }
         public List<Roba> UlozenaRoba { get => ulozenaRoba; set => ulozenaRoba = value; }
+        public bool PotvrdaRazmene { get => potvrdaRazmene; set => potvrdaRazmene = value; }
 
+        // 
         public string PostaviVrednostiAtributa()
         {
-            throw new NotImplementedException();
+            return $"PotvrdaRazmene = 1";
         }
 
         // ...#...
@@ -61,7 +64,7 @@ namespace Domen
             {
                 if(roba != null && roba.RazmenaID == reader.GetInt32(0))
                 {
-                    roba.ulozenaRoba.Add(new Roba { RobaID = reader.GetInt32(6) });
+                    roba.ulozenaRoba.Add(new Roba { RobaID = reader.GetInt32(7) });
                     continue;
                 }
 
@@ -82,13 +85,14 @@ namespace Domen
                     {
                         RobaID = reader.GetInt32(5)
                     },
+                    PotvrdaRazmene = reader.GetBoolean(6),
                     UlozenaRoba = new List<Roba>
                     {
                         new Roba
                         {
-                            RobaID = reader.GetInt32(6)
+                            RobaID = reader.GetInt32(7)
                         }
-                    }
+                    },
                 };
                 razmenaRobe.Add(roba);
             }
@@ -123,12 +127,13 @@ namespace Domen
         // ...#...
         public string VratiVrednostiAtributa()
         {
-            return $"'{DatumRazmeneRobe}', {KolicinaRobe}, {KorisnikTrazeneRobe.KorisnikID}, {KorisnikUlozeneRobe.KorisnikID}, {TrazenaRoba.RobaID}";
+            return $"'{DatumRazmeneRobe}', {KolicinaRobe}, {KorisnikTrazeneRobe.KorisnikID}, {KorisnikUlozeneRobe.KorisnikID}, {TrazenaRoba.RobaID}, 0";
         }
 
+        // 
         public string VratiUslovPoIDu()
         {
-            throw new NotImplementedException();
+            return $"RazmenaID = {RazmenaID}";
         }
 
         // ...#...

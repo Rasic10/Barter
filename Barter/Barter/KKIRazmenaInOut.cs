@@ -16,7 +16,7 @@ namespace Barter
     public class KKIRazmenaInOut
     {
         public event Action FrmClose;
-        public List<RazmenaRobe> data = null;
+        public BindingList<RazmenaRobe> data = new BindingList<RazmenaRobe>();
 
         // end
         internal void SrediFormu(string title, DataGridView dgvRazmena, Label lblTitle)
@@ -26,13 +26,15 @@ namespace Barter
                 // Razmena in - end
                 if (title == "RAZMENA IN")
                 {
-                    data =  Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe =");
-                    dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
+                    data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
+                    dgvRazmena.DataSource = data;
                     
                     //Console.WriteLine();
                     for (int i = 0; i < data.Count; i++)
                     {
-                        foreach(var roba in data[i].UlozenaRoba)
+                        
+                        if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
+                        foreach (var roba in data[i].UlozenaRoba)
                         {
                             ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + ",\n";
                         }
@@ -44,7 +46,7 @@ namespace Barter
                 if (title == "RAZMENA OUT")
                 {
                     lblTitle.Text = title;
-                    data = Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe =");
+                    data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
                     dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
 
                     //dgvRazmena.Columns["Da"].
@@ -97,6 +99,17 @@ namespace Barter
                 try
                 {
                     MessageBox.Show($"Click on button!");
+                    if(e.ColumnIndex == 9)
+                    {
+                        if(Komunikacija.Instance.PotvrdaRazmeneRobe(data[e.RowIndex], true))
+                        {
+                            MessageBox.Show($"Changed!");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Failed!");
+                        } 
+                    }
                 }
                 catch (ExceptionServer es)
                 {
@@ -176,7 +189,6 @@ namespace Barter
             }
 
         }
-
 
         // end
         internal void PretragaRobe(string text, DataGridView dgvRazmena, string title)

@@ -31,5 +31,6 @@ namespace Domen
         IzmeniRobu,
         VratiPretraguRobe,
         VratiPretraguRazmene,
+        PotvrdiRazmenuRobe,
     }
 }
