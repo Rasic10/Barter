@@ -45,8 +45,7 @@ namespace Barter
         // end
         private void btnPretraga_Click(object sender, EventArgs e)
         {
-            kontroler.exportGridToPdf(dgvRazmena, "Tabela");
-            //kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
+            kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
         }
 
         // end
@@ -58,6 +57,11 @@ namespace Barter
         private void FrmRazmenaInOut_Load(object sender, EventArgs e)
         {
             kontroler.SrediFormu(title, dgvRazmena, lblTitle);
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            kontroler.exportGridToPdf(dgvRazmena, "Tabela");
         }
     }
 }

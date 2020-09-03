@@ -32,13 +32,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvRazmena = new System.Windows.Forms.DataGridView();
-            this.razmenaRobeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnPretraga = new System.Windows.Forms.Button();
             this.tbPretraga = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.razmenaRobeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.trazenaRobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatumRazmeneRobe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumRazmeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,7 @@
             this.btnPotvrdi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnObrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.buttonPdf = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRazmena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.razmenaRobeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(697, 2);
+            this.btnClose.Location = new System.Drawing.Point(879, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 38);
             this.btnClose.TabIndex = 23;
@@ -89,7 +89,6 @@
             this.dgvRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.trazenaRobaDataGridViewTextBoxColumn,
-            this.DatumRazmeneRobe,
             this.kolicinaRobeDataGridViewTextBoxColumn,
             this.datumRazmeneRobeDataGridViewTextBoxColumn,
             this.korisnikTrazeneRobeDataGridViewTextBoxColumn,
@@ -107,10 +106,6 @@
             this.dgvRazmena.Size = new System.Drawing.Size(909, 268);
             this.dgvRazmena.TabIndex = 26;
             this.dgvRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRazmenaInOut_CellContentClick);
-            // 
-            // razmenaRobeBindingSource
-            // 
-            this.razmenaRobeBindingSource.DataSource = typeof(Domen.RazmenaRobe);
             // 
             // btnPretraga
             // 
@@ -148,6 +143,10 @@
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
+            // razmenaRobeBindingSource
+            // 
+            this.razmenaRobeBindingSource.DataSource = typeof(Domen.RazmenaRobe);
+            // 
             // trazenaRobaDataGridViewTextBoxColumn
             // 
             this.trazenaRobaDataGridViewTextBoxColumn.DataPropertyName = "TrazenaRoba";
@@ -155,14 +154,6 @@
             this.trazenaRobaDataGridViewTextBoxColumn.Name = "trazenaRobaDataGridViewTextBoxColumn";
             this.trazenaRobaDataGridViewTextBoxColumn.ReadOnly = true;
             this.trazenaRobaDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // DatumRazmeneRobe
-            // 
-            this.DatumRazmeneRobe.DataPropertyName = "DatumRazmeneRobe";
-            this.DatumRazmeneRobe.HeaderText = "Datum razmene robe";
-            this.DatumRazmeneRobe.Name = "DatumRazmeneRobe";
-            this.DatumRazmeneRobe.ReadOnly = true;
-            this.DatumRazmeneRobe.Visible = false;
             // 
             // kolicinaRobeDataGridViewTextBoxColumn
             // 
@@ -248,12 +239,24 @@
             this.buttonPdf.UseColumnTextForButtonValue = true;
             this.buttonPdf.Width = 40;
             // 
+            // btnPDF
+            // 
+            this.btnPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDF.Location = new System.Drawing.Point(778, 45);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(143, 33);
+            this.btnPDF.TabIndex = 29;
+            this.btnPDF.Text = "Napravi PDF";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
             // FrmRazmenaInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(933, 373);
+            this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.tbPretraga);
             this.Controls.Add(this.dgvRazmena);
@@ -282,7 +285,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn trazenaRobaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatumRazmeneRobe;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumRazmeneRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikTrazeneRobeDataGridViewTextBoxColumn;
@@ -293,5 +295,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn btnPotvrdi;
         private System.Windows.Forms.DataGridViewButtonColumn btnObrisi;
         private System.Windows.Forms.DataGridViewButtonColumn buttonPdf;
+        private System.Windows.Forms.Button btnPDF;
     }
 }

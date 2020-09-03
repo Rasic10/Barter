@@ -28,11 +28,12 @@ namespace Barter
                 {
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
                     dgvRazmena.DataSource = data;
+                    dgvRazmena.Columns[7].Visible = false;
+                    dgvRazmena.Columns[9].Visible = false;
                     
                     //Console.WriteLine();
                     for (int i = 0; i < data.Count; i++)
                     {
-                        
                         if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
                         foreach (var roba in data[i].UlozenaRoba)
                         {
@@ -61,6 +62,7 @@ namespace Barter
 
                     for (int i = 0; i < data.Count; i++)
                     {
+                        if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
                         foreach (var roba in data[i].UlozenaRoba)
                         {
                             ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + "g,\n";
@@ -123,7 +125,7 @@ namespace Barter
         internal void exportGridToPdf(DataGridView dgvRazmena, string filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
-            PdfPTable pdfTable = new PdfPTable(dgvRazmena.Columns.Count);
+            PdfPTable pdfTable = new PdfPTable(dgvRazmena.Columns.Count - 5);
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 100;
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -133,6 +135,7 @@ namespace Barter
             //Add header
             foreach(DataGridViewColumn column in dgvRazmena.Columns)
             {
+                if (column.Index > 5) break;
                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, text));
                 cell.BackgroundColor = new BaseColor(240, 240, 240);
                 pdfTable.AddCell(cell);
@@ -142,6 +145,12 @@ namespace Barter
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
+                    if (cell.ColumnIndex > 5) break;
+                    if(cell.Value is DateTime)
+                    {
+                        pdfTable.AddCell(new Phrase(((DateTime)cell.Value).ToString("dd/MM/yyyy"), text));
+                        continue;
+                    }
                     pdfTable.AddCell(new Phrase(cell.Value.ToString(), text));
                 }
             }
