@@ -108,6 +108,8 @@ namespace Barter
                     throw new ExceptionServer(es.Message);
                 }
             }
+
+            PretragaRobe("", senderGrid);
         }
 
         // end

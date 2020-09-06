@@ -101,16 +101,30 @@ namespace Barter
                 try
                 {
                     MessageBox.Show($"Click on button!");
+                    // potvrda razmene
                     if(e.ColumnIndex == 9)
                     {
                         if(Komunikacija.Instance.PotvrdaRazmeneRobe(data[e.RowIndex], true))
                         {
-                            MessageBox.Show($"Changed!");
+                            MessageBox.Show($"Uspesna potvrda razmene!");
                         }
                         else
                         {
-                            MessageBox.Show($"Failed!");
+                            MessageBox.Show($"Neuspena potvrda razmene!");
                         } 
+                    }
+                    // brisanje razmene 
+                    if (e.ColumnIndex == 10)
+                    {
+                        // obrisati razmenu
+                        if (true)
+                        {
+                            MessageBox.Show($"Uspesno izbrisana razmena!");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Neuspeno izbrisana razmena!");
+                        }
                     }
                 }
                 catch (ExceptionServer es)

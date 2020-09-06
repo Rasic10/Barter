@@ -136,6 +136,11 @@ namespace BrokerBazePodataka
             int id = (int)command.ExecuteScalar();
             foreach (IDomenskiObjekat o in objekat.VratiSlabeObjekte())
             {
+                // smanjiti robu sa update preko where uslova za korisnika i naziv robe
+                // na primer UPDATE Roba SET KolicinaRobe = KolicinaRobe - 100 WHERE NazivRobe = 'Secer' AND KorisnikRobe = 2 AND RazmenaUlozeneRobe IS NULL
+                SqlCommand command3 = new SqlCommand($"UPDATE {o.VratiImeKlase()} SET KolicinaRobe = KolicinaRobe - {((Roba)o).KolicinaRobe} WHERE NazivRobe = '{((Roba)o).NazivRobe}' AND KorisnikRobe = {((Roba)o).KorisnikRobe.KorisnikID} AND RazmenaUlozeneRobe IS NULL", connection, transaction);
+                var i = command3.ExecuteNonQuery();
+
                 SqlCommand command2 = new SqlCommand($"INSERT INTO {o.VratiImeKlase()} VALUES ({o.VratiVrednostiAtributa()}, {id})", connection, transaction);
                 command2.ExecuteScalar();
             }
