@@ -203,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pngwing.com %281%29.png" />
+    <None Include="Resources\NRCompar.png" />
     <Content Include="Resources\pngwing.com.png" />
     <None Include="Resources\pngwing.com1.png" />
   </ItemGroup>

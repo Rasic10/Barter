@@ -50,19 +50,7 @@ namespace Barter
                 {
                     lblTitle.Text = title;
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
-                    dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
-
-
-
-                    //dgvRazmena.Columns["Da"].
-
-                    //DataGridViewButtonColumn buttonAccept = new DataGridViewButtonColumn();
-                    //buttonAccept.Name = "Potvrdi";
-                    //buttonAccept.HeaderText = "Potvrdi";
-                    //buttonAccept.Text = "Potvrdi";
-                    //buttonAccept.UseColumnTextForButtonValue = true; //ova linija je obavezna
-
-                    //dgvRazmena.Columns.Add(buttonAccept);
+                    dgvRazmena.DataSource = data;
 
                     for (int i = 0; i < data.Count; i++)
                     {
@@ -105,7 +93,6 @@ namespace Barter
             {
                 try
                 {
-                    MessageBox.Show($"Click on button!");
                     // potvrda razmene
                     if(e.ColumnIndex == 6)
                     {
@@ -137,10 +124,10 @@ namespace Barter
                     // brisanje razmene 
                     if (e.ColumnIndex == 8)
                     {
-                        // obrisati razmenu
-                        if (true)
+                        if (Komunikacija.Instance.ObrisiRazmenuRobe(data[e.RowIndex]))
                         {
                             MessageBox.Show($"Uspesno izbrisana razmena!");
+                            data.Remove(data[e.RowIndex]);
                         }
                         else
                         {
@@ -165,7 +152,8 @@ namespace Barter
         internal void exportGridToPdf(DataGridView dgvRazmena, string filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
-            PdfPTable pdfTable = new PdfPTable(dgvRazmena.Columns.Count - 5);
+            //
+            PdfPTable pdfTable = new PdfPTable(dgvRazmena.Columns.Count - 4); 
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 100;
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;

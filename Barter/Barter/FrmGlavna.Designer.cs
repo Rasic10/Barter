@@ -30,19 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvGlavna = new System.Windows.Forms.DataGridView();
-            this.robaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.korisnikRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kategorijaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.bttProfil = new System.Windows.Forms.Button();
             this.bttRoba = new System.Windows.Forms.Button();
             this.bttUnosRobe = new System.Windows.Forms.Button();
@@ -51,13 +38,28 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tbPretraga = new System.Windows.Forms.TextBox();
             this.btnPretraga = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.robaIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.korisnikRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kategorijaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlavna)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvGlavna
@@ -83,118 +85,6 @@
             this.dgvGlavna.Size = new System.Drawing.Size(690, 286);
             this.dgvGlavna.TabIndex = 0;
             this.dgvGlavna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGlavna_CellContentClick);
-            // 
-            // robaIDDataGridViewTextBoxColumn
-            // 
-            this.robaIDDataGridViewTextBoxColumn.DataPropertyName = "RobaID";
-            this.robaIDDataGridViewTextBoxColumn.HeaderText = "RobaID";
-            this.robaIDDataGridViewTextBoxColumn.Name = "robaIDDataGridViewTextBoxColumn";
-            this.robaIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.robaIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nazivRobeDataGridViewTextBoxColumn
-            // 
-            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
-            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
-            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
-            this.nazivRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nazivRobeDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // kolicinaRobeDataGridViewTextBoxColumn
-            // 
-            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
-            this.kolicinaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cenaRobeDataGridViewTextBoxColumn
-            // 
-            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
-            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
-            this.cenaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // datumUnosaRobeDataGridViewTextBoxColumn
-            // 
-            this.datumUnosaRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumUnosaRobe";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.HeaderText = "Datum unosa robe";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.Name = "datumUnosaRobeDataGridViewTextBoxColumn";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datumUnosaRobeDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // korisnikRobeDataGridViewTextBoxColumn
-            // 
-            this.korisnikRobeDataGridViewTextBoxColumn.DataPropertyName = "KorisnikRobe";
-            this.korisnikRobeDataGridViewTextBoxColumn.HeaderText = "Korisnik";
-            this.korisnikRobeDataGridViewTextBoxColumn.Name = "korisnikRobeDataGridViewTextBoxColumn";
-            this.korisnikRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kategorijaRobeDataGridViewTextBoxColumn
-            // 
-            this.kategorijaRobeDataGridViewTextBoxColumn.DataPropertyName = "KategorijaRobe";
-            this.kategorijaRobeDataGridViewTextBoxColumn.HeaderText = "KategorijaRobe";
-            this.kategorijaRobeDataGridViewTextBoxColumn.Name = "kategorijaRobeDataGridViewTextBoxColumn";
-            this.kategorijaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kategorijaRobeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // robaBindingSource
-            // 
-            this.robaBindingSource.DataSource = typeof(Domen.Roba);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Barter.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(955, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(76, 69);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Barter.Properties.Resources.transportna_kutija_600x400x400mm;
-            this.pictureBox2.Location = new System.Drawing.Point(955, 138);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(76, 69);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::Barter.Properties.Resources.plusKutija;
-            this.pictureBox3.Location = new System.Drawing.Point(955, 213);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(76, 69);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::Barter.Properties.Resources._0003808_e005_smjer_300;
-            this.pictureBox4.Location = new System.Drawing.Point(955, 288);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(76, 69);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = global::Barter.Properties.Resources._5006_500x500;
-            this.pictureBox5.Location = new System.Drawing.Point(955, 363);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(76, 69);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 8;
-            this.pictureBox5.TabStop = false;
             // 
             // bttProfil
             // 
@@ -324,12 +214,135 @@
             this.btnPretraga.UseVisualStyleBackColor = true;
             this.btnPretraga.Click += new System.EventHandler(this.btnPretraga_Click);
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Barter.Properties.Resources.NRCompar;
+            this.pictureBox6.Location = new System.Drawing.Point(438, 12);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(303, 53);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 17;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::Barter.Properties.Resources._5006_500x500;
+            this.pictureBox5.Location = new System.Drawing.Point(955, 363);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(76, 69);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::Barter.Properties.Resources._0003808_e005_smjer_300;
+            this.pictureBox4.Location = new System.Drawing.Point(955, 288);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(76, 69);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Barter.Properties.Resources.plusKutija;
+            this.pictureBox3.Location = new System.Drawing.Point(955, 213);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(76, 69);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Barter.Properties.Resources.transportna_kutija_600x400x400mm;
+            this.pictureBox2.Location = new System.Drawing.Point(955, 138);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(76, 69);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Barter.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(955, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(76, 69);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // robaIDDataGridViewTextBoxColumn
+            // 
+            this.robaIDDataGridViewTextBoxColumn.DataPropertyName = "RobaID";
+            this.robaIDDataGridViewTextBoxColumn.HeaderText = "RobaID";
+            this.robaIDDataGridViewTextBoxColumn.Name = "robaIDDataGridViewTextBoxColumn";
+            this.robaIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.robaIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nazivRobeDataGridViewTextBoxColumn
+            // 
+            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
+            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
+            this.nazivRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nazivRobeDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // kolicinaRobeDataGridViewTextBoxColumn
+            // 
+            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
+            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
+            this.kolicinaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cenaRobeDataGridViewTextBoxColumn
+            // 
+            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
+            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
+            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
+            this.cenaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // datumUnosaRobeDataGridViewTextBoxColumn
+            // 
+            this.datumUnosaRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumUnosaRobe";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.HeaderText = "Datum unosa robe";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.Name = "datumUnosaRobeDataGridViewTextBoxColumn";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datumUnosaRobeDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // korisnikRobeDataGridViewTextBoxColumn
+            // 
+            this.korisnikRobeDataGridViewTextBoxColumn.DataPropertyName = "KorisnikRobe";
+            this.korisnikRobeDataGridViewTextBoxColumn.HeaderText = "Korisnik";
+            this.korisnikRobeDataGridViewTextBoxColumn.Name = "korisnikRobeDataGridViewTextBoxColumn";
+            this.korisnikRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kategorijaRobeDataGridViewTextBoxColumn
+            // 
+            this.kategorijaRobeDataGridViewTextBoxColumn.DataPropertyName = "KategorijaRobe";
+            this.kategorijaRobeDataGridViewTextBoxColumn.HeaderText = "KategorijaRobe";
+            this.kategorijaRobeDataGridViewTextBoxColumn.Name = "kategorijaRobeDataGridViewTextBoxColumn";
+            this.kategorijaRobeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kategorijaRobeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // robaBindingSource
+            // 
+            this.robaBindingSource.DataSource = typeof(Domen.Roba);
+            // 
             // FrmGlavna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1180, 450);
+            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.tbPretraga);
             this.Controls.Add(this.button1);
@@ -351,12 +364,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barter";
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlavna)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,6 +400,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kategorijaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox tbPretraga;
         private System.Windows.Forms.Button btnPretraga;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
 

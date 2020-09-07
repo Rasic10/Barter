@@ -194,12 +194,5 @@ namespace BrokerBazePodataka
             return command2.ExecuteNonQuery() + ret;
         }
 
-        // obrisi slozen
-        public int ObrisiSlozen(IDomenskiObjekat objekat)
-        {
-            SqlCommand command = new SqlCommand($"DELETE FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
-            return command.ExecuteNonQuery();
-        }
-
     }
 }
