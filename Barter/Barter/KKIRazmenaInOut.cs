@@ -28,13 +28,15 @@ namespace Barter
                 {
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
                     dgvRazmena.DataSource = data;
+                    dgvRazmena.Columns[6].Visible = false;
                     dgvRazmena.Columns[7].Visible = false;
-                    dgvRazmena.Columns[9].Visible = false;
                     
                     //Console.WriteLine();
                     for (int i = 0; i < data.Count; i++)
                     {
                         if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
+                        if (data[i].PotvrdaRazmene == false) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+
                         foreach (var roba in data[i].UlozenaRoba)
                         {
                             ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + ",\n";
@@ -50,6 +52,8 @@ namespace Barter
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
                     dgvRazmena.DataSource = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
 
+
+
                     //dgvRazmena.Columns["Da"].
 
                     //DataGridViewButtonColumn buttonAccept = new DataGridViewButtonColumn();
@@ -63,6 +67,7 @@ namespace Barter
                     for (int i = 0; i < data.Count; i++)
                     {
                         if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
+                        if (data[i].PotvrdaRazmene == false) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
                         foreach (var roba in data[i].UlozenaRoba)
                         {
                             ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + "g,\n";
@@ -102,19 +107,35 @@ namespace Barter
                 {
                     MessageBox.Show($"Click on button!");
                     // potvrda razmene
-                    if(e.ColumnIndex == 9)
+                    if(e.ColumnIndex == 6)
                     {
-                        if(Komunikacija.Instance.PotvrdaRazmeneRobe(data[e.RowIndex], true))
+                        data[e.RowIndex].PotvrdaRazmene = true;
+                        if (Komunikacija.Instance.PotvrdaRazmeneRobe(data[e.RowIndex], true))
                         {
                             MessageBox.Show($"Uspesna potvrda razmene!");
+                            senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
                         }
                         else
                         {
                             MessageBox.Show($"Neuspena potvrda razmene!");
                         } 
                     }
+                    // ponistiti razmenu
+                    if(e.ColumnIndex == 7)
+                    {
+                        data[e.RowIndex].PotvrdaRazmene = false;
+                        if (Komunikacija.Instance.PonistiRazmenuRobe(data[e.RowIndex]))
+                        {
+                            MessageBox.Show($"Uspesno ponistena razmena!");
+                            senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Neuspesno ponistena razmena!");
+                        }
+                    }
                     // brisanje razmene 
-                    if (e.ColumnIndex == 10)
+                    if (e.ColumnIndex == 8)
                     {
                         // obrisati razmenu
                         if (true)
@@ -125,6 +146,11 @@ namespace Barter
                         {
                             MessageBox.Show($"Neuspeno izbrisana razmena!");
                         }
+                    }
+                    // prf jedne razmene
+                    if (e.ColumnIndex == 9)
+                    {
+
                     }
                 }
                 catch (ExceptionServer es)

@@ -78,9 +78,10 @@ namespace BrokerBazePodataka
             return rezultat;
         }
 
+        //
         public List<IDomenskiObjekat> VratiRazmenuRobe(IDomenskiObjekat objekat, string operacija)
         {
-            SqlCommand command = new SqlCommand($"SELECT RazmenaRobe.*, Roba.RobaID FROM {objekat.VratiImeKlase()} JOIN Roba ON RazmenaRobe.RazmenaID = Roba.RazmenaUlozeneRobe WHERE {objekat.VratiSlozenUslov(operacija)}", connection, transaction);
+            SqlCommand command = new SqlCommand($"SELECT RazmenaRobe.*, Roba.* FROM {objekat.VratiImeKlase()} JOIN Roba ON RazmenaRobe.RazmenaID = Roba.RazmenaUlozeneRobe WHERE {objekat.VratiSlozenUslov(operacija)}", connection, transaction);
             SqlDataReader reader = command.ExecuteReader();
             List<IDomenskiObjekat> rezultat = objekat.VratiListu(reader);
             reader.Close();
@@ -170,6 +171,31 @@ namespace BrokerBazePodataka
 
         // ...#....
         public int Obrisi(IDomenskiObjekat objekat)
+        {
+            SqlCommand command = new SqlCommand($"DELETE FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
+            return command.ExecuteNonQuery();
+        }
+
+        // ponistena razmena
+        public int PonistiSlozen(IDomenskiObjekat objekat)
+        {
+            RazmenaRobe rr = (RazmenaRobe)objekat;
+            int ret = 0;
+
+            Izmeni(objekat);
+
+            foreach(Roba r in rr.UlozenaRoba)
+            {
+                SqlCommand command1 = new SqlCommand($"UPDATE {r.VratiImeKlase()} SET KolicinaRobe = KolicinaRobe + {r.KolicinaRobe} WHERE NazivRobe = '{r.NazivRobe}' AND KorisnikRobe = {rr.KorisnikUlozeneRobe.KorisnikID} AND RazmenaUlozeneRobe IS NULL", connection, transaction);
+                ret = command1.ExecuteNonQuery();
+            }
+
+            SqlCommand command2 = new SqlCommand($"UPDATE {rr.TrazenaRoba.VratiImeKlase()} SET KolicinaRobe = KolicinaRobe + {rr.KolicinaRobe} WHERE NazivRobe = '{rr.TrazenaRoba.NazivRobe}' AND KorisnikRobe = {rr.KorisnikTrazeneRobe.KorisnikID} AND RazmenaUlozeneRobe IS NULL", connection, transaction);
+            return command2.ExecuteNonQuery() + ret;
+        }
+
+        // obrisi slozen
+        public int ObrisiSlozen(IDomenskiObjekat objekat)
         {
             SqlCommand command = new SqlCommand($"DELETE FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiUslovPoIDu()}", connection, transaction);
             return command.ExecuteNonQuery();

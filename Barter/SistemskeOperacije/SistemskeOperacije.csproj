@@ -48,6 +48,7 @@
     <Compile Include="IzmeniRobuSO.cs" />
     <Compile Include="ObrisiRobuSO.cs" />
     <Compile Include="OpstaSistemskaOperacija.cs" />
+    <Compile Include="PonistiRazmenuRobeSO.cs" />
     <Compile Include="PotvrdiRazmenuRobeSO.cs" />
     <Compile Include="PrijavaKorisnikaSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

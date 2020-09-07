@@ -31,7 +31,11 @@ namespace Domen
         // 
         public string PostaviVrednostiAtributa()
         {
-            return $"PotvrdaRazmene = 1";
+            if(PotvrdaRazmene == true)
+                return $"PotvrdaRazmene = 1";
+            if(PotvrdaRazmene == false)
+                return $"PotvrdaRazmene = 0";
+            return $"PotvrdaRazmene = 0";
         }
 
         // ...#...
@@ -85,15 +89,17 @@ namespace Domen
                     {
                         RobaID = reader.GetInt32(5)
                     },
-                    PotvrdaRazmene = reader.GetBoolean(6),
                     UlozenaRoba = new List<Roba>
                     {
                         new Roba
                         {
-                            RobaID = reader.GetInt32(7)
+                            RobaID = reader.GetInt32(7),
                         }
                     },
                 };
+
+                if (!reader.IsDBNull(6)) roba.potvrdaRazmene = reader.GetBoolean(6);
+
                 razmenaRobe.Add(roba);
             }
             return razmenaRobe;
