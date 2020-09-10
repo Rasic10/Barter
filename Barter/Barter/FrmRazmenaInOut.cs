@@ -56,12 +56,17 @@ namespace Barter
 
         private void FrmRazmenaInOut_Load(object sender, EventArgs e)
         {
-            kontroler.SrediFormu(title, dgvRazmena, lblTitle);
+            kontroler.SrediFormu(title, dgvRazmena, lblTitle, tabControlRazmena);
         }
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
             kontroler.exportGridToPdf(dgvRazmena, "Tabela");
+        }
+
+        private void dgvPrihvacenaRazmena_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kontroler.OnClick(sender, e, dgvPrihvacenaRazmena);
         }
     }
 }
