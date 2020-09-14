@@ -14,21 +14,15 @@ namespace SistemskeOperacije
         protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
         {
             if (broker.Obrisi(objekat) != 1)
-            {
                 Obrisano = false;
-            }
             else
-            {
                 Obrisano = true;
-            }
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
             if (!(objekat is Roba))
-            {
                 throw new ArgumentException();
-            }
         }
     }
 }

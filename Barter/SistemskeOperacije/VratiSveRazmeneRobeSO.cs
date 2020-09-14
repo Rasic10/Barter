@@ -20,9 +20,7 @@ namespace SistemskeOperacije
         protected override void Validacija(IDomenskiObjekat objekat)
         {
             if (!(objekat is RazmenaRobe))
-            {
                 throw new ArgumentException();
-            }
         }
     }
 }

@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvRazmena = new System.Windows.Forms.DataGridView();
-            this.UlozenaRoba = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPotvrdi = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnPonisti = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnObrisi = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonPdf = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnPretraga = new System.Windows.Forms.Button();
             this.tbPretraga = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -45,31 +39,31 @@
             this.tabControlRazmena = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvRazmenaTrazeneRobe = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvPrihvacenaRazmena = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgvOdbijenaRazmena = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dgvZavrsenaRazmena = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dgvArhiviranaRazmena = new System.Windows.Forms.DataGridView();
             this.UlozenaRobaTrazene = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn10 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvPrihvacenaRazmena = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn8 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewButtonColumn13 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn16 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewButtonColumn17 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvOdbijenaRazmena = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn9 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn12 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgvZavrsenaRazmena = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn13 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvArhiviranaRazmena = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn16 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn17 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,15 +90,7 @@
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trazenaRobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumRazmeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRazmena)).BeginInit();
+            this.lblOpisForme = new System.Windows.Forms.Label();
             this.tabControlRazmena.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRazmenaTrazeneRobe)).BeginInit();
@@ -117,7 +103,6 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArhiviranaRazmena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.razmenaRobeBindingSource)).BeginInit();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -130,7 +115,7 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(967, 2);
+            this.btnClose.Location = new System.Drawing.Point(939, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 38);
             this.btnClose.TabIndex = 23;
@@ -147,73 +132,6 @@
             this.lblTitle.Size = new System.Drawing.Size(204, 31);
             this.lblTitle.TabIndex = 25;
             this.lblTitle.Text = "RAZMENA IN";
-            // 
-            // dgvRazmena
-            // 
-            this.dgvRazmena.AllowUserToAddRows = false;
-            this.dgvRazmena.AllowUserToDeleteRows = false;
-            this.dgvRazmena.AutoGenerateColumns = false;
-            this.dgvRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.trazenaRobaDataGridViewTextBoxColumn,
-            this.kolicinaRobeDataGridViewTextBoxColumn,
-            this.datumRazmeneRobeDataGridViewTextBoxColumn,
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn,
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn,
-            this.UlozenaRoba,
-            this.btnPotvrdi,
-            this.btnPonisti,
-            this.btnObrisi,
-            this.buttonPdf});
-            this.dgvRazmena.DataSource = this.razmenaRobeBindingSource;
-            this.dgvRazmena.Location = new System.Drawing.Point(10, 84);
-            this.dgvRazmena.Name = "dgvRazmena";
-            this.dgvRazmena.ReadOnly = true;
-            this.dgvRazmena.Size = new System.Drawing.Size(997, 268);
-            this.dgvRazmena.TabIndex = 26;
-            this.dgvRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRazmenaInOut_CellContentClick);
-            // 
-            // UlozenaRoba
-            // 
-            this.UlozenaRoba.HeaderText = "Ulozena roba";
-            this.UlozenaRoba.Name = "UlozenaRoba";
-            this.UlozenaRoba.ReadOnly = true;
-            // 
-            // btnPotvrdi
-            // 
-            this.btnPotvrdi.HeaderText = "Potvrdi";
-            this.btnPotvrdi.Name = "btnPotvrdi";
-            this.btnPotvrdi.ReadOnly = true;
-            this.btnPotvrdi.Text = "Potvrdi";
-            this.btnPotvrdi.UseColumnTextForButtonValue = true;
-            this.btnPotvrdi.Width = 80;
-            // 
-            // btnPonisti
-            // 
-            this.btnPonisti.HeaderText = "Ponisti";
-            this.btnPonisti.Name = "btnPonisti";
-            this.btnPonisti.ReadOnly = true;
-            this.btnPonisti.Text = "Ponisti";
-            this.btnPonisti.UseColumnTextForButtonValue = true;
-            this.btnPonisti.Width = 80;
-            // 
-            // btnObrisi
-            // 
-            this.btnObrisi.HeaderText = "Obrisi";
-            this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.ReadOnly = true;
-            this.btnObrisi.Text = "Obrisi";
-            this.btnObrisi.UseColumnTextForButtonValue = true;
-            this.btnObrisi.Width = 80;
-            // 
-            // buttonPdf
-            // 
-            this.buttonPdf.HeaderText = "PDF";
-            this.buttonPdf.Name = "buttonPdf";
-            this.buttonPdf.ReadOnly = true;
-            this.buttonPdf.Text = "PDF";
-            this.buttonPdf.UseColumnTextForButtonValue = true;
-            this.buttonPdf.Width = 40;
             // 
             // btnPretraga
             // 
@@ -254,7 +172,7 @@
             // btnPDF
             // 
             this.btnPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPDF.Location = new System.Drawing.Point(864, 45);
+            this.btnPDF.Location = new System.Drawing.Point(836, 48);
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.Size = new System.Drawing.Size(143, 33);
             this.btnPDF.TabIndex = 29;
@@ -269,10 +187,10 @@
             this.tabControlRazmena.Controls.Add(this.tabPage3);
             this.tabControlRazmena.Controls.Add(this.tabPage4);
             this.tabControlRazmena.Controls.Add(this.tabPage5);
-            this.tabControlRazmena.Location = new System.Drawing.Point(10, 368);
+            this.tabControlRazmena.Location = new System.Drawing.Point(12, 116);
             this.tabControlRazmena.Name = "tabControlRazmena";
             this.tabControlRazmena.SelectedIndex = 0;
-            this.tabControlRazmena.Size = new System.Drawing.Size(967, 264);
+            this.tabControlRazmena.Size = new System.Drawing.Size(967, 313);
             this.tabControlRazmena.TabIndex = 30;
             // 
             // tabPage1
@@ -281,7 +199,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(959, 238);
+            this.tabPage1.Size = new System.Drawing.Size(959, 287);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tražena roba";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -306,142 +224,9 @@
             this.dgvRazmenaTrazeneRobe.Location = new System.Drawing.Point(6, 6);
             this.dgvRazmenaTrazeneRobe.Name = "dgvRazmenaTrazeneRobe";
             this.dgvRazmenaTrazeneRobe.ReadOnly = true;
-            this.dgvRazmenaTrazeneRobe.Size = new System.Drawing.Size(947, 226);
+            this.dgvRazmenaTrazeneRobe.Size = new System.Drawing.Size(947, 275);
             this.dgvRazmenaTrazeneRobe.TabIndex = 29;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dgvPrihvacenaRazmena);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(959, 238);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Prihvaćena razmena";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dgvPrihvacenaRazmena
-            // 
-            this.dgvPrihvacenaRazmena.AllowUserToAddRows = false;
-            this.dgvPrihvacenaRazmena.AllowUserToDeleteRows = false;
-            this.dgvPrihvacenaRazmena.AutoGenerateColumns = false;
-            this.dgvPrihvacenaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrihvacenaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewButtonColumn5,
-            this.dataGridViewButtonColumn6,
-            this.dataGridViewButtonColumn8});
-            this.dgvPrihvacenaRazmena.DataSource = this.razmenaRobeBindingSource;
-            this.dgvPrihvacenaRazmena.Location = new System.Drawing.Point(6, 6);
-            this.dgvPrihvacenaRazmena.Name = "dgvPrihvacenaRazmena";
-            this.dgvPrihvacenaRazmena.ReadOnly = true;
-            this.dgvPrihvacenaRazmena.Size = new System.Drawing.Size(947, 226);
-            this.dgvPrihvacenaRazmena.TabIndex = 28;
-            this.dgvPrihvacenaRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrihvacenaRazmena_CellContentClick);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgvOdbijenaRazmena);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(959, 238);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Odbijena razmena";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgvOdbijenaRazmena
-            // 
-            this.dgvOdbijenaRazmena.AllowUserToAddRows = false;
-            this.dgvOdbijenaRazmena.AllowUserToDeleteRows = false;
-            this.dgvOdbijenaRazmena.AutoGenerateColumns = false;
-            this.dgvOdbijenaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOdbijenaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewButtonColumn9,
-            this.dataGridViewButtonColumn12});
-            this.dgvOdbijenaRazmena.DataSource = this.razmenaRobeBindingSource;
-            this.dgvOdbijenaRazmena.Location = new System.Drawing.Point(6, 6);
-            this.dgvOdbijenaRazmena.Name = "dgvOdbijenaRazmena";
-            this.dgvOdbijenaRazmena.ReadOnly = true;
-            this.dgvOdbijenaRazmena.Size = new System.Drawing.Size(947, 226);
-            this.dgvOdbijenaRazmena.TabIndex = 28;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.dgvZavrsenaRazmena);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(959, 238);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Završena razmena";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dgvZavrsenaRazmena
-            // 
-            this.dgvZavrsenaRazmena.AllowUserToAddRows = false;
-            this.dgvZavrsenaRazmena.AllowUserToDeleteRows = false;
-            this.dgvZavrsenaRazmena.AutoGenerateColumns = false;
-            this.dgvZavrsenaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZavrsenaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewButtonColumn1,
-            this.dataGridViewButtonColumn13});
-            this.dgvZavrsenaRazmena.DataSource = this.razmenaRobeBindingSource;
-            this.dgvZavrsenaRazmena.Location = new System.Drawing.Point(6, 6);
-            this.dgvZavrsenaRazmena.Name = "dgvZavrsenaRazmena";
-            this.dgvZavrsenaRazmena.ReadOnly = true;
-            this.dgvZavrsenaRazmena.Size = new System.Drawing.Size(947, 226);
-            this.dgvZavrsenaRazmena.TabIndex = 29;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.dgvArhiviranaRazmena);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(959, 238);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Arhivirana razmena";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // dgvArhiviranaRazmena
-            // 
-            this.dgvArhiviranaRazmena.AllowUserToAddRows = false;
-            this.dgvArhiviranaRazmena.AllowUserToDeleteRows = false;
-            this.dgvArhiviranaRazmena.AutoGenerateColumns = false;
-            this.dgvArhiviranaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArhiviranaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn30,
-            this.dataGridViewButtonColumn16,
-            this.dataGridViewButtonColumn17});
-            this.dgvArhiviranaRazmena.DataSource = this.razmenaRobeBindingSource;
-            this.dgvArhiviranaRazmena.Location = new System.Drawing.Point(6, 6);
-            this.dgvArhiviranaRazmena.Name = "dgvArhiviranaRazmena";
-            this.dgvArhiviranaRazmena.ReadOnly = true;
-            this.dgvArhiviranaRazmena.Size = new System.Drawing.Size(947, 226);
-            this.dgvArhiviranaRazmena.TabIndex = 29;
+            this.dgvRazmenaTrazeneRobe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRazmenaTrazeneRobe_CellContentClick);
             // 
             // UlozenaRobaTrazene
             // 
@@ -477,6 +262,41 @@
             this.dataGridViewButtonColumn10.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn10.Width = 40;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dgvPrihvacenaRazmena);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(959, 287);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Prihvaćena razmena";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvPrihvacenaRazmena
+            // 
+            this.dgvPrihvacenaRazmena.AllowUserToAddRows = false;
+            this.dgvPrihvacenaRazmena.AllowUserToDeleteRows = false;
+            this.dgvPrihvacenaRazmena.AutoGenerateColumns = false;
+            this.dgvPrihvacenaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPrihvacenaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewButtonColumn5,
+            this.dataGridViewButtonColumn6,
+            this.dataGridViewButtonColumn8});
+            this.dgvPrihvacenaRazmena.DataSource = this.razmenaRobeBindingSource;
+            this.dgvPrihvacenaRazmena.Location = new System.Drawing.Point(6, 6);
+            this.dgvPrihvacenaRazmena.Name = "dgvPrihvacenaRazmena";
+            this.dgvPrihvacenaRazmena.ReadOnly = true;
+            this.dgvPrihvacenaRazmena.Size = new System.Drawing.Size(947, 226);
+            this.dgvPrihvacenaRazmena.TabIndex = 28;
+            this.dgvPrihvacenaRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrihvacenaRazmena_CellContentClick);
+            // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "UlozenaRobaString";
@@ -510,55 +330,39 @@
             this.dataGridViewButtonColumn8.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn8.Width = 40;
             // 
-            // dataGridViewTextBoxColumn24
+            // tabPage3
             // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "UlozenaRobaString";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Ulozena roba";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.tabPage3.Controls.Add(this.dgvOdbijenaRazmena);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(959, 287);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Odbijena razmena";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewButtonColumn1
+            // dgvOdbijenaRazmena
             // 
-            this.dataGridViewButtonColumn1.HeaderText = "Arhiviraj";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Text = "Arhiviraj";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn1.Width = 80;
-            // 
-            // dataGridViewButtonColumn13
-            // 
-            this.dataGridViewButtonColumn13.HeaderText = "PDF";
-            this.dataGridViewButtonColumn13.Name = "dataGridViewButtonColumn13";
-            this.dataGridViewButtonColumn13.ReadOnly = true;
-            this.dataGridViewButtonColumn13.Text = "PDF";
-            this.dataGridViewButtonColumn13.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn13.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            this.dataGridViewTextBoxColumn30.DataPropertyName = "UlozenaRobaString";
-            this.dataGridViewTextBoxColumn30.HeaderText = "Ulozena roba";
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            this.dataGridViewTextBoxColumn30.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn16
-            // 
-            this.dataGridViewButtonColumn16.HeaderText = "Obrisi";
-            this.dataGridViewButtonColumn16.Name = "dataGridViewButtonColumn16";
-            this.dataGridViewButtonColumn16.ReadOnly = true;
-            this.dataGridViewButtonColumn16.Text = "Obrisi";
-            this.dataGridViewButtonColumn16.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn16.Width = 80;
-            // 
-            // dataGridViewButtonColumn17
-            // 
-            this.dataGridViewButtonColumn17.HeaderText = "PDF";
-            this.dataGridViewButtonColumn17.Name = "dataGridViewButtonColumn17";
-            this.dataGridViewButtonColumn17.ReadOnly = true;
-            this.dataGridViewButtonColumn17.Text = "PDF";
-            this.dataGridViewButtonColumn17.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn17.Width = 40;
+            this.dgvOdbijenaRazmena.AllowUserToAddRows = false;
+            this.dgvOdbijenaRazmena.AllowUserToDeleteRows = false;
+            this.dgvOdbijenaRazmena.AutoGenerateColumns = false;
+            this.dgvOdbijenaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOdbijenaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewButtonColumn9,
+            this.dataGridViewButtonColumn12});
+            this.dgvOdbijenaRazmena.DataSource = this.razmenaRobeBindingSource;
+            this.dgvOdbijenaRazmena.Location = new System.Drawing.Point(6, 6);
+            this.dgvOdbijenaRazmena.Name = "dgvOdbijenaRazmena";
+            this.dgvOdbijenaRazmena.ReadOnly = true;
+            this.dgvOdbijenaRazmena.Size = new System.Drawing.Size(947, 226);
+            this.dgvOdbijenaRazmena.TabIndex = 28;
+            this.dgvOdbijenaRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOdbijenaRazmena_CellContentClick);
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -584,6 +388,124 @@
             this.dataGridViewButtonColumn12.Text = "PDF";
             this.dataGridViewButtonColumn12.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn12.Width = 40;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgvZavrsenaRazmena);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(959, 287);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Završena razmena";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dgvZavrsenaRazmena
+            // 
+            this.dgvZavrsenaRazmena.AllowUserToAddRows = false;
+            this.dgvZavrsenaRazmena.AllowUserToDeleteRows = false;
+            this.dgvZavrsenaRazmena.AutoGenerateColumns = false;
+            this.dgvZavrsenaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZavrsenaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewButtonColumn1,
+            this.dataGridViewButtonColumn13});
+            this.dgvZavrsenaRazmena.DataSource = this.razmenaRobeBindingSource;
+            this.dgvZavrsenaRazmena.Location = new System.Drawing.Point(6, 6);
+            this.dgvZavrsenaRazmena.Name = "dgvZavrsenaRazmena";
+            this.dgvZavrsenaRazmena.ReadOnly = true;
+            this.dgvZavrsenaRazmena.Size = new System.Drawing.Size(947, 226);
+            this.dgvZavrsenaRazmena.TabIndex = 29;
+            this.dgvZavrsenaRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZavrsenaRazmena_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "UlozenaRobaString";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Ulozena roba";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Arhiviraj";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.dataGridViewButtonColumn1.Text = "Arhiviraj";
+            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn1.Width = 80;
+            // 
+            // dataGridViewButtonColumn13
+            // 
+            this.dataGridViewButtonColumn13.HeaderText = "PDF";
+            this.dataGridViewButtonColumn13.Name = "dataGridViewButtonColumn13";
+            this.dataGridViewButtonColumn13.ReadOnly = true;
+            this.dataGridViewButtonColumn13.Text = "PDF";
+            this.dataGridViewButtonColumn13.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn13.Width = 40;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.dgvArhiviranaRazmena);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(959, 287);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Arhivirana razmena";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgvArhiviranaRazmena
+            // 
+            this.dgvArhiviranaRazmena.AllowUserToAddRows = false;
+            this.dgvArhiviranaRazmena.AllowUserToDeleteRows = false;
+            this.dgvArhiviranaRazmena.AutoGenerateColumns = false;
+            this.dgvArhiviranaRazmena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArhiviranaRazmena.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewButtonColumn16,
+            this.dataGridViewButtonColumn17});
+            this.dgvArhiviranaRazmena.DataSource = this.razmenaRobeBindingSource;
+            this.dgvArhiviranaRazmena.Location = new System.Drawing.Point(6, 6);
+            this.dgvArhiviranaRazmena.Name = "dgvArhiviranaRazmena";
+            this.dgvArhiviranaRazmena.ReadOnly = true;
+            this.dgvArhiviranaRazmena.Size = new System.Drawing.Size(947, 226);
+            this.dgvArhiviranaRazmena.TabIndex = 29;
+            this.dgvArhiviranaRazmena.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArhiviranaRazmena_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "UlozenaRobaString";
+            this.dataGridViewTextBoxColumn30.HeaderText = "Ulozena roba";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewButtonColumn16
+            // 
+            this.dataGridViewButtonColumn16.HeaderText = "Obrisi";
+            this.dataGridViewButtonColumn16.Name = "dataGridViewButtonColumn16";
+            this.dataGridViewButtonColumn16.ReadOnly = true;
+            this.dataGridViewButtonColumn16.Text = "Obrisi";
+            this.dataGridViewButtonColumn16.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn16.Width = 80;
+            // 
+            // dataGridViewButtonColumn17
+            // 
+            this.dataGridViewButtonColumn17.HeaderText = "PDF";
+            this.dataGridViewButtonColumn17.Name = "dataGridViewButtonColumn17";
+            this.dataGridViewButtonColumn17.ReadOnly = true;
+            this.dataGridViewButtonColumn17.Text = "PDF";
+            this.dataGridViewButtonColumn17.UseColumnTextForButtonValue = true;
+            this.dataGridViewButtonColumn17.Width = 40;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -784,87 +706,28 @@
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
             this.dataGridViewTextBoxColumn29.Width = 132;
             // 
-            // trazenaRobaDataGridViewTextBoxColumn
+            // lblOpisForme
             // 
-            this.trazenaRobaDataGridViewTextBoxColumn.DataPropertyName = "TrazenaRoba";
-            this.trazenaRobaDataGridViewTextBoxColumn.HeaderText = "Trazena roba";
-            this.trazenaRobaDataGridViewTextBoxColumn.Name = "trazenaRobaDataGridViewTextBoxColumn";
-            this.trazenaRobaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trazenaRobaDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // kolicinaRobeDataGridViewTextBoxColumn
-            // 
-            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina robe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
-            this.kolicinaRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // datumRazmeneRobeDataGridViewTextBoxColumn
-            // 
-            this.datumRazmeneRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumRazmeneRobe";
-            this.datumRazmeneRobeDataGridViewTextBoxColumn.HeaderText = "Datum";
-            this.datumRazmeneRobeDataGridViewTextBoxColumn.Name = "datumRazmeneRobeDataGridViewTextBoxColumn";
-            this.datumRazmeneRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.datumRazmeneRobeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // korisnikTrazeneRobeDataGridViewTextBoxColumn
-            // 
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn.DataPropertyName = "KorisnikTrazeneRobe";
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn.HeaderText = "Korisnik trazene robe";
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn.Name = "korisnikTrazeneRobeDataGridViewTextBoxColumn";
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.korisnikTrazeneRobeDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // korisnikUlozeneRobeDataGridViewTextBoxColumn
-            // 
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn.DataPropertyName = "KorisnikUlozeneRobe";
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn.HeaderText = "Korisnik ulozene robe";
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn.Name = "korisnikUlozeneRobeDataGridViewTextBoxColumn";
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.korisnikUlozeneRobeDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Location = new System.Drawing.Point(449, 182);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(8, 8);
-            this.tabControl1.TabIndex = 31;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(0, 0);
-            this.tabPage6.TabIndex = 0;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(0, 0);
-            this.tabPage7.TabIndex = 1;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.lblOpisForme.AutoSize = true;
+            this.lblOpisForme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOpisForme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpisForme.Location = new System.Drawing.Point(12, 85);
+            this.lblOpisForme.Name = "lblOpisForme";
+            this.lblOpisForme.Size = new System.Drawing.Size(406, 22);
+            this.lblOpisForme.TabIndex = 31;
+            this.lblOpisForme.Text = "Razmena IN - prikazuje razmene koje korisnik potrazuje.";
             // 
             // FrmRazmenaInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1019, 644);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(993, 441);
+            this.Controls.Add(this.lblOpisForme);
             this.Controls.Add(this.tabControlRazmena);
             this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.tbPretraga);
-            this.Controls.Add(this.dgvRazmena);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -872,7 +735,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRazmenaInOut";
             this.Load += new System.EventHandler(this.FrmRazmenaInOut_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRazmena)).EndInit();
             this.tabControlRazmena.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRazmenaTrazeneRobe)).EndInit();
@@ -885,7 +747,6 @@
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArhiviranaRazmena)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.razmenaRobeBindingSource)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -895,23 +756,12 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.DataGridView dgvRazmena;
         private System.Windows.Forms.BindingSource razmenaRobeBindingSource;
         private System.Windows.Forms.Button btnPretraga;
         private System.Windows.Forms.TextBox tbPretraga;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Button btnPDF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trazenaRobaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datumRazmeneRobeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn korisnikTrazeneRobeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn korisnikUlozeneRobeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UlozenaRoba;
-        private System.Windows.Forms.DataGridViewButtonColumn btnPotvrdi;
-        private System.Windows.Forms.DataGridViewButtonColumn btnPonisti;
-        private System.Windows.Forms.DataGridViewButtonColumn btnObrisi;
-        private System.Windows.Forms.DataGridViewButtonColumn buttonPdf;
         private System.Windows.Forms.TabControl tabControlRazmena;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -965,8 +815,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn16;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn17;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Label lblOpisForme;
     }
 }

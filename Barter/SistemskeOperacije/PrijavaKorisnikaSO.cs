@@ -17,18 +17,13 @@ namespace SistemskeOperacije
             if (korisnik.Count == 0)
                 Korisnik = null;
             else
-            {
                 Korisnik = (Korisnik)korisnik[0];
-            } 
-            //Korisnik = (Korisnik)broker.VratiSve(objekat, $"AND sifra = '{((Korisnik)objekat).Sifra}'")[0];
         }
 
         protected override void Validacija(IDomenskiObjekat objekat)
         {
             if (!(objekat is Korisnik))
-            {
                 throw new ArgumentException();
-            }
         }
     }
 }

@@ -28,26 +28,22 @@ namespace Domen
         public Kategorija KategorijaRobe { get => kategorijaRobe; set => kategorijaRobe = value; }
         public RazmenaRobe RazmenaUlozeneRobe { get => razmenaUlozeneRobe; set => razmenaUlozeneRobe = value; }
 
-        // ...#...
+        public override string ToString()
+        {
+            return NazivRobe;
+        }
+
         public string PostaviVrednostiAtributa()
         {
             return $"NazivRobe = '{NazivRobe}', KolicinaRobe = {KolicinaRobe}, CenaRobe = {CenaRobe}, DatumUnosaRobe = '{DatumUnosaRobe}', KorisnikRobe = '{KorisnikRobe.KorisnikID}', KategorijaRobe = {KategorijaRobe.KategorijaID}";
         }
 
-        // ...#...
         public void PostaviPoddomen(IDomenskiObjekat domenskiObjekat, int broj)
         {
             if (broj == 1) KorisnikRobe = (Korisnik)domenskiObjekat;
             if (broj == 2) KategorijaRobe = (Kategorija)domenskiObjekat;
         }
 
-        // ...#...
-        public override string ToString()
-        {
-            return NazivRobe;
-        }
-
-        // ...#...
         public string VratiImeKlase()
         {
             return "Roba";
@@ -58,7 +54,6 @@ namespace Domen
             throw new NotImplementedException();
         }
 
-        // ...#...
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
             List<IDomenskiObjekat> robe = new List<IDomenskiObjekat>();
@@ -100,7 +95,6 @@ namespace Domen
             //}
         }
 
-        // ...#...
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
         {
             Roba roba = null;
@@ -118,7 +112,6 @@ namespace Domen
             return roba;
         }
 
-        // ...#...
         public IDomenskiObjekat VratiPoddomen(int broj)
         {
             if (broj == 1) return KorisnikRobe;
@@ -127,13 +120,11 @@ namespace Domen
             return null;
         }
 
-        // ...#...
         public string VratiSlozenUslov(string operacija)
         {
             return $"KorisnikRobe {operacija} {KorisnikRobe.KorisnikID}";
         }
 
-        // ...#...
         public string VratiVrednostiAtributa()
         {
             if (RazmenaUlozeneRobe == null)
@@ -146,7 +137,6 @@ namespace Domen
             }            
         }
 
-        // ...#...
         public string VratiUslovPoIDu()
         {
             return $"RobaID = {RobaID}";

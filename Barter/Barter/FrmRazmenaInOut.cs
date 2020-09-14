@@ -45,28 +45,42 @@ namespace Barter
         // end
         private void btnPretraga_Click(object sender, EventArgs e)
         {
-            kontroler.PretragaRobe(tbPretraga.Text, dgvRazmena, lblTitle.Text);
-        }
-
-        // end
-        private void dgvRazmenaInOut_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            kontroler.OnClick(sender, e, dgvRazmena);
+            kontroler.PretragaRobe(tbPretraga.Text, dgvRazmenaTrazeneRobe, lblTitle.Text);
         }
 
         private void FrmRazmenaInOut_Load(object sender, EventArgs e)
         {
-            kontroler.SrediFormu(title, dgvRazmena, lblTitle, tabControlRazmena);
+            kontroler.SrediFormu(title, lblTitle, lblOpisForme, tabControlRazmena);
         }
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            kontroler.exportGridToPdf(dgvRazmena, "Tabela");
+            kontroler.exportGridToPdf(dgvRazmenaTrazeneRobe, "Tabela");
         }
 
         private void dgvPrihvacenaRazmena_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             kontroler.OnClick(sender, e, dgvPrihvacenaRazmena);
+        }
+
+        private void dgvRazmenaTrazeneRobe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kontroler.OnClick(sender, e, dgvRazmenaTrazeneRobe);
+        }
+
+        private void dgvOdbijenaRazmena_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kontroler.OnClick(sender, e, dgvOdbijenaRazmena);
+        }
+
+        private void dgvZavrsenaRazmena_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kontroler.OnClick(sender, e, dgvZavrsenaRazmena);
+        }
+
+        private void dgvArhiviranaRazmena_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kontroler.OnClick(sender, e, dgvArhiviranaRazmena);
         }
     }
 }

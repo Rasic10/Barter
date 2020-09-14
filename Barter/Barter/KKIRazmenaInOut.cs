@@ -24,7 +24,7 @@ namespace Barter
         public BindingList<RazmenaRobe> arhiviranaRazmena = new BindingList<RazmenaRobe>();
 
         // end
-        internal void SrediFormu(string title, DataGridView dgvRazmena, Label lblTitle, TabControl tabControlRazmena)
+        internal void SrediFormu(string title, Label lblTitle, Label lblOpisForme, TabControl tabControlRazmena)
         {
             try
             {
@@ -64,38 +64,16 @@ namespace Barter
                     ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DataSource = arhiviranaRazmena;
                     ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
 
-                    // stari dgv
-                    dgvRazmena.DataSource = data;
-                    dgvRazmena.Columns[6].Visible = false;
-                    dgvRazmena.Columns[7].Visible = false;
-                    for (int i = 0; i < data.Count; i++)
-                    {
-                        if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
-                        if (data[i].PotvrdaRazmene == false) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-
-                        foreach (var roba in data[i].UlozenaRoba)
-                        {
-                            ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + ",\n";
-                        }
-                    }
                 }
 
                 // Razmena Out - end
                 if (title == "RAZMENA OUT")
                 {
                     lblTitle.Text = title;
+                    lblOpisForme.Text = "Razmena OUT - prikazuje razmene koje se od njega potrazuju.";
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
-                    dgvRazmena.DataSource = data;
 
-                    for (int i = 0; i < data.Count; i++)
-                    {
-                        if (data[i].PotvrdaRazmene == true) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
-                        if (data[i].PotvrdaRazmene == false) dgvRazmena.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-                        foreach (var roba in data[i].UlozenaRoba)
-                        {
-                            ((DataGridViewTextBoxCell)dgvRazmena.Rows[i].Cells["UlozenaRoba"]).Value += roba.NazivRobe + " " + roba.KolicinaRobe + "g,\n";
-                        }
-                    }
+                    poveziSvakiDataGridView(data, tabControlRazmena);
                 }
             }
             catch (ExceptionServer es)
@@ -103,6 +81,40 @@ namespace Barter
                 FrmClose();
                 throw new ExceptionServer(es.Message);
             }
+        }
+
+        private void poveziSvakiDataGridView(BindingList<RazmenaRobe> data, TabControl tabControlRazmena)
+        {
+            // novo
+            trazenaRoba = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == null && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
+            prihvacenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == true && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
+            odbijenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == false && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
+            //zavrsena roba
+            zavrsenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.ZavrsenaRazmena == true).ToList());
+            //arhivirana roba
+            arhiviranaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.ArhiviranaRazmena == true).ToList());
+
+            // sredjivanje dgvTrazenaRoba
+            ((DataGridView)tabControlRazmena.TabPages["tabPage1"].Controls["dgvRazmenaTrazeneRobe"]).DataSource = trazenaRoba;
+
+            // sredjivanje dgvPrihvacenaRazmene
+            ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).Columns[6].Visible = false;
+            ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).Columns[7].Visible = false;
+            ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).DataSource = prihvacenaRazmena;
+            ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
+
+            // sredjivanje dgvOdbijeneRazmene
+            ((DataGridView)tabControlRazmena.TabPages["tabPage3"].Controls["dgvOdbijenaRazmena"]).DataSource = odbijenaRazmena;
+            ((DataGridView)tabControlRazmena.TabPages["tabPage3"].Controls["dgvOdbijenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+
+            // sredjivanje dgvZavrsenaRazmena
+            ((DataGridView)tabControlRazmena.TabPages["tabPage4"].Controls["dgvZavrsenaRazmena"]).DataSource = zavrsenaRazmena;
+            ((DataGridView)tabControlRazmena.TabPages["tabPage4"].Controls["dgvZavrsenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.DarkGreen;
+
+            // sredjivanje dgvArhiviranaRazmena
+            ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DataSource = arhiviranaRazmena;
+            ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
+
         }
 
         //
@@ -113,10 +125,65 @@ namespace Barter
                 DataGridView dgv = (DataGridView)sender;
 
                 // trazena roba
-
+                if (dgv.Name == "dgvRazmenaTrazeneRobe")
+                {
+                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+                        try
+                        {
+                            // potvrdi razmenu
+                            if (e.ColumnIndex == 6)
+                            {
+                                if (MessageBox.Show("Da li zelite da potvrdite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
+                                    trazenaRoba[e.RowIndex].PotvrdaRazmene = true;
+                                    if (Komunikacija.Instance.PotvrdaRazmeneRobe(trazenaRoba[e.RowIndex], true))
+                                    {
+                                        prihvacenaRazmena.Add(trazenaRoba[e.RowIndex]);
+                                        trazenaRoba.Remove(trazenaRoba[e.RowIndex]);
+                                        MessageBox.Show($"Uspesno potvrdjena razmena!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Neuspena potvrdjena razmena!");
+                                    }
+                                }
+                            }
+                            // ponistiti razmenu
+                            if (e.ColumnIndex == 7)
+                            {
+                                if (MessageBox.Show("Da li zelite da odbijete razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    trazenaRoba[e.RowIndex].PotvrdaRazmene = false;
+                                    if (Komunikacija.Instance.PonistiRazmenuRobe(trazenaRoba[e.RowIndex]))
+                                    {
+                                        odbijenaRazmena.Add(trazenaRoba[e.RowIndex]);
+                                        trazenaRoba.Remove(trazenaRoba[e.RowIndex]);
+                                        MessageBox.Show($"Uspesno odbijena razmena!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Neuspesno odbijena razmena!");
+                                    }
+                                }
+                            }
+                            // pdf jedne razmene
+                            if (e.ColumnIndex == 8)
+                            {
+                                MessageBox.Show($"PDF jedne razmene!");
+                            }
+                        }
+                        catch (ExceptionServer es)
+                        {
+                            FrmClose();
+                            throw new ExceptionServer(es.Message);
+                        }
+                    }
+                }
 
                 // prihvacena razmena
-                if(dgv.Name == "dgvPrihvacenaRazmena")
+                if (dgv.Name == "dgvPrihvacenaRazmena")
                 {
                     if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                     {
@@ -175,87 +242,123 @@ namespace Barter
                 }
 
                 // odbijena razmena
-
+                if (dgv.Name == "dgvOdbijenaRazmena")
+                {
+                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+                        try
+                        {
+                            // arhiviraj razmenu
+                            if (e.ColumnIndex == 6)
+                            {
+                                if (MessageBox.Show("Da li zelite da arhivirate razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
+                                    odbijenaRazmena[e.RowIndex].ArhiviranaRazmena = true;
+                                    if (Komunikacija.Instance.PotvrdaRazmeneRobe(odbijenaRazmena[e.RowIndex], true))
+                                    {
+                                        arhiviranaRazmena.Add(odbijenaRazmena[e.RowIndex]);
+                                        odbijenaRazmena.Remove(odbijenaRazmena[e.RowIndex]);
+                                        MessageBox.Show($"Uspesno arhivirana razmena!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Neuspeno arhivirana razmena!");
+                                    }
+                                }
+                            }
+                            // pdf jedne razmene
+                            if (e.ColumnIndex == 7)
+                            {
+                                MessageBox.Show($"PDF jedne razmene!");
+                            }
+                        }
+                        catch (ExceptionServer es)
+                        {
+                            FrmClose();
+                            throw new ExceptionServer(es.Message);
+                        }
+                    }
+                }
 
                 // zavrsena razmena
+                if (dgv.Name == "dgvZavrsenaRazmena")
+                {
+                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+                        try
+                        {
+                            // arhiviraj razmenu
+                            if (e.ColumnIndex == 6)
+                            {
+                                if (MessageBox.Show("Da li zelite da arhivirate razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
+                                    zavrsenaRazmena[e.RowIndex].ArhiviranaRazmena = true;
+                                    if (Komunikacija.Instance.PotvrdaRazmeneRobe(zavrsenaRazmena[e.RowIndex], true))
+                                    {
+                                        arhiviranaRazmena.Add(zavrsenaRazmena[e.RowIndex]);
+                                        zavrsenaRazmena.Remove(zavrsenaRazmena[e.RowIndex]);
+                                        MessageBox.Show($"Uspesno arhivirana razmena!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Neuspeno arhivirana razmena!");
+                                    }
+                                }
+                            }
+                            // pdf jedne razmene
+                            if (e.ColumnIndex == 7)
+                            {
+                                MessageBox.Show($"PDF jedne razmene!");
+                            }
+                        }
+                        catch (ExceptionServer es)
+                        {
+                            FrmClose();
+                            throw new ExceptionServer(es.Message);
+                        }
+                    }
+                }
 
-
+                // arhivirana razmena
+                if (dgv.Name == "dgvArhiviranaRazmena")
+                {
+                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+                        try
+                        {
+                            // obrisi razmenu
+                            if (e.ColumnIndex == 6)
+                            {
+                                if (MessageBox.Show("Da li zelite da obrisite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    odbijenaRazmena[e.RowIndex].ArhiviranaRazmena = true;
+                                    if (Komunikacija.Instance.ObrisiRazmenuRobe(arhiviranaRazmena[e.RowIndex]))
+                                    {
+                                        arhiviranaRazmena.Remove(arhiviranaRazmena[e.RowIndex]);
+                                        MessageBox.Show($"Uspesno obrisana razmena!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Neuspeno obrisana razmena!");
+                                    }
+                                }
+                            }
+                            // pdf jedne razmene
+                            if (e.ColumnIndex == 7)
+                            {
+                                MessageBox.Show($"PDF jedne razmene!");
+                            }
+                        }
+                        catch (ExceptionServer es)
+                        {
+                            FrmClose();
+                            throw new ExceptionServer(es.Message);
+                        }
+                    }
+                }
             }
-
-            //var senderGrid = (DataGridView)sender;
-
-            //if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
-            //{
-            //    try
-            //    {
-            //        if (e.ColumnIndex == 7) dgvRazmena.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
-            //        if (e.ColumnIndex == 8) dgvRazmena.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-            //    }
-            //    catch (ExceptionServer es)
-            //    {
-            //        FrmClose();
-            //        throw new ExceptionServer(es.Message);
-            //    }
-            //}
-
-            //if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            //{
-            //    try
-            //    {
-            //        // potvrda razmene
-            //        if(e.ColumnIndex == 6)
-            //        {
-            //            data[e.RowIndex].PotvrdaRazmene = true;
-            //            if (Komunikacija.Instance.PotvrdaRazmeneRobe(data[e.RowIndex], true))
-            //            {
-            //                MessageBox.Show($"Uspesna potvrda razmene!");
-            //                senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Green;
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show($"Neuspena potvrda razmene!");
-            //            } 
-            //        }
-            //        // ponistiti razmenu
-            //        if(e.ColumnIndex == 7)
-            //        {
-            //            data[e.RowIndex].PotvrdaRazmene = false;
-            //            if (Komunikacija.Instance.PonistiRazmenuRobe(data[e.RowIndex]))
-            //            {
-            //                MessageBox.Show($"Uspesno ponistena razmena!");
-            //                senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show($"Neuspesno ponistena razmena!");
-            //            }
-            //        }
-            //        // brisanje razmene 
-            //        if (e.ColumnIndex == 8)
-            //        {
-            //            if (Komunikacija.Instance.ObrisiRazmenuRobe(data[e.RowIndex]))
-            //            {
-            //                MessageBox.Show($"Uspesno izbrisana razmena!");
-            //                data.Remove(data[e.RowIndex]);
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show($"Neuspeno izbrisana razmena!");
-            //            }
-            //        }
-            //        // prf jedne razmene
-            //        if (e.ColumnIndex == 9)
-            //        {
-
-            //        }
-            //    }
-            //    catch (ExceptionServer es)
-            //    {
-            //        FrmClose();
-            //        throw new ExceptionServer(es.Message);
-            //    }
-            //}
-
         }
 
         // export to pdf

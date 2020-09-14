@@ -45,7 +45,6 @@ namespace BrokerBazePodataka
             transaction.Rollback();
         }
         
-        // ...#...
         public IDomenskiObjekat VratiJedan(IDomenskiObjekat objekat)
         {
             IDomenskiObjekat rezultat;
@@ -56,7 +55,6 @@ namespace BrokerBazePodataka
             return rezultat;
         }
 
-        // ...#...
         public List<IDomenskiObjekat> VratiSve(IDomenskiObjekat objekat, string operacija)
         {
             SqlCommand command = new SqlCommand($"SELECT * FROM {objekat.VratiImeKlase()} WHERE {objekat.VratiSlozenUslov(operacija)}", connection, transaction);
