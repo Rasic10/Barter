@@ -171,6 +171,7 @@ namespace Barter
                             // pdf jedne razmene
                             if (e.ColumnIndex == 8)
                             {
+                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izvestaj");
                                 MessageBox.Show($"PDF jedne razmene!");
                             }
                         }
@@ -333,7 +334,7 @@ namespace Barter
                             {
                                 if (MessageBox.Show("Da li zelite da obrisite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    odbijenaRazmena[e.RowIndex].ArhiviranaRazmena = true;
+                                    arhiviranaRazmena[e.RowIndex].ArhiviranaRazmena = true;
                                     if (Komunikacija.Instance.ObrisiRazmenuRobe(arhiviranaRazmena[e.RowIndex]))
                                     {
                                         arhiviranaRazmena.Remove(arhiviranaRazmena[e.RowIndex]);
@@ -440,6 +441,112 @@ namespace Barter
             }
 
         }
+
+        // export to pdf 2
+        internal void exportRowToPdf(RazmenaRobe razmena, string filename)
+        {
+            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = filename;
+            saveFileDialog.DefaultExt = ".pdf";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4_LANDSCAPE);
+                    Font font = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 15, BaseColor.BLACK);
+                    Font fontTitle = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 20, Font.BOLD, BaseColor.BLACK);
+
+                    PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();
+
+                    System.Drawing.Image image1 = System.Drawing.Image.FromFile("C://Users/Nemanja/Desktop/NRCompar.png");
+                    Image iTextImage1 = Image.GetInstance(image1, System.Drawing.Imaging.ImageFormat.Png);
+                    iTextImage1.Alignment = Element.ALIGN_CENTER;
+                    pdfDoc.Add(iTextImage1);
+
+                    Paragraph parag1 = new Paragraph("IZVEŠTAJ RAZMENE", fontTitle);
+                    parag1.Alignment = Element.ALIGN_CENTER;
+                    pdfDoc.Add(parag1);
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    // detalji Trazene robe
+                    PdfPTable table = new PdfPTable(1);
+
+                    PdfPCell cel1 = new PdfPCell(new Phrase("Korisnik tražene robe: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika));
+                    PdfPCell cel2 = new PdfPCell(new Phrase("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa, font));
+                    PdfPCell cel3 = new PdfPCell(new Phrase("Tražena roba: " + razmena.TrazenaRoba.NazivRobe));
+                    PdfPCell cel4 = new PdfPCell(new Phrase("Datum podnošenja razmene: " + razmena.DatumRazmeneRobe));
+
+                    cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                    cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                    cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                    cel4.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+
+                    cel1.Border = Rectangle.NO_BORDER;
+                    cel2.Border = Rectangle.NO_BORDER;
+                    cel3.Border = Rectangle.NO_BORDER;
+                    cel4.Border = Rectangle.NO_BORDER;
+
+                    table.AddCell(cel1);
+                    table.AddCell(cel2);
+                    table.AddCell(cel3);
+                    table.AddCell(cel4);
+
+                    table.SpacingAfter = 20;
+                    table.SpacingBefore = 10;
+
+                    PdfPTable t2 = new PdfPTable(1);
+                    t2.AddCell(table);
+                    pdfDoc.Add(t2);
+
+
+                    Paragraph parag4 = new Paragraph("Korisnik: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika, font);
+                    parag4.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag4);
+
+                    Paragraph parag5 = new Paragraph("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa + razmena.KorisnikTrazeneRobe.Lokacija.NazivOpstine, font);
+                    parag5.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag5);
+
+                    Paragraph parag6 = new Paragraph("Trazena roba: " + razmena.TrazenaRoba.NazivRobe, font);
+                    parag6.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag6);
+
+                    Paragraph parag7 = new Paragraph("Datum podnosenja razmene: " + razmena.DatumRazmeneRobe, font);
+                    parag7.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag7);
+
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    // detalji Ulozene robe
+                    Paragraph parag2 = new Paragraph("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font);
+                    parag2.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag2);
+
+                    Paragraph parag9 = new Paragraph("Adresa: " + Sesija.Instance.Korisnik.Adresa + ", " + Sesija.Instance.Korisnik.Lokacija.NazivOpstine, font);
+                    parag9.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag9);
+
+                    Paragraph parag8 = new Paragraph("Ulozena roba: " + razmena.UlozenaRobaString, font);
+                    parag8.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag8);
+
+                    Paragraph parag3 = new Paragraph("Datum izvestaja: " + DateTime.Now.ToString("dd/MM/yyyy"), font);
+                    parag3.Alignment = Element.ALIGN_LEFT;
+                    pdfDoc.Add(parag3);
+
+                    pdfDoc.Add(new Paragraph(" "));
+
+                    pdfDoc.AddAuthor(Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika);
+
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+            }
+        }
+
 
         // end
         internal void PretragaRobe(string text, DataGridView dgvRazmena, string title)

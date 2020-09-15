@@ -123,7 +123,6 @@ namespace Barter
                         KorisnikUlozeneRobe = Sesija.Instance.Korisnik,
                         TrazenaRoba = trazenaRoba,
                         UlozenaRoba = ulozenaRoba.ToList(),
-                        //PotvrdaRazmene = false
                     };
 
                     bool uspesno = Komunikacija.Instance.SacuvajRazmenu(rr);
