@@ -62,7 +62,11 @@ namespace Domen
                     Email = reader.GetString(4),
                     Sifra = reader.GetString(5),
                     DatumRodjenja = reader.GetDateTime(6),
-                    Adresa = reader.GetString(7)
+                    Adresa = reader.GetString(7),
+                    Lokacija = new Lokacija
+                    {
+                        Ptt = reader.GetInt32(8)
+                    }
                 };
             }
             return korisnik;
@@ -90,7 +94,11 @@ namespace Domen
                     Email = reader.GetString(4),
                     Sifra = reader.GetString(5),
                     DatumRodjenja = reader.GetDateTime(6),
-                    Adresa = reader.GetString(7)
+                    Adresa = reader.GetString(7),
+                    Lokacija = new Lokacija
+                    {
+                        Ptt = reader.GetInt32(8)
+                    }
                 };
                 korisnici.Add(korisnik);
             }
@@ -99,12 +107,13 @@ namespace Domen
 
         public IDomenskiObjekat VratiPoddomen(int broj)
         {
+            if (broj == 1) return Lokacija;
             return null;
         }
 
         public void PostaviPoddomen(IDomenskiObjekat domenskiObjekat, int broj)
         {
-            throw new NotImplementedException();
+            if (broj == 1) Lokacija = (Lokacija)domenskiObjekat;
         }
 
         public string VratiImePrimarnogKljuca()

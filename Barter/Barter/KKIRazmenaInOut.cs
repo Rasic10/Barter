@@ -469,30 +469,37 @@ namespace Barter
                     Paragraph parag1 = new Paragraph("IZVEŠTAJ RAZMENE", fontTitle);
                     parag1.Alignment = Element.ALIGN_CENTER;
                     pdfDoc.Add(parag1);
-                    pdfDoc.Add(new Paragraph(" "));
+                    pdfDoc.Add(new Paragraph("Datum podnošenja razmene: " + razmena.DatumRazmeneRobe.ToString("dd.MM.yyyy"), font));
 
+                    Paragraph parTrazeneRobe = new Paragraph("Detalji korisnika Tražene robe:", font);
+                    parTrazeneRobe.SpacingAfter = 5;
+                    pdfDoc.Add(parTrazeneRobe);
                     // detalji Trazene robe
                     PdfPTable table = new PdfPTable(1);
 
-                    PdfPCell cel1 = new PdfPCell(new Phrase("Korisnik tražene robe: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika));
-                    PdfPCell cel2 = new PdfPCell(new Phrase("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa, font));
-                    PdfPCell cel3 = new PdfPCell(new Phrase("Tražena roba: " + razmena.TrazenaRoba.NazivRobe));
-                    PdfPCell cel4 = new PdfPCell(new Phrase("Datum podnošenja razmene: " + razmena.DatumRazmeneRobe));
+                    PdfPCell cel1 = new PdfPCell(new Phrase("Korisnik: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika, font));
+                    PdfPCell cel2 = new PdfPCell(new Phrase("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa + ", " + razmena.KorisnikTrazeneRobe.Lokacija.NazivOpstine, font));
+                    PdfPCell cel3 = new PdfPCell(new Phrase("Tražena roba: " + razmena.TrazenaRoba.NazivRobe, font));
+                    PdfPCell cel4 = new PdfPCell(new Phrase("Količina tražene robe: " + razmena.TrazenaRoba.KolicinaRobe + "g", font));
+                    //PdfPCell cel5 = new PdfPCell(new Phrase("Datum podnošenja razmene: " + razmena.DatumRazmeneRobe.ToString("dd.MM.yyyy"), font));
 
                     cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
                     cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
                     cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
                     cel4.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                    //cel5.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
 
                     cel1.Border = Rectangle.NO_BORDER;
                     cel2.Border = Rectangle.NO_BORDER;
                     cel3.Border = Rectangle.NO_BORDER;
                     cel4.Border = Rectangle.NO_BORDER;
+                    //cel5.Border = Rectangle.NO_BORDER;
 
                     table.AddCell(cel1);
                     table.AddCell(cel2);
                     table.AddCell(cel3);
                     table.AddCell(cel4);
+                    //table.AddCell(cel5);
 
                     table.SpacingAfter = 20;
                     table.SpacingBefore = 10;
@@ -501,24 +508,35 @@ namespace Barter
                     t2.AddCell(table);
                     pdfDoc.Add(t2);
 
+                    Paragraph parUlozeneRobe = new Paragraph("Detalji korisnika Uložene robe:", font);
+                    parUlozeneRobe.SpacingAfter = 5;
+                    pdfDoc.Add(parUlozeneRobe);
+                    // detalji Ulozene robe
 
-                    Paragraph parag4 = new Paragraph("Korisnik: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika, font);
-                    parag4.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag4);
+                    table = new PdfPTable(1);
 
-                    Paragraph parag5 = new Paragraph("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa + razmena.KorisnikTrazeneRobe.Lokacija.NazivOpstine, font);
-                    parag5.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag5);
+                    cel1 = new PdfPCell(new Phrase("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font));
+                    cel2 = new PdfPCell(new Phrase("Adresa: " + Sesija.Instance.Korisnik.Adresa + ", " + Sesija.Instance.Korisnik.Lokacija.NazivOpstine, font));
+                    cel3 = new PdfPCell(new Phrase("Uložene roba: " + razmena.UlozenaRobaString.Replace("\n", " "), font));
 
-                    Paragraph parag6 = new Paragraph("Trazena roba: " + razmena.TrazenaRoba.NazivRobe, font);
-                    parag6.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag6);
+                    cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                    cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                    cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
 
-                    Paragraph parag7 = new Paragraph("Datum podnosenja razmene: " + razmena.DatumRazmeneRobe, font);
-                    parag7.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag7);
+                    cel1.Border = Rectangle.NO_BORDER;
+                    cel2.Border = Rectangle.NO_BORDER;
+                    cel3.Border = Rectangle.NO_BORDER;
 
-                    pdfDoc.Add(new Paragraph(" "));
+                    table.AddCell(cel1);
+                    table.AddCell(cel2);
+                    table.AddCell(cel3);
+
+                    table.SpacingAfter = 20;
+                    table.SpacingBefore = 10;
+
+                    t2 = new PdfPTable(1);
+                    t2.AddCell(table);
+                    pdfDoc.Add(t2);
 
                     // detalji Ulozene robe
                     Paragraph parag2 = new Paragraph("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font);

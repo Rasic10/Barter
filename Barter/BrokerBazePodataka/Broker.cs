@@ -52,6 +52,14 @@ namespace BrokerBazePodataka
             SqlDataReader reader = command.ExecuteReader();
             rezultat = objekat.VratiObjekat(reader);
             reader.Close();
+
+            int broj = 1;
+            while (rezultat.VratiPoddomen(broj) != null)
+            {
+                rezultat.PostaviPoddomen(VratiJedan(rezultat.VratiPoddomen(broj)), broj);
+                broj++;
+            }
+
             return rezultat;
         }
 

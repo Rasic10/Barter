@@ -54,7 +54,16 @@ namespace Domen
 
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            Lokacija lokacija = null;
+            while (reader.Read())
+            {
+                lokacija = new Lokacija
+                {
+                    Ptt = reader.GetInt32(0),
+                    NazivOpstine = reader.GetString(1)
+                };
+            }
+            return lokacija;
         }
 
         // ...#...
@@ -89,9 +98,10 @@ namespace Domen
             throw new NotImplementedException();
         }
 
+        //
         public string VratiUslovPoIDu()
         {
-            throw new NotImplementedException();
+            return $"Ptt = {Ptt}";
         }
 
         public IEnumerable<IDomenskiObjekat> VratiSlabeObjekte()
