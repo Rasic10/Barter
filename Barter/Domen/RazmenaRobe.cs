@@ -57,7 +57,7 @@ namespace Domen
             if (broj > 3)
             {
                 UlozenaRoba[broj - 4] = (Roba)domenskiObjekat;
-                UlozenaRobaString += UlozenaRoba[broj - 4].NazivRobe + " " + UlozenaRoba[broj - 4].KolicinaRobe + ",\n";
+                UlozenaRobaString += UlozenaRoba[broj - 4].NazivRobe + " " + UlozenaRoba[broj - 4].KolicinaRobe + "g\n";
             }
         }
 

@@ -32,15 +32,15 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvRoba = new System.Windows.Forms.DataGridView();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnObrisiRobu = new System.Windows.Forms.Button();
+            this.btnIzmeniRobu = new System.Windows.Forms.Button();
             this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KategorijaRobe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnObrisiRobu = new System.Windows.Forms.Button();
-            this.btnIzmeniRobu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoba)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
@@ -93,37 +93,6 @@
             this.dgvRoba.Size = new System.Drawing.Size(576, 210);
             this.dgvRoba.TabIndex = 24;
             // 
-            // nazivRobeDataGridViewTextBoxColumn
-            // 
-            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
-            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
-            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
-            // 
-            // kolicinaRobeDataGridViewTextBoxColumn
-            // 
-            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
-            // 
-            // cenaRobeDataGridViewTextBoxColumn
-            // 
-            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
-            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
-            // 
-            // datumUnosaRobeDataGridViewTextBoxColumn
-            // 
-            this.datumUnosaRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumUnosaRobe";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.HeaderText = "Datum unosa robe";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.Name = "datumUnosaRobeDataGridViewTextBoxColumn";
-            this.datumUnosaRobeDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // KategorijaRobe
-            // 
-            this.KategorijaRobe.DataPropertyName = "KategorijaRobe";
-            this.KategorijaRobe.HeaderText = "Kategorija";
-            this.KategorijaRobe.Name = "KategorijaRobe";
-            // 
             // robaBindingSource
             // 
             this.robaBindingSource.DataSource = typeof(Domen.Roba);
@@ -145,7 +114,7 @@
             this.btnObrisiRobu.Name = "btnObrisiRobu";
             this.btnObrisiRobu.Size = new System.Drawing.Size(160, 30);
             this.btnObrisiRobu.TabIndex = 35;
-            this.btnObrisiRobu.Text = "Obrisi robu";
+            this.btnObrisiRobu.Text = "Obriši robu";
             this.btnObrisiRobu.UseVisualStyleBackColor = true;
             this.btnObrisiRobu.Click += new System.EventHandler(this.btnObrisiRobu_Click);
             // 
@@ -159,6 +128,37 @@
             this.btnIzmeniRobu.Text = "Izmeni robu";
             this.btnIzmeniRobu.UseVisualStyleBackColor = true;
             this.btnIzmeniRobu.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // nazivRobeDataGridViewTextBoxColumn
+            // 
+            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
+            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
+            // 
+            // kolicinaRobeDataGridViewTextBoxColumn
+            // 
+            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
+            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Količina";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
+            // 
+            // cenaRobeDataGridViewTextBoxColumn
+            // 
+            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
+            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
+            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
+            // 
+            // datumUnosaRobeDataGridViewTextBoxColumn
+            // 
+            this.datumUnosaRobeDataGridViewTextBoxColumn.DataPropertyName = "DatumUnosaRobe";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.HeaderText = "Datum unosa robe";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.Name = "datumUnosaRobeDataGridViewTextBoxColumn";
+            this.datumUnosaRobeDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // KategorijaRobe
+            // 
+            this.KategorijaRobe.DataPropertyName = "KategorijaRobe";
+            this.KategorijaRobe.HeaderText = "Kategorija";
+            this.KategorijaRobe.Name = "KategorijaRobe";
             // 
             // FrmRoba
             // 
@@ -190,13 +190,13 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.DataGridView dgvRoba;
         private System.Windows.Forms.BindingSource robaBindingSource;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnObrisiRobu;
+        private System.Windows.Forms.Button btnIzmeniRobu;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumUnosaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn KategorijaRobe;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnObrisiRobu;
-        private System.Windows.Forms.Button btnIzmeniRobu;
     }
 }

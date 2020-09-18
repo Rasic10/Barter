@@ -41,19 +41,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Cooper Black", 15.75F);
-            this.label1.Location = new System.Drawing.Point(50, 59);
+            this.label1.Font = new System.Drawing.Font("Elephant", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(39, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 24);
+            this.label1.Size = new System.Drawing.Size(194, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Korisnicko ime:";
+            this.label1.Text = "Korisničko ime:";
             // 
             // tbKorisnickoIme
             // 
-            this.tbKorisnickoIme.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbKorisnickoIme.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbKorisnickoIme.Location = new System.Drawing.Point(233, 58);
             this.tbKorisnickoIme.Name = "tbKorisnickoIme";
-            this.tbKorisnickoIme.Size = new System.Drawing.Size(189, 29);
+            this.tbKorisnickoIme.Size = new System.Drawing.Size(189, 32);
             this.tbKorisnickoIme.TabIndex = 1;
             this.tbKorisnickoIme.Text = "Rasic10";
             // 
@@ -71,12 +71,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 15.75F);
-            this.label2.Location = new System.Drawing.Point(50, 94);
+            this.label2.Font = new System.Drawing.Font("Elephant", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 24);
+            this.label2.Size = new System.Drawing.Size(84, 27);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Sifra: ";
+            this.label2.Text = "Šifra: ";
             // 
             // bttPrijaviSe
             // 

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvGlavna = new System.Windows.Forms.DataGridView();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bttProfil = new System.Windows.Forms.Button();
             this.bttRoba = new System.Windows.Forms.Button();
             this.bttUnosRobe = new System.Windows.Forms.Button();
@@ -51,15 +52,14 @@
             this.datumUnosaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategorijaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlavna)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvGlavna
@@ -85,6 +85,10 @@
             this.dgvGlavna.Size = new System.Drawing.Size(690, 286);
             this.dgvGlavna.TabIndex = 0;
             this.dgvGlavna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGlavna_CellContentClick);
+            // 
+            // robaBindingSource
+            // 
+            this.robaBindingSource.DataSource = typeof(Domen.Roba);
             // 
             // bttProfil
             // 
@@ -298,7 +302,7 @@
             // kolicinaRobeDataGridViewTextBoxColumn
             // 
             this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
+            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Količina";
             this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
             this.kolicinaRobeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -332,10 +336,6 @@
             this.kategorijaRobeDataGridViewTextBoxColumn.ReadOnly = true;
             this.kategorijaRobeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // robaBindingSource
-            // 
-            this.robaBindingSource.DataSource = typeof(Domen.Roba);
-            // 
             // FrmGlavna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,13 +364,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barter";
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlavna)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,6 +391,9 @@
         private System.Windows.Forms.Button bttRazmenaIn;
         private System.Windows.Forms.Button bttRazmenaOut;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbPretraga;
+        private System.Windows.Forms.Button btnPretraga;
+        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.DataGridViewTextBoxColumn robaIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
@@ -398,9 +401,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datumUnosaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn korisnikRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kategorijaRobeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox tbPretraga;
-        private System.Windows.Forms.Button btnPretraga;
-        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
 

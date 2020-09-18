@@ -158,8 +158,10 @@
             // 
             // dtpDatumUnosaRobe
             // 
+            this.dtpDatumUnosaRobe.CustomFormat = "                         dd.MM.yyyy.";
             this.dtpDatumUnosaRobe.Enabled = false;
             this.dtpDatumUnosaRobe.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDatumUnosaRobe.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDatumUnosaRobe.Location = new System.Drawing.Point(10, 111);
             this.dtpDatumUnosaRobe.Name = "dtpDatumUnosaRobe";
             this.dtpDatumUnosaRobe.Size = new System.Drawing.Size(282, 26);

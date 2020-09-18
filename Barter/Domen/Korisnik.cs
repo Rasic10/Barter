@@ -19,6 +19,7 @@ namespace Domen
         private DateTime datumRodjenja;
         private string adresa;
         private Lokacija lokacija;
+        private string brojTelefona;
 
         public int KorisnikID { get => korisnikID; set => korisnikID = value; }
         public string UsernameKorisnika { get => usernameKorisnika; set => usernameKorisnika = value; }
@@ -29,25 +30,23 @@ namespace Domen
         public DateTime DatumRodjenja { get => datumRodjenja; set => datumRodjenja = value; }
         public string Adresa { get => adresa; set => adresa = value; }
         public Lokacija Lokacija { get => lokacija; set => lokacija = value; }
+        public string BrojTelefona { get => brojTelefona; set => brojTelefona = value; }
 
         public override string ToString()
         {
             return $"{ImeKorisnika} {PrezimeKorisnika}";
         }
 
-        // ...#...
         public string VratiImeKlase()
         {
             return "Korisnik";
         }
 
-        // ...#...
         public string VratiSlozenUslov(string operacija)
         {
             return $"UsernameKorisnika = '{UsernameKorisnika}' {operacija}";
         }
 
-        // ...#...
         public IDomenskiObjekat VratiObjekat(SqlDataReader reader)
         {
             Korisnik korisnik = null;
@@ -66,19 +65,18 @@ namespace Domen
                     Lokacija = new Lokacija
                     {
                         Ptt = reader.GetInt32(8)
-                    }
+                    },
+                    BrojTelefona = reader.GetString(9)
                 };
             }
             return korisnik;
         }
 
-        // ...#...
         public string VratiVrednostiAtributa()
         {
-            return $"'{UsernameKorisnika}', '{ImeKorisnika}', '{PrezimeKorisnika}', '{Email}', '{Sifra}', '{DatumRodjenja}', '{Adresa}', {Lokacija.Ptt}";
+            return $"'{UsernameKorisnika}', '{ImeKorisnika}', '{PrezimeKorisnika}', '{Email}', '{Sifra}', '{DatumRodjenja}', '{Adresa}', {Lokacija.Ptt}, '{BrojTelefona}'";
         }
 
-        // ...#...
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
             List<IDomenskiObjekat> korisnici = new List<IDomenskiObjekat>();
@@ -98,7 +96,8 @@ namespace Domen
                     Lokacija = new Lokacija
                     {
                         Ptt = reader.GetInt32(8)
-                    }
+                    },
+                    BrojTelefona = reader.GetString(9)
                 };
                 korisnici.Add(korisnik);
             }
@@ -116,28 +115,29 @@ namespace Domen
             if (broj == 1) Lokacija = (Lokacija)domenskiObjekat;
         }
 
+        // not implemented
         public string VratiImePrimarnogKljuca()
         {
             throw new NotImplementedException();
         }
 
-        // ...#...
         public string PostaviVrednostiAtributa()
         {
-            return $"ImeKorisnika = '{ImeKorisnika}', PrezimeKorisnika = '{PrezimeKorisnika}', sifra = '{Sifra}', DatumRodjenja = '{DatumRodjenja}', Adresa = '{Adresa}', Lokacija = {Lokacija.Ptt}";
+            return $"ImeKorisnika = '{ImeKorisnika}', PrezimeKorisnika = '{PrezimeKorisnika}', sifra = '{Sifra}', DatumRodjenja = '{DatumRodjenja}', Adresa = '{Adresa}', Lokacija = {Lokacija.Ptt}, BrojTelefona = '{BrojTelefona}'";
         }
 
-        // ...#...
         public string VratiUslovPoIDu()
         {
             return $"KorisnikID = {KorisnikID}";
         }
 
+        // not implemented
         public IEnumerable<IDomenskiObjekat> VratiSlabeObjekte()
         {
             throw new NotImplementedException();
         }
 
+        // not implemented
         public string VratiPretragu(string tekst)
         {
             throw new NotImplementedException();

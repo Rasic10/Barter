@@ -32,11 +32,11 @@
             this.btnPokreni = new System.Windows.Forms.Button();
             this.btnZaustavi = new System.Windows.Forms.Button();
             this.dgvKorisnici = new System.Windows.Forms.DataGridView();
-            this.imeKorisnikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prezimeKorisnikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.imeKorisnikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prezimeKorisnikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -77,20 +77,6 @@
             this.dgvKorisnici.Size = new System.Drawing.Size(301, 150);
             this.dgvKorisnici.TabIndex = 2;
             // 
-            // imeKorisnikaDataGridViewTextBoxColumn
-            // 
-            this.imeKorisnikaDataGridViewTextBoxColumn.DataPropertyName = "ImeKorisnika";
-            this.imeKorisnikaDataGridViewTextBoxColumn.HeaderText = "ImeKorisnika";
-            this.imeKorisnikaDataGridViewTextBoxColumn.Name = "imeKorisnikaDataGridViewTextBoxColumn";
-            this.imeKorisnikaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prezimeKorisnikaDataGridViewTextBoxColumn
-            // 
-            this.prezimeKorisnikaDataGridViewTextBoxColumn.DataPropertyName = "PrezimeKorisnika";
-            this.prezimeKorisnikaDataGridViewTextBoxColumn.HeaderText = "PrezimeKorisnika";
-            this.prezimeKorisnikaDataGridViewTextBoxColumn.Name = "prezimeKorisnikaDataGridViewTextBoxColumn";
-            this.prezimeKorisnikaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // korisnikBindingSource
             // 
             this.korisnikBindingSource.DataSource = typeof(Domen.Korisnik);
@@ -109,6 +95,22 @@
             this.label1.Size = new System.Drawing.Size(211, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Lista trenutno aktivnih korisnika:";
+            // 
+            // imeKorisnikaDataGridViewTextBoxColumn
+            // 
+            this.imeKorisnikaDataGridViewTextBoxColumn.DataPropertyName = "ImeKorisnika";
+            this.imeKorisnikaDataGridViewTextBoxColumn.HeaderText = "Ime korisnika";
+            this.imeKorisnikaDataGridViewTextBoxColumn.Name = "imeKorisnikaDataGridViewTextBoxColumn";
+            this.imeKorisnikaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.imeKorisnikaDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // prezimeKorisnikaDataGridViewTextBoxColumn
+            // 
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.DataPropertyName = "PrezimeKorisnika";
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.HeaderText = "Prezime korisnika";
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.Name = "prezimeKorisnikaDataGridViewTextBoxColumn";
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prezimeKorisnikaDataGridViewTextBoxColumn.Width = 120;
             // 
             // FrmServer
             // 
@@ -133,11 +135,11 @@
         private System.Windows.Forms.Button btnPokreni;
         private System.Windows.Forms.Button btnZaustavi;
         private System.Windows.Forms.DataGridView dgvKorisnici;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imeKorisnikaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prezimeKorisnikaDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource korisnikBindingSource;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imeKorisnikaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prezimeKorisnikaDataGridViewTextBoxColumn;
     }
 }
 

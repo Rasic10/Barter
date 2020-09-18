@@ -12,7 +12,6 @@ namespace Barter
     {
         public event Action FrmClose;
 
-        // end
         internal void PrijaviSe(string korisnickoIme, string korisnikSifra)
         {
             try
@@ -25,29 +24,28 @@ namespace Barter
                 Korisnik k = Komunikacija.Instance.PrijavaKorisnika(korisnik);
                 if (k != null)
                 {
-                    MessageBox.Show($"Uspesno prijavljen {k.UsernameKorisnika}!");
+                    MessageBox.Show($"Uspešno prijavljen {k.UsernameKorisnika}!");
                     Sesija.Instance.Korisnik = k;
                     FrmGlavna forma = new FrmGlavna(k);
                     forma.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Pogresno korisnicko ime ili sifra!");
+                    MessageBox.Show("Pogrešno korisničko ime ili šifra!");
                 }
             }
             catch (ExceptionServer es)
             {
-                MessageBox.Show(es.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(es.Message, "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmClose();
             }
             catch (Exception ex)
             {
                 string s = ex.Message;
-                MessageBox.Show(ex.Message, "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // end
         internal void RegistrujSe()
         {
             try
@@ -61,16 +59,15 @@ namespace Barter
             }
         }
 
-        // end
         internal void PoveziSe()
         {
             if (Komunikacija.Instance.PoveziSe())
             {
-                MessageBox.Show("Uspesno ste povezani na server!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Uspešno ste povezani na server!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Neuspesno povezivanje na server!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Neuspešno povezivanje na server!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmClose();
             }
         }

@@ -23,7 +23,6 @@ namespace Barter
         public BindingList<RazmenaRobe> zavrsenaRazmena = new BindingList<RazmenaRobe>();
         public BindingList<RazmenaRobe> arhiviranaRazmena = new BindingList<RazmenaRobe>();
 
-        // end
         internal void SrediFormu(string title, Label lblTitle, Label lblOpisForme, TabControl tabControlRazmena)
         {
             try
@@ -33,45 +32,25 @@ namespace Barter
                 {
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikUlozeneRobe ="));
 
-                    // novo
-                    trazenaRoba = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == null && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
-                    prihvacenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == true && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
-                    odbijenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == false && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
-                    //zavrsena roba
-                    zavrsenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.ZavrsenaRazmena == true).ToList());
-                    //arhivirana roba
-                    arhiviranaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.ArhiviranaRazmena == true).ToList());
-
-                    // sredjivanje dgvTrazenaRoba
+                    // sredjivanje dataGridView-a
                     ((DataGridView)tabControlRazmena.TabPages["tabPage1"].Controls["dgvRazmenaTrazeneRobe"]).Columns[6].Visible = false;
                     ((DataGridView)tabControlRazmena.TabPages["tabPage1"].Controls["dgvRazmenaTrazeneRobe"]).Columns[7].Visible = false;
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage1"].Controls["dgvRazmenaTrazeneRobe"]).DataSource = trazenaRoba;
 
-                    // sredjivanje dgvPrihvacenaRazmene
-
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).DataSource = prihvacenaRazmena;
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
-
-                    // sredjivanje dgvOdbijeneRazmene
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage3"].Controls["dgvOdbijenaRazmena"]).DataSource = odbijenaRazmena;
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage3"].Controls["dgvOdbijenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-
-                    // sredjivanje dgvZavrsenaRazmena
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage4"].Controls["dgvZavrsenaRazmena"]).DataSource = zavrsenaRazmena;
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage4"].Controls["dgvZavrsenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.DarkGreen;
-
-                    // sredjivanje dgvArhiviranaRazmena
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DataSource = arhiviranaRazmena;
-                    ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-
+                    poveziSvakiDataGridView(data, tabControlRazmena);
                 }
 
                 // Razmena Out - end
                 if (title == "RAZMENA OUT")
                 {
                     lblTitle.Text = title;
-                    lblOpisForme.Text = "Razmena OUT - prikazuje razmene koje se od njega potrazuju.";
+                    lblOpisForme.Text = "Razmena OUT - prikaz razmena koje neko od Vas potražuje.";
                     data = new BindingList<RazmenaRobe>(Komunikacija.Instance.VratiListuRazmeneRobe(Sesija.Instance.Korisnik, "KorisnikTrazeneRobe ="));
+
+                    // sredjivanje dataGridView-a
+                    ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).Columns[6].Visible = false;
+                    ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).Columns[7].Visible = false;
+                    ((DataGridView)tabControlRazmena.TabPages["tabPage3"].Controls["dgvOdbijenaRazmena"]).Columns[6].Visible = false;
+                    ((DataGridView)tabControlRazmena.TabPages["tabPage4"].Controls["dgvZavrsenaRazmena"]).Columns[6].Visible = false;
 
                     poveziSvakiDataGridView(data, tabControlRazmena);
                 }
@@ -85,21 +64,16 @@ namespace Barter
 
         private void poveziSvakiDataGridView(BindingList<RazmenaRobe> data, TabControl tabControlRazmena)
         {
-            // novo
             trazenaRoba = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == null && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
             prihvacenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == true && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
             odbijenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.PotvrdaRazmene == false && k.ZavrsenaRazmena == null && k.ArhiviranaRazmena == null).ToList());
-            //zavrsena roba
             zavrsenaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.ZavrsenaRazmena == true).ToList());
-            //arhivirana roba
             arhiviranaRazmena = new BindingList<RazmenaRobe>(data.Where(k => k.ArhiviranaRazmena == true).ToList());
 
             // sredjivanje dgvTrazenaRoba
             ((DataGridView)tabControlRazmena.TabPages["tabPage1"].Controls["dgvRazmenaTrazeneRobe"]).DataSource = trazenaRoba;
 
             // sredjivanje dgvPrihvacenaRazmene
-            ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).Columns[6].Visible = false;
-            ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).Columns[7].Visible = false;
             ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).DataSource = prihvacenaRazmena;
             ((DataGridView)tabControlRazmena.TabPages["tabPage2"].Controls["dgvPrihvacenaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
 
@@ -114,10 +88,8 @@ namespace Barter
             // sredjivanje dgvArhiviranaRazmena
             ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DataSource = arhiviranaRazmena;
             ((DataGridView)tabControlRazmena.TabPages["tabPage5"].Controls["dgvArhiviranaRazmena"]).DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
-
         }
 
-        //
         internal void OnClick(object sender, DataGridViewCellEventArgs e, DataGridView dgvRazmena)
         {
             if(sender is DataGridView)
@@ -134,45 +106,44 @@ namespace Barter
                             // potvrdi razmenu
                             if (e.ColumnIndex == 6)
                             {
-                                if (MessageBox.Show("Da li zelite da potvrdite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da potvrdite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
                                     trazenaRoba[e.RowIndex].PotvrdaRazmene = true;
                                     if (Komunikacija.Instance.PotvrdaRazmeneRobe(trazenaRoba[e.RowIndex], true))
                                     {
                                         prihvacenaRazmena.Add(trazenaRoba[e.RowIndex]);
                                         trazenaRoba.Remove(trazenaRoba[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno potvrdjena razmena!");
+                                        MessageBox.Show($"Uspešno potvrđena razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspena potvrdjena razmena!");
+                                        MessageBox.Show($"Neuspešno potvrđena razmena!");
                                     }
                                 }
                             }
                             // ponistiti razmenu
                             if (e.ColumnIndex == 7)
                             {
-                                if (MessageBox.Show("Da li zelite da odbijete razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da odbijete razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     trazenaRoba[e.RowIndex].PotvrdaRazmene = false;
                                     if (Komunikacija.Instance.PonistiRazmenuRobe(trazenaRoba[e.RowIndex]))
                                     {
                                         odbijenaRazmena.Add(trazenaRoba[e.RowIndex]);
                                         trazenaRoba.Remove(trazenaRoba[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno odbijena razmena!");
+                                        MessageBox.Show($"Uspešno odbijena razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspesno odbijena razmena!");
+                                        MessageBox.Show($"Neuspešno odbijena razmena!");
                                     }
                                 }
                             }
                             // pdf jedne razmene
                             if (e.ColumnIndex == 8)
                             {
-                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izvestaj");
-                                MessageBox.Show($"PDF jedne razmene!");
+                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izveštaj");
+                                MessageBox.Show($"Uspešno sačuvan PDF!");
                             }
                         }
                         catch (ExceptionServer es)
@@ -193,45 +164,45 @@ namespace Barter
                             // zavrsi razmenu
                             if (e.ColumnIndex == 6)
                             {
-                                if (MessageBox.Show("Da li zelite da zavrsite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da završite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
                                     prihvacenaRazmena[e.RowIndex].PotvrdaRazmene = false;
                                     prihvacenaRazmena[e.RowIndex].ZavrsenaRazmena = true;
                                     if (Komunikacija.Instance.PotvrdaRazmeneRobe(prihvacenaRazmena[e.RowIndex], true))
                                     {
                                         zavrsenaRazmena.Add(prihvacenaRazmena[e.RowIndex]);
                                         prihvacenaRazmena.Remove(prihvacenaRazmena[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno zavrsena razmena!");
+                                        MessageBox.Show($"Uspešno završena razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspena zavrsena razmena!");
+                                        MessageBox.Show($"Neuspešno završena razmena!");
                                     }
                                 }
                             }
                             // ponistiti razmenu
                             if (e.ColumnIndex == 7)
                             {
-                                if (MessageBox.Show("Da li zelite da ponistite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da poništite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     prihvacenaRazmena[e.RowIndex].PotvrdaRazmene = false;
                                     if (Komunikacija.Instance.PonistiRazmenuRobe(prihvacenaRazmena[e.RowIndex]))
                                     {
                                         odbijenaRazmena.Add(prihvacenaRazmena[e.RowIndex]);
                                         prihvacenaRazmena.Remove(prihvacenaRazmena[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno ponistena razmena!");
+                                        MessageBox.Show($"Uspešno poništena razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspesno ponistena razmena!");
+                                        MessageBox.Show($"Neuspešno poništena razmena!");
                                     }
                                 }
                             }
                             // pdf jedne razmene
                             if (e.ColumnIndex == 8)
                             {
-                                MessageBox.Show($"PDF jedne razmene!");
+                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izveštaj");
+                                MessageBox.Show($"Uspešno sačuvan PDF!");
                             }
                         }
                         catch (ExceptionServer es)
@@ -252,26 +223,26 @@ namespace Barter
                             // arhiviraj razmenu
                             if (e.ColumnIndex == 6)
                             {
-                                if (MessageBox.Show("Da li zelite da arhivirate razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da arhivirate razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
                                     odbijenaRazmena[e.RowIndex].ArhiviranaRazmena = true;
                                     if (Komunikacija.Instance.PotvrdaRazmeneRobe(odbijenaRazmena[e.RowIndex], true))
                                     {
                                         arhiviranaRazmena.Add(odbijenaRazmena[e.RowIndex]);
                                         odbijenaRazmena.Remove(odbijenaRazmena[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno arhivirana razmena!");
+                                        MessageBox.Show($"Uspešno arhivirana razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspeno arhivirana razmena!");
+                                        MessageBox.Show($"Neuspešno arhivirana razmena!");
                                     }
                                 }
                             }
                             // pdf jedne razmene
                             if (e.ColumnIndex == 7)
                             {
-                                MessageBox.Show($"PDF jedne razmene!");
+                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izveštaj");
+                                MessageBox.Show($"Uspešno sačuvan PDF!");
                             }
                         }
                         catch (ExceptionServer es)
@@ -292,26 +263,26 @@ namespace Barter
                             // arhiviraj razmenu
                             if (e.ColumnIndex == 6)
                             {
-                                if (MessageBox.Show("Da li zelite da arhivirate razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da arhivirate razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
-                                    // message box da li ste sigurni da hocete da zavrsite razmenu?
                                     zavrsenaRazmena[e.RowIndex].ArhiviranaRazmena = true;
                                     if (Komunikacija.Instance.PotvrdaRazmeneRobe(zavrsenaRazmena[e.RowIndex], true))
                                     {
                                         arhiviranaRazmena.Add(zavrsenaRazmena[e.RowIndex]);
                                         zavrsenaRazmena.Remove(zavrsenaRazmena[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno arhivirana razmena!");
+                                        MessageBox.Show($"Uspešno arhivirana razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspeno arhivirana razmena!");
+                                        MessageBox.Show($"Neuspešno arhivirana razmena!");
                                     }
                                 }
                             }
                             // pdf jedne razmene
                             if (e.ColumnIndex == 7)
                             {
-                                MessageBox.Show($"PDF jedne razmene!");
+                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izveštaj");
+                                MessageBox.Show($"Uspešno sačuvan PDF!");
                             }
                         }
                         catch (ExceptionServer es)
@@ -332,24 +303,25 @@ namespace Barter
                             // obrisi razmenu
                             if (e.ColumnIndex == 6)
                             {
-                                if (MessageBox.Show("Da li zelite da obrisite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Da li želite da obrišete razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     arhiviranaRazmena[e.RowIndex].ArhiviranaRazmena = true;
                                     if (Komunikacija.Instance.ObrisiRazmenuRobe(arhiviranaRazmena[e.RowIndex]))
                                     {
                                         arhiviranaRazmena.Remove(arhiviranaRazmena[e.RowIndex]);
-                                        MessageBox.Show($"Uspesno obrisana razmena!");
+                                        MessageBox.Show($"Uspešno obrisana razmena!");
                                     }
                                     else
                                     {
-                                        MessageBox.Show($"Neuspeno obrisana razmena!");
+                                        MessageBox.Show($"Neuspešno obrisana razmena!");
                                     }
                                 }
                             }
                             // pdf jedne razmene
                             if (e.ColumnIndex == 7)
                             {
-                                MessageBox.Show($"PDF jedne razmene!");
+                                exportRowToPdf(trazenaRoba[e.RowIndex], "Izveštaj");
+                                MessageBox.Show($"Uspešno sačuvan PDF!");
                             }
                         }
                         catch (ExceptionServer es)
@@ -367,7 +339,7 @@ namespace Barter
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
             //
-            PdfPTable pdfTable = new PdfPTable(dgvRazmena.Columns.Count - 4); 
+            PdfPTable pdfTable = new PdfPTable(dgvRazmena.Columns.Count - 3); 
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 100;
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -383,18 +355,14 @@ namespace Barter
                 pdfTable.AddCell(cell);
             }
             //Add datarow
-            foreach(DataGridViewRow row in dgvRazmena.Rows)
+            foreach(RazmenaRobe r in data)
             {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.ColumnIndex > 5) break;
-                    if(cell.Value is DateTime)
-                    {
-                        pdfTable.AddCell(new Phrase(((DateTime)cell.Value).ToString("dd/MM/yyyy"), text));
-                        continue;
-                    }
-                    pdfTable.AddCell(new Phrase(cell.Value.ToString(), text));
-                }
+                pdfTable.AddCell(new Phrase(r.TrazenaRoba.NazivRobe, text));
+                pdfTable.AddCell(new Phrase(r.KolicinaRobe.ToString() + "g", text));
+                pdfTable.AddCell(new Phrase(r.DatumRazmeneRobe.ToString("dd/MM/yyyy"), text));
+                pdfTable.AddCell(new Phrase(r.KorisnikTrazeneRobe.ToString(), text));
+                pdfTable.AddCell(new Phrase(r.KorisnikUlozeneRobe.ToString(), text));
+                pdfTable.AddCell(new Phrase(r.UlozenaRobaString, text));
             }
 
             var saveFileDialog = new SaveFileDialog();
@@ -425,7 +393,7 @@ namespace Barter
                     parag2.Alignment = Element.ALIGN_LEFT;
                     pdfDoc.Add(parag2);
 
-                    Paragraph parag3 = new Paragraph("Datum izvestaja: " + DateTime.Now.ToString("dd/MM/yyyy"), font);
+                    Paragraph parag3 = new Paragraph("Datum izveštaja: " + DateTime.Now.ToString("dd.MM.yyyy"), font);
                     parag3.Alignment = Element.ALIGN_LEFT;
                     pdfDoc.Add(parag3);
 
@@ -439,7 +407,6 @@ namespace Barter
                     stream.Close();
                 }
             }
-
         }
 
         // export to pdf 2
@@ -457,6 +424,7 @@ namespace Barter
                     Document pdfDoc = new Document(PageSize.A4_LANDSCAPE);
                     Font font = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 15, BaseColor.BLACK);
                     Font fontTitle = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 20, Font.BOLD, BaseColor.BLACK);
+                    Font fontForLine = FontFactory.GetFont(Font.FontFamily.TIMES_ROMAN.ToString(), 20, Font.UNDERLINE, BaseColor.BLACK);
 
                     PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
@@ -471,89 +439,92 @@ namespace Barter
                     pdfDoc.Add(parag1);
                     pdfDoc.Add(new Paragraph("Datum podnošenja razmene: " + razmena.DatumRazmeneRobe.ToString("dd.MM.yyyy"), font));
 
-                    Paragraph parTrazeneRobe = new Paragraph("Detalji korisnika Tražene robe:", font);
-                    parTrazeneRobe.SpacingAfter = 5;
-                    pdfDoc.Add(parTrazeneRobe);
+                    PdfPCell cel1;
+                    PdfPCell cel2;
+                    PdfPCell cel3;
+                    PdfPCell cel4;
+                    PdfPCell cel5;
+                    PdfPTable table;
+                    PdfPTable t2;
+
                     // detalji Trazene robe
-                    PdfPTable table = new PdfPTable(1);
+                    {
+                        Paragraph parTrazeneRobe = new Paragraph("Detalji korisnika Tražene robe:", font);
+                        parTrazeneRobe.SpacingAfter = 5;
+                        pdfDoc.Add(parTrazeneRobe);
 
-                    PdfPCell cel1 = new PdfPCell(new Phrase("Korisnik: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika, font));
-                    PdfPCell cel2 = new PdfPCell(new Phrase("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa + ", " + razmena.KorisnikTrazeneRobe.Lokacija.NazivOpstine, font));
-                    PdfPCell cel3 = new PdfPCell(new Phrase("Tražena roba: " + razmena.TrazenaRoba.NazivRobe, font));
-                    PdfPCell cel4 = new PdfPCell(new Phrase("Količina tražene robe: " + razmena.TrazenaRoba.KolicinaRobe + "g", font));
-                    //PdfPCell cel5 = new PdfPCell(new Phrase("Datum podnošenja razmene: " + razmena.DatumRazmeneRobe.ToString("dd.MM.yyyy"), font));
+                        table = new PdfPTable(1);
 
-                    cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                    cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                    cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                    cel4.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                    //cel5.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel1 = new PdfPCell(new Phrase("Korisnik: " + razmena.KorisnikTrazeneRobe.ImeKorisnika + " " + razmena.KorisnikTrazeneRobe.PrezimeKorisnika, font));
+                        cel2 = new PdfPCell(new Phrase("Adresa: " + razmena.KorisnikTrazeneRobe.Adresa + ", " + razmena.KorisnikTrazeneRobe.Lokacija.NazivOpstine, font));
+                        cel3 = new PdfPCell(new Phrase("Tražena roba: " + razmena.TrazenaRoba.NazivRobe, font));
+                        cel4 = new PdfPCell(new Phrase("Količina tražene robe: " + razmena.TrazenaRoba.KolicinaRobe + "g", font));
+                        cel5 = new PdfPCell(new Phrase("Broj telefona: " + razmena.KorisnikTrazeneRobe.BrojTelefona, font));
 
-                    cel1.Border = Rectangle.NO_BORDER;
-                    cel2.Border = Rectangle.NO_BORDER;
-                    cel3.Border = Rectangle.NO_BORDER;
-                    cel4.Border = Rectangle.NO_BORDER;
-                    //cel5.Border = Rectangle.NO_BORDER;
+                        cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel4.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel5.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
 
-                    table.AddCell(cel1);
-                    table.AddCell(cel2);
-                    table.AddCell(cel3);
-                    table.AddCell(cel4);
-                    //table.AddCell(cel5);
+                        cel1.Border = Rectangle.NO_BORDER;
+                        cel2.Border = Rectangle.NO_BORDER;
+                        cel3.Border = Rectangle.NO_BORDER;
+                        cel4.Border = Rectangle.NO_BORDER;
+                        cel5.Border = Rectangle.NO_BORDER;
 
-                    table.SpacingAfter = 20;
-                    table.SpacingBefore = 10;
+                        table.AddCell(cel1);
+                        table.AddCell(cel2);
+                        table.AddCell(cel3);
+                        table.AddCell(cel4);
+                        table.AddCell(cel5);
 
-                    PdfPTable t2 = new PdfPTable(1);
-                    t2.AddCell(table);
-                    pdfDoc.Add(t2);
+                        table.SpacingAfter = 20;
+                        table.SpacingBefore = 10;
 
-                    Paragraph parUlozeneRobe = new Paragraph("Detalji korisnika Uložene robe:", font);
-                    parUlozeneRobe.SpacingAfter = 5;
-                    pdfDoc.Add(parUlozeneRobe);
-                    // detalji Ulozene robe
-
-                    table = new PdfPTable(1);
-
-                    cel1 = new PdfPCell(new Phrase("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font));
-                    cel2 = new PdfPCell(new Phrase("Adresa: " + Sesija.Instance.Korisnik.Adresa + ", " + Sesija.Instance.Korisnik.Lokacija.NazivOpstine, font));
-                    cel3 = new PdfPCell(new Phrase("Uložene roba: " + razmena.UlozenaRobaString.Replace("\n", " "), font));
-
-                    cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                    cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-                    cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
-
-                    cel1.Border = Rectangle.NO_BORDER;
-                    cel2.Border = Rectangle.NO_BORDER;
-                    cel3.Border = Rectangle.NO_BORDER;
-
-                    table.AddCell(cel1);
-                    table.AddCell(cel2);
-                    table.AddCell(cel3);
-
-                    table.SpacingAfter = 20;
-                    table.SpacingBefore = 10;
-
-                    t2 = new PdfPTable(1);
-                    t2.AddCell(table);
-                    pdfDoc.Add(t2);
+                        t2 = new PdfPTable(1);
+                        t2.AddCell(table);
+                        pdfDoc.Add(t2);
+                    }
 
                     // detalji Ulozene robe
-                    Paragraph parag2 = new Paragraph("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font);
-                    parag2.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag2);
+                    {
+                        Paragraph parUlozeneRobe = new Paragraph("Detalji korisnika Uložene robe:", font);
+                        parUlozeneRobe.SpacingAfter = 5;
+                        pdfDoc.Add(parUlozeneRobe);
 
-                    Paragraph parag9 = new Paragraph("Adresa: " + Sesija.Instance.Korisnik.Adresa + ", " + Sesija.Instance.Korisnik.Lokacija.NazivOpstine, font);
-                    parag9.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag9);
+                        table = new PdfPTable(1);
 
-                    Paragraph parag8 = new Paragraph("Ulozena roba: " + razmena.UlozenaRobaString, font);
-                    parag8.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag8);
+                        cel1 = new PdfPCell(new Phrase("Korisnik: " + Sesija.Instance.Korisnik.ImeKorisnika + " " + Sesija.Instance.Korisnik.PrezimeKorisnika, font));
+                        cel2 = new PdfPCell(new Phrase("Adresa: " + Sesija.Instance.Korisnik.Adresa + ", " + Sesija.Instance.Korisnik.Lokacija.NazivOpstine, font));
+                        cel3 = new PdfPCell(new Phrase("Uložene roba: " + razmena.UlozenaRobaString.Replace("\n", " "), font));
+                        cel4 = new PdfPCell(new Phrase("Broj telefona: " + Sesija.Instance.Korisnik.BrojTelefona, font));
 
-                    Paragraph parag3 = new Paragraph("Datum izvestaja: " + DateTime.Now.ToString("dd/MM/yyyy"), font);
-                    parag3.Alignment = Element.ALIGN_LEFT;
-                    pdfDoc.Add(parag3);
+                        cel1.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel2.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel3.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+                        cel4.HorizontalAlignment = Element.ALIGN_JUSTIFIED;
+
+                        cel1.Border = Rectangle.NO_BORDER;
+                        cel2.Border = Rectangle.NO_BORDER;
+                        cel3.Border = Rectangle.NO_BORDER;
+                        cel4.Border = Rectangle.NO_BORDER;
+
+                        table.AddCell(cel1);
+                        table.AddCell(cel2);
+                        table.AddCell(cel3);
+                        table.AddCell(cel4);
+
+                        table.SpacingAfter = 20;
+                        table.SpacingBefore = 10;
+
+                        t2 = new PdfPTable(1);
+                        t2.AddCell(table);
+                        pdfDoc.Add(t2);
+                    }
+
+                    // potpisi
+                    pdfDoc.Add(new Paragraph("                    ", fontForLine));
 
                     pdfDoc.Add(new Paragraph(" "));
 
@@ -565,8 +536,6 @@ namespace Barter
             }
         }
 
-
-        // end
         internal void PretragaRobe(string text, DataGridView dgvRazmena, string title)
         {
             try

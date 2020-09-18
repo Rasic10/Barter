@@ -16,14 +16,13 @@ namespace Barter
         private BindingList<Roba> listaRobe = new BindingList<Roba>();
         private Korisnik korisnik = null;
 
-        // end
         internal void SrediFormu(IDomenskiObjekat k, DataGridView dgvGlavna)
         {
             try
             {
                 if (!(k is Korisnik))
                 {
-                    throw new Exception("Poslati objekat nije tipa korisnik");
+                    throw new Exception("Poslat objekat nije tipa korisnik");
                 }
                 else
                 {
@@ -53,7 +52,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void OtvoriFormuUnosRobe()
         {
             try
@@ -68,7 +66,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void OtvoriFormuRazmenaInOut(string title)
         {
             try
@@ -83,14 +80,12 @@ namespace Barter
             }
         }
 
-        // end 
         internal void PretragaRobe(string text, DataGridView dgvGlavna)
         {
             BindingList<Roba>  listaRobe = new BindingList<Roba>(Komunikacija.Instance.VratiPretraguRobe(text).Where(r => r.RazmenaUlozeneRobe.RazmenaID == -1).ToList());
             dgvGlavna.DataSource = listaRobe;
         }
 
-        // end
         internal void OtvoriFormuRazmena(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -112,7 +107,6 @@ namespace Barter
             PretragaRobe("", senderGrid);
         }
 
-        // end
         internal void OtvoriFormuRoba()
         {
             try
@@ -127,7 +121,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void OtvoriFormuProfil()
         {
             try

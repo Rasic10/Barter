@@ -13,7 +13,6 @@ namespace Barter
     {
         public event Action FrmClose;
 
-        // end
         internal void PrikazRegistracije(Label lblTitle, string title, GroupBox gbSifra, Label lblStaraSifra, TextBox tbStaraSifra, Label lblNovaSifra, Label lblPotvrdaNoveSifre, ComboBox cbLokacija)
         {
             lblTitle.Text = title;
@@ -24,12 +23,11 @@ namespace Barter
             }
             else
             {
-                MessageBox.Show("Doslo je do greske!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Došlo je do greške!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 FrmClose();
             }
         }
 
-        // end
         internal void PrikazProfila(Label lblTitle, Korisnik k, string title, TextBox tbKorisnickoIme, TextBox tbEmail, TextBox tbIme, TextBox tbPrezime, TextBox tbAdresa, DateTimePicker dtpDatumRodjenja, ComboBox cbLokacija)
         {
             lblTitle.Text = title;
@@ -40,12 +38,11 @@ namespace Barter
             }
             else
             {
-                MessageBox.Show("Doslo je do greske!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Došlo je do greške!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 FrmClose();
             }
         }
 
-        // end - Problem: postavljenje lokacije
         private void SredjivanjeFrmProfil(Korisnik k, string title, TextBox tbKorisnickoIme, TextBox tbEmail, TextBox tbIme, TextBox tbPrezime, TextBox tbAdresa, DateTimePicker dtpDatumRodjenja, ComboBox cbLokacija)
         {
             try
@@ -69,27 +66,25 @@ namespace Barter
             }
         }
 
-        // end
         private void SredjivanjeFrmRegistracija(GroupBox gbSifra, Label lblStaraSifra, TextBox tbStaraSifra, Label lblNovaSifra, Label lblPotvrdaNoveSifre, ComboBox cbLokacija)
         {
             try
             {
-                gbSifra.Text = "Sifra:";
+                gbSifra.Text = "Šifra:";
                 lblStaraSifra.Visible = false;
                 tbStaraSifra.Visible = false;
-                lblNovaSifra.Text = "Sifra:*";
-                lblPotvrdaNoveSifre.Text = "Potvrda sifre:*";
+                lblNovaSifra.Text = "Šifra:*";
+                lblPotvrdaNoveSifre.Text = "Potvrda šifre:*";
                 cbLokacija.DataSource = Komunikacija.Instance.VratiLokacije();
             }
             catch (ExceptionServer es)
             {
-                MessageBox.Show(es.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(es.Message, "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmClose();
                 throw new ExceptionServer("");
             }
         }
 
-        // end
         internal void Potvrdi(Label lblTitle, TextBox tbKorisnickoIme, TextBox tbEmail, TextBox tbIme, TextBox tbPrezime, TextBox tbAdresa, DateTimePicker dtpDatumRodjenja, ComboBox cbLokacija, TextBox tbNovaSifra, TextBox tbPotvrdaNoveSifre, TextBox tbStaraSifra)
         {
             // Registracija - end
@@ -128,7 +123,7 @@ namespace Barter
                         }
                         else
                         {
-                            MessageBox.Show("Neuspesna registracija, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Neuspešna registracija, pokušajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -139,13 +134,13 @@ namespace Barter
             }
             catch (ExceptionServer es)
             {
-                MessageBox.Show(es.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(es.Message, "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmClose();
                 throw new ExceptionServer("");
             }
             catch (Exception er)
             {
-                MessageBox.Show(er.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(er.Message, "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -186,13 +181,13 @@ namespace Barter
 
                     if (uspesnaIzmenaProfila)
                     {
-                        MessageBox.Show($"Uspesno ste izmenili podatke profila {Sesija.Instance.Korisnik.UsernameKorisnika}", "Profil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Uspešno ste izmenili podatke profila {Sesija.Instance.Korisnik.UsernameKorisnika}", "Profil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Sesija.Instance.Korisnik = noviPodaci;
                         FrmClose();
                     }
                     else
                     {
-                        MessageBox.Show("Neuspesna izmena podataka profila, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Neuspešna izmena podataka profila, pokušajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -203,12 +198,11 @@ namespace Barter
             }
             catch (Exception ep)
             {
-                MessageBox.Show(ep.Message, "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ep.Message, "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
 
-        // end
         private bool PromenaSifre(TextBox tbNovaSifra, TextBox tbPotvrdaNoveSifre, TextBox tbStaraSifra)
         {
             if (tbNovaSifra.Text != "")
@@ -221,12 +215,12 @@ namespace Barter
                     }
                     else
                     {
-                        throw new Exception("Poklapanje nove sifre nije uspesno!");
+                        throw new Exception("Poklapanje nove šifre nije uspešno!");
                     }
                 }
                 else
                 {
-                    throw new Exception("Poklapanje stare sifre nije uspesno!");
+                    throw new Exception("Poklapanje stare šifre nije uspešno!");
                 }
             }
             else
@@ -235,7 +229,6 @@ namespace Barter
             }
         }
 
-        // end
         private bool ValidacijaRegistracije(TextBox tbKorisnickoIme, TextBox tbEmail, TextBox tbNovaSifra, TextBox tbPotvrdaNoveSifre)
         {
             if (tbKorisnickoIme.Text != "" && tbEmail.Text != "" && tbNovaSifra.Text != "" && tbPotvrdaNoveSifre.Text != "")
@@ -251,13 +244,13 @@ namespace Barter
                         }
                         else
                         {
-                            MessageBox.Show("Uparivanje sifre nije uspesno, pokusajte ponovo!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Uparivanje šifre nije uspešno, pokušajte ponovo!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Postoji korisnik sa datim korisnickim imenom ili email adresom!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Postoji korisnik sa datim korisničkim imenom ili email adresom!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return false;
                     }
                 }
@@ -267,7 +260,7 @@ namespace Barter
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message, "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(e.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }

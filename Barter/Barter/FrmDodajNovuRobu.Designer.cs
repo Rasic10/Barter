@@ -69,10 +69,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(14, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 21);
+            this.label2.Size = new System.Drawing.Size(78, 25);
             this.label2.TabIndex = 34;
             this.label2.Text = "Naziv:";
             // 
@@ -80,7 +80,7 @@
             // 
             this.cbNaziv.Font = new System.Drawing.Font("Cooper Black", 11.25F);
             this.cbNaziv.FormattingEnabled = true;
-            this.cbNaziv.Location = new System.Drawing.Point(92, 55);
+            this.cbNaziv.Location = new System.Drawing.Point(91, 57);
             this.cbNaziv.Name = "cbNaziv";
             this.cbNaziv.Size = new System.Drawing.Size(229, 25);
             this.cbNaziv.TabIndex = 35;
@@ -88,7 +88,7 @@
             // tbKolicina
             // 
             this.tbKolicina.Font = new System.Drawing.Font("Cooper Black", 11.25F);
-            this.tbKolicina.Location = new System.Drawing.Point(118, 114);
+            this.tbKolicina.Location = new System.Drawing.Point(119, 115);
             this.tbKolicina.Name = "tbKolicina";
             this.tbKolicina.Size = new System.Drawing.Size(203, 25);
             this.tbKolicina.TabIndex = 36;
@@ -97,20 +97,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(14, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 21);
+            this.label4.Size = new System.Drawing.Size(107, 25);
             this.label4.TabIndex = 37;
-            this.label4.Text = "Kolicina:";
+            this.label4.Text = "Količina:";
             // 
             // lblNapomena
             // 
             this.lblNapomena.AutoSize = true;
-            this.lblNapomena.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNapomena.Location = new System.Drawing.Point(115, 142);
+            this.lblNapomena.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNapomena.Location = new System.Drawing.Point(36, 144);
             this.lblNapomena.Name = "lblNapomena";
-            this.lblNapomena.Size = new System.Drawing.Size(24, 17);
+            this.lblNapomena.Size = new System.Drawing.Size(24, 18);
             this.lblNapomena.TabIndex = 42;
             this.lblNapomena.Text = "    ";
             // 

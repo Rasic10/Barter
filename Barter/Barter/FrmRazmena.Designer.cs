@@ -47,6 +47,10 @@
             this.btnDodajRobu = new System.Windows.Forms.Button();
             this.btnObrisiRobu = new System.Windows.Forms.Button();
             this.dgvUlozenaRoba = new System.Windows.Forms.DataGridView();
+            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbRazlikaUCeni = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -54,16 +58,12 @@
             this.btnPotvrdiRazmenu = new System.Windows.Forms.Button();
             this.lblNapomena = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.nazivRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicinaRobeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.robaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUlozenaRoba)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarPoklapanjeCene)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,10 +108,10 @@
             // tbKorisnikRobe
             // 
             this.tbKorisnikRobe.Enabled = false;
-            this.tbKorisnikRobe.Font = new System.Drawing.Font("Cooper Black", 14.25F);
+            this.tbKorisnikRobe.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbKorisnikRobe.Location = new System.Drawing.Point(328, 43);
             this.tbKorisnikRobe.Name = "tbKorisnikRobe";
-            this.tbKorisnikRobe.Size = new System.Drawing.Size(210, 29);
+            this.tbKorisnikRobe.Size = new System.Drawing.Size(210, 32);
             this.tbKorisnikRobe.TabIndex = 25;
             // 
             // label7
@@ -126,11 +126,13 @@
             // 
             // dtpDatumRazmeneRobe
             // 
+            this.dtpDatumRazmeneRobe.CustomFormat = "             dd.MM.yyyy";
             this.dtpDatumRazmeneRobe.Enabled = false;
-            this.dtpDatumRazmeneRobe.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDatumRazmeneRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDatumRazmeneRobe.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDatumRazmeneRobe.Location = new System.Drawing.Point(328, 78);
             this.dtpDatumRazmeneRobe.Name = "dtpDatumRazmeneRobe";
-            this.dtpDatumRazmeneRobe.Size = new System.Drawing.Size(263, 26);
+            this.dtpDatumRazmeneRobe.Size = new System.Drawing.Size(210, 25);
             this.dtpDatumRazmeneRobe.TabIndex = 30;
             this.dtpDatumRazmeneRobe.Value = new System.DateTime(2019, 12, 14, 14, 18, 39, 0);
             // 
@@ -156,35 +158,35 @@
             this.tbDostupnaKolicina.Font = new System.Drawing.Font("Cooper Black", 11.25F);
             this.tbDostupnaKolicina.Location = new System.Drawing.Point(334, 48);
             this.tbDostupnaKolicina.Name = "tbDostupnaKolicina";
-            this.tbDostupnaKolicina.Size = new System.Drawing.Size(182, 25);
+            this.tbDostupnaKolicina.Size = new System.Drawing.Size(198, 25);
             this.tbDostupnaKolicina.TabIndex = 34;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(330, 24);
+            this.label3.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(331, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 21);
+            this.label3.Size = new System.Drawing.Size(208, 25);
             this.label3.TabIndex = 35;
-            this.label3.Text = "Dostupna kolicina:";
+            this.label3.Text = "Dostupna količina:";
             // 
             // tbNazivRobe
             // 
             this.tbNazivRobe.Enabled = false;
-            this.tbNazivRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F);
+            this.tbNazivRobe.Font = new System.Drawing.Font("Elephant", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNazivRobe.Location = new System.Drawing.Point(110, 24);
             this.tbNazivRobe.Name = "tbNazivRobe";
-            this.tbNazivRobe.Size = new System.Drawing.Size(182, 25);
+            this.tbNazivRobe.Size = new System.Drawing.Size(182, 27);
             this.tbNazivRobe.TabIndex = 32;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 21);
+            this.label2.Size = new System.Drawing.Size(78, 25);
             this.label2.TabIndex = 33;
             this.label2.Text = "Naziv:";
             // 
@@ -200,31 +202,31 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 55);
+            this.label4.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 53);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 21);
+            this.label4.Size = new System.Drawing.Size(71, 25);
             this.label4.TabIndex = 28;
             this.label4.Text = "Cena:";
             // 
             // tbTrazenaKolicinaRobe
             // 
             this.tbTrazenaKolicinaRobe.Font = new System.Drawing.Font("Cooper Black", 11.25F);
-            this.tbTrazenaKolicinaRobe.Location = new System.Drawing.Point(204, 205);
+            this.tbTrazenaKolicinaRobe.Location = new System.Drawing.Point(214, 205);
             this.tbTrazenaKolicinaRobe.Name = "tbTrazenaKolicinaRobe";
-            this.tbTrazenaKolicinaRobe.Size = new System.Drawing.Size(148, 25);
+            this.tbTrazenaKolicinaRobe.Size = new System.Drawing.Size(125, 25);
             this.tbTrazenaKolicinaRobe.TabIndex = 25;
             this.tbTrazenaKolicinaRobe.TextChanged += new System.EventHandler(this.tbTrazenaKolicinaRobe_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(18, 205);
+            this.label5.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 203);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(190, 21);
+            this.label5.Size = new System.Drawing.Size(201, 27);
             this.label5.TabIndex = 26;
-            this.label5.Text = "Trazena kolicina:*";
+            this.label5.Text = "Tražena količina:*";
             // 
             // btnDodajRobu
             // 
@@ -244,7 +246,7 @@
             this.btnObrisiRobu.Name = "btnObrisiRobu";
             this.btnObrisiRobu.Size = new System.Drawing.Size(160, 30);
             this.btnObrisiRobu.TabIndex = 36;
-            this.btnObrisiRobu.Text = "Obrisi robu";
+            this.btnObrisiRobu.Text = "Obriši robu";
             this.btnObrisiRobu.UseVisualStyleBackColor = true;
             this.btnObrisiRobu.Click += new System.EventHandler(this.btnObrisiRobu_Click);
             // 
@@ -264,6 +266,31 @@
             this.dgvUlozenaRoba.Size = new System.Drawing.Size(526, 150);
             this.dgvUlozenaRoba.TabIndex = 37;
             this.dgvUlozenaRoba.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvUlozenaRoba_RowsAdded);
+            // 
+            // nazivRobeDataGridViewTextBoxColumn
+            // 
+            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
+            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
+            this.nazivRobeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // cenaRobeDataGridViewTextBoxColumn
+            // 
+            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
+            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
+            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
+            this.cenaRobeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // kolicinaRobeDataGridViewTextBoxColumn
+            // 
+            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
+            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Količina";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
+            this.kolicinaRobeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // robaBindingSource
+            // 
+            this.robaBindingSource.DataSource = typeof(Domen.Roba);
             // 
             // tbRazlikaUCeni
             // 
@@ -327,10 +354,10 @@
             // lblNapomena
             // 
             this.lblNapomena.AutoSize = true;
-            this.lblNapomena.Font = new System.Drawing.Font("Cooper Black", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNapomena.Location = new System.Drawing.Point(353, 208);
+            this.lblNapomena.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNapomena.Location = new System.Drawing.Point(343, 208);
             this.lblNapomena.Name = "lblNapomena";
-            this.lblNapomena.Size = new System.Drawing.Size(24, 17);
+            this.lblNapomena.Size = new System.Drawing.Size(24, 18);
             this.lblNapomena.TabIndex = 41;
             this.lblNapomena.Text = "    ";
             // 
@@ -343,31 +370,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(270, 45);
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
-            // 
-            // nazivRobeDataGridViewTextBoxColumn
-            // 
-            this.nazivRobeDataGridViewTextBoxColumn.DataPropertyName = "NazivRobe";
-            this.nazivRobeDataGridViewTextBoxColumn.HeaderText = "Naziv";
-            this.nazivRobeDataGridViewTextBoxColumn.Name = "nazivRobeDataGridViewTextBoxColumn";
-            this.nazivRobeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cenaRobeDataGridViewTextBoxColumn
-            // 
-            this.cenaRobeDataGridViewTextBoxColumn.DataPropertyName = "CenaRobe";
-            this.cenaRobeDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaRobeDataGridViewTextBoxColumn.Name = "cenaRobeDataGridViewTextBoxColumn";
-            this.cenaRobeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kolicinaRobeDataGridViewTextBoxColumn
-            // 
-            this.kolicinaRobeDataGridViewTextBoxColumn.DataPropertyName = "KolicinaRobe";
-            this.kolicinaRobeDataGridViewTextBoxColumn.HeaderText = "Kolicina";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Name = "kolicinaRobeDataGridViewTextBoxColumn";
-            this.kolicinaRobeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // robaBindingSource
-            // 
-            this.robaBindingSource.DataSource = typeof(Domen.Roba);
             // 
             // pictureBox3
             // 
@@ -413,9 +415,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUlozenaRoba)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarPoklapanjeCene)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -450,9 +452,9 @@
         private System.Windows.Forms.TrackBar tBarPoklapanjeCene;
         private System.Windows.Forms.Button btnPotvrdiRazmenu;
         private System.Windows.Forms.Label lblNapomena;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaRobeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaRobeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

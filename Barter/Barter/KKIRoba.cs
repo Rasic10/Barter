@@ -14,7 +14,6 @@ namespace Barter
         public event Action FrmClose;
         private BindingList<Roba> listaRobe = new BindingList<Roba>();
 
-        // end
         internal void SrediFormu(DataGridView dgvRoba)
         {
             try
@@ -29,7 +28,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void ObrisiRobu(DataGridView dgvRoba)
         {
             if (dgvRoba.SelectedRows.Count > 0)
@@ -40,11 +38,11 @@ namespace Barter
                     if (Komunikacija.Instance.ObrisiRobu(robaZaBrisanje))
                     {
                         listaRobe.Remove(robaZaBrisanje);
-                        MessageBox.Show("Roba je uspesno obrisana!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Roba je uspešno obrisana!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Roba nije uspesno obrisana!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Roba nije uspešno obrisana!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (ExceptionServer es)
@@ -55,11 +53,10 @@ namespace Barter
             }
             else
             {
-                MessageBox.Show("Niste oznacili robu za brisanje!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Niste označili robu za brisanje!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        // end
         internal void IzmeniRobu(DataGridView dgvRoba)
         {
             if (dgvRoba.SelectedRows.Count > 0)
@@ -70,11 +67,11 @@ namespace Barter
                     robaZaIzmenu.DatumUnosaRobe = DateTime.Now;
                     if (Komunikacija.Instance.IzmeniRobu(robaZaIzmenu))
                     {
-                        MessageBox.Show("Roba je uspesno izmenjena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Roba je uspešno izmenjena!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Roba nije uspesno izmenjena!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Roba nije uspešno izmenjena!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (ExceptionServer es)
@@ -85,7 +82,7 @@ namespace Barter
             }
             else
             {
-                MessageBox.Show("Niste oznacili robu za izmenu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Niste označili robu za izmenu!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

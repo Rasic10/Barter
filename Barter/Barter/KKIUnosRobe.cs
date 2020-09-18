@@ -14,7 +14,6 @@ namespace Barter
         public event Action FrmClose;
         BindingList<Kategorija> kategorije;
 
-        // end
         internal void SrediFormu(DateTimePicker dtpDatumUnosaRobe, ComboBox cbKategorija)
         {
             try
@@ -30,7 +29,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void UnesiKategoriju(TextBox tbNazivKategorije, ComboBox cbKategorija)
         {
             if (tbNazivKategorije.Text != "")
@@ -44,7 +42,7 @@ namespace Barter
 
                 if (uspesanUnosKategorije != -1)
                 {
-                    MessageBox.Show($"Uspesno uneta kategorija {k.VrstaKategorije}!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Uspešno uneta kategorija {k.VrstaKategorije}!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     k.KategorijaID = uspesanUnosKategorije;
                     kategorije.Add(k);
                     cbKategorija.Refresh();
@@ -53,16 +51,15 @@ namespace Barter
                 }
                 else
                 {
-                    MessageBox.Show($"Neuspesno uneta kategorija {k.VrstaKategorije}!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Neuspešno uneta kategorija {k.VrstaKategorije}!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Niste uneli naziv kategorije!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Niste uneli naziv kategorije!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        // end
         internal void UnesiRobu(TextBox tbNazivRobe, TextBox tbKolicinaRobe, TextBox tbCenaRobe, DateTimePicker dtpDatumUnosaRobe, ComboBox cbKategorija)
         {
             if (ValidacijaUnosaRobe(out float kolicina, out float cena, tbNazivRobe, tbKolicinaRobe, tbCenaRobe))
@@ -83,11 +80,11 @@ namespace Barter
 
                 if (uspesnoUnetaRoba)
                 {
-                    MessageBox.Show($"Uspesno uneta roba {r.NazivRobe}!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Uspešno uneta roba {r.NazivRobe}!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"Neuspesno uneta roba {r.NazivRobe}!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Neuspešno uneta roba {r.NazivRobe}!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -97,7 +94,6 @@ namespace Barter
             }
         }
 
-        // end
         private bool ValidacijaUnosaRobe(out float k, out float c, TextBox tbNazivRobe, TextBox tbKolicinaRobe, TextBox tbCenaRobe)
         {
             k = 0;
@@ -114,19 +110,19 @@ namespace Barter
                     }
                     else
                     {
-                        MessageBox.Show($"Cena nije uneta u pravom formatu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Cena nije uneta u pravom formatu!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"Kolicina nije uneta u pravom formatu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Količina nije uneta u pravom formatu!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show($"Niste uneli sva obavezna polja oznacena sa * !", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Niste uneli sva obavezna polja označena sa * !", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
         }

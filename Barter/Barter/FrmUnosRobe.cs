@@ -14,7 +14,6 @@ namespace Barter
     public partial class FrmUnosRobe : Form
     {
         KKIUnosRobe kontroler = new KKIUnosRobe();
-        BindingList<Kategorija> kategorije;
 
         // end
         public FrmUnosRobe()

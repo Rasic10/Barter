@@ -18,7 +18,6 @@ namespace Barter
         BindingList<Roba> robaKorisnika = new BindingList<Roba>();
         BindingList<Roba> ulozenaRoba = new BindingList<Roba>();
 
-        // end
         internal void SrediFormu(IDomenskiObjekat iKorisnik, IDomenskiObjekat iRoba, TextBox tbKorisnikRobe, DateTimePicker dtpDatumRazmeneRobe, TextBox tbNazivRobe, TextBox tbCenaRobe, TextBox tbDostupnaKolicina, DataGridView dgvUlozenaRoba)
         {
             try
@@ -27,7 +26,7 @@ namespace Barter
                 Korisnik korisnik;
                 if (!(iKorisnik is Korisnik) || !(iRoba is Roba))
                 {
-                    throw new Exception("Nisu prosledjeni pravi objekti");
+                    throw new Exception("Nisu prosleđeni pravi objekti");
                 }
                 else
                 {
@@ -55,14 +54,12 @@ namespace Barter
             }
         }
 
-        // end
         internal void DodajNovuRobu(TextBox tbRazlikaUCeni)
         {
             FrmDodajNovuRobu frmDodajNovuRobu = new FrmDodajNovuRobu(robaKorisnika, ulozenaRoba, tbRazlikaUCeni);
             frmDodajNovuRobu.ShowDialog();
         }
 
-        // end
         internal void ObrisiRobu(DataGridView dgvUlozenaRoba, TextBox tbRazlikaUCeni)
         {
             if (dgvUlozenaRoba.SelectedRows.Count > 0)
@@ -83,7 +80,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void SrediTrackBar(TrackBar tBarPoklapanjeCene, TextBox tbRazlikaUCeni)
         {
             double razlikaUCeni = Convert.ToDouble(tbRazlikaUCeni.Text);
@@ -98,7 +94,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void SrediRazlikuUCeni(object sender, DataGridViewRowsAddedEventArgs e, TextBox tbRazlikaUCeni)
         {
             Roba r = ulozenaRoba[e.RowIndex];
@@ -107,10 +102,9 @@ namespace Barter
             tbRazlikaUCeni.Text = razlikaUCeni.ToString();
         }
 
-        // end
         internal void PotvrdiRazmenu(TextBox tbTrazenaKolicinaRobe, DateTimePicker dtpDatumRazmeneRobe)
         {
-            if (MessageBox.Show("Da li zelite da izvrsite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Da li želite da izvršite razmenu?", "Pitanje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (tbTrazenaKolicinaRobe.BackColor == Color.Green)
                 {
@@ -129,22 +123,21 @@ namespace Barter
 
                     if (uspesno)
                     {
-                        MessageBox.Show("Uspesno sacuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Uspešno sačuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FrmClose();
                     }
                     else
                     {
-                        MessageBox.Show("Neuspesno sacuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Neuspešno sačuvana razmena!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Trazena roba nije lepo uneta!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tražena roba nije lepo uneta!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        // end
         internal void ProveraDostupnostiTrazeneRobe(TextBox tbTrazenaKolicinaRobe, TextBox tbDostupnaKolicina, Label lblNapomena, TextBox tbRazlikaUCeni, TextBox tbCenaRobe, TrackBar tBarPoklapanjeCene)
         {
             if (int.TryParse(tbTrazenaKolicinaRobe.Text, out int trazenaKolicinaRobe))
@@ -164,7 +157,7 @@ namespace Barter
                 else
                 {
                     tbTrazenaKolicinaRobe.BackColor = Color.Red;
-                    lblNapomena.Text = "(nije dostupna trazena kolicina)";
+                    lblNapomena.Text = "(nije dostupna tražena količina)";
                     tbRazlikaUCeni.Text = "0";
                 }
             }

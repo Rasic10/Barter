@@ -16,7 +16,6 @@ namespace Barter
         BindingList<Roba> robaKor;
         BindingList<Roba> ulozRoba;
 
-        // end
         internal void SrediFormu(ComboBox cbNaziv, BindingList<Roba> robaKorisnika, BindingList<Roba> ulozenaRoba)
         {
             cbNaziv.DataSource = robaKorisnika.ToList<Roba>();
@@ -24,7 +23,6 @@ namespace Barter
             ulozRoba = ulozenaRoba;
         }
 
-        // end
         internal void ProveraDostupnostiKolicine(TextBox tbKolicina, ComboBox cbNaziv, Label lblNapomena)
         {
             if (double.TryParse(tbKolicina.Text, out double kolicina))
@@ -37,7 +35,7 @@ namespace Barter
                 else
                 {
                     tbKolicina.BackColor = Color.Red;
-                    lblNapomena.Text = "(nije dostupna trazena kolicina)";
+                    lblNapomena.Text = "(nije dostupna tražena količina)";
                 }
             }
             else
@@ -47,7 +45,6 @@ namespace Barter
             }
         }
 
-        // end
         internal void DodajRobu(TextBox tbKolicina, ComboBox cbNaziv)
         {
             if (tbKolicina.BackColor == Color.Green)
@@ -70,7 +67,7 @@ namespace Barter
             }
             else
             {
-                MessageBox.Show("Neuspesno dodavanje, pokusajte ponovo!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Neuspešno dodavanje, pokušajte ponovo!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
